@@ -26,8 +26,11 @@
  */
 
 #include <sys/cdefs.h>
-__COPYRIGHT("@(#) Copyright (c) 2008 Iain Hibbert.  All rights reserved.");
-__RCSID("$NetBSD: btattach.c,v 1.16 2023/02/07 20:45:44 mlelstv Exp $");
+// FIXME remove to get it compiled for RO
+//__COPYRIGHT("@(#) Copyright (c) 2008 Iain Hibbert.  All rights reserved.");
+//__RCSID("$NetBSD: btattach.c,v 1.16 2023/02/07 20:45:44 mlelstv Exp $");
+// Added for RO compilation
+#define __LIBC12_SOURCE__  0
 
 #include <sys/ioctl.h>
 #include <sys/param.h>

@@ -1,0 +1,57 @@
+| Generic Library builder for DDE on RISC OS
+| by Paolo Fabio Zaino
+
+echo ++++++++++++++++++++++++
+echo ++ Building using DDE ++
+echo ++++++++++++++++++++++++
+
+Set Build$Root <Obey$Dir>
+
+WimpSlot -min 6144K
+
+echo ---------------------
+echo Building the Library:
+echo ---------------------
+
+Dir <Build$Root>.src
+
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+amu all_libs THROWBACK=-throwback -f MakeFileDDE
+
+|IfThere @.o.zvectorlib Then copy @.o.zvectorlib @.^.!LibZVector.o.zvectorlib ~C N
+|Ifthere @.o.zvectorlibzm Then copy @.o.zvectorlibzm @.^.!LibZVector.o.zvectorlibzm ~C N
+|Ifthere @.h.zvector Then copy @.h.zvector @.^.!LibZVector.h.zvector ~C N
+|Ifthere @.h.zvector_checks Then copy @.h.zvector_checks @.^.!LibZVector.h.zvector_checks ~C N
+|Ifthere @.h.zvector_config Then copy @.h.zvector_config @.^.!LibZVector.h.zvector_config ~C N
+
+echo ---------------------
+echo Copy the Library
+echo ---------------------
+
+IfThere @.o.zvectorlib Then copy @.o.zvectorlib @.^.lib.o.zvectorlib ~C N
+Ifthere @.o.zvectorlibzm Then copy @.o.zvectorlibzm @.^.lib.o.zvectorlibzm ~C N
+Ifthere @.h.zvector Then copy @.h.zvector @.^.lib.h.zvector ~C N
+Ifthere @.h.zvector_checks Then copy @.h.zvector_checks @.^.lib.h.zvector_checks ~C N
+Ifthere @.h.zvector_config Then copy @.h.zvector_config @.^.lib.h.zvector_config ~C N
+
+Set LibZVector$Path <Build$Root>.lib
+
+echo
+echo ---------------------
+echo
+
+|echo ---------------------
+|echo Building Tests:
+|echo ---------------------
+
+| IfThere <Build$Root>.tests Then Dir <Build$Root>.tests
+| IfThere <Build$Root>.tests.MakefileDDE Then make all THROWBACK=-throwback -f MakeFileDDE
+
+echo
+echo Make Example
+echo
+
+IfThere <Build$Root>.examples.dde.CApp Then Dir <Build$Root>.examples.dde.CApp
+IfThere <Build$Root>.examples.dde.CApp.Makefile Then amu all THROWBACK=-throwback -f Makefile
+
+Dir <Build$Root>
