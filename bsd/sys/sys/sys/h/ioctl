@@ -87,10 +87,9 @@ struct ioctl_pt {
 
 #include <sys/cdefs.h>
 
-// FIXME RO
-//__BEGIN_DECLS
+__BEGIN_DECLS
 int	ioctl(int, unsigned long, ...);
-//__END_DECLS
+__END_DECLS
 #endif /* !_KERNEL */
 #endif /* !_SYS_IOCTL_H_ */
 

@@ -27,6 +27,8 @@ LIBNETBT = <BTBSD$Root>.bsd.sys.sys.
 LIBBT = <BTBSD$Root>.bsd.lib.libbluetooth.
 # The netbsd include folder
 LIBINCL = <BTBSD$Root>.bsd.include.
+# The netbt include folder
+LIBSYSNTBT = <BTBSD$Root>.bsd.sys
 
 
 # You need to specify all the files that go into the application directory.
@@ -36,10 +38,130 @@ INSTAPP_FILES = !Boot !Run !Sprites !Sprites11 !Sprites22 !RunImage
 
 include CApp
 
-CINCLUDES += -I${LIBNETBT},${LIBBT},${LIBINCL}
+CINCLUDES += -I${LIBNETBT},${LIBBT},${LIBINCL},${LIBSYSNTBT}
 |LIBS += ${LIBDIREC}.o.zvectorlib
 
 clean::
 	${WIPE} ${INSTAPP} ${WFLAGS}
 
 # Dynamic dependencies:
+o.btattach:	c.btattach
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs_aout
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
+o.btattach:	<BTBSD$Root>.bsd.include.prop.h.plistref
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.types
+o.btattach:	<BTBSD$Root>.bsd.include.arm.arm32.h.types
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.types
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.int_types
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.int_types
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.endian
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.endian
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdint
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.int_types
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.int_mwgwtypes
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.int_mwgwtypes
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.wchar_limits
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.wchar_limits
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.endian_machdep
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.endian_machdep
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.bswap
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.bswap
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.byte_swap
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.bswap
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdint
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.bswap
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.bswap
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.filio
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.sockio
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.param
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.null
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.inttypes
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdint
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.param
+o.btattach:	<BTBSD$Root>.bsd.include.arm.arm32.h.param
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.param
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.limits
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.limits
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.signal
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.sigtypes
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.int_types
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.signal
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.signal
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.sigtypes
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.uio
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.lib.libbluetooth.h.bluetooth
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.endian
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.socket
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.uio
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.sigtypes
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.sys.netbt.h.bluetooth
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.socket
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.btattach:	<BTBSD$Root>.bsd.sys.netbt.h.hci
+o.btattach:	<BTBSD$Root>.bsd.sys.netbt.h.bluetooth
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
+o.btattach:	<BTBSD$Root>.bsd.sys.netbt.h.l2cap
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.btattach:	<BTBSD$Root>.bsd.include.h.netdb
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.include.machine.h.endian_machdep
+o.btattach:	<BTBSD$Root>.bsd.include.arm.h.endian_machdep
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest

@@ -27,8 +27,16 @@
 #define __LIBC12_SOURCE__  0
 #define _XOPEN_SOURCE      0
 #define _POSIX_C_SOURCE    0
+// FIXME where are these located ?
+#define __PTRDIFF_TYPE__
+#define __SIZE_TYPE__
+#define __WCHAR_TYPE__
+#define __WCHAR_UNSIGNED__
+#define __WINT_TYPE__
+#define __lint__
+#define __cplusplus             199711
 
-#include <sys/cdefs.h>
+#include "sys/cdefs.h"
 // FIXME remove to get it compiled for RO
 //__COPYRIGHT("@(#) Copyright (c) 2008 Iain Hibbert.  All rights reserved.");
 //__RCSID("$NetBSD: btattach.c,v 1.16 2023/02/07 20:45:44 mlelstv Exp $");

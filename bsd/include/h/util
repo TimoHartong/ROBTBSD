@@ -45,7 +45,7 @@ typedef _BSD_TIME_T_    time_t;
 typedef _BSD_SIZE_T_    size_t;
 #undef  _BSD_SIZE_T_
 #endif
-
+ 
 #if defined(_POSIX_C_SOURCE)
 #ifndef __VA_LIST_DECLARED
 typedef __va_list va_list;
@@ -158,11 +158,10 @@ void 		*emalloc(size_t);
 void 		*erealloc(void *, size_t);
 void 		ereallocarr(void *, size_t, size_t);
 struct __sFILE	*efopen(const char *, const char *);
-// FIXME RO
-//int	 	easprintf(char ** __restrict, const char * __restrict, ...)
-//			__printflike(2, 3);
-//int		evasprintf(char ** __restrict, const char * __restrict,
-//    __va_list) __printflike(2, 0);
-//__END_DECLS
+int	 	easprintf(char ** __restrict, const char * __restrict, ...)
+			__printflike(2, 3);
+int		evasprintf(char ** __restrict, const char * __restrict,
+    __va_list) __printflike(2, 0);
+__END_DECLS
 
 #endif /* !_UTIL_H_ */

@@ -35,11 +35,6 @@
 #include <sys/cdefs.h>
 #include <machine/int_types.h>
 
-#warning "sys/stdint.h"
-
-/*
-* FIXME no need to redine int8_t this is done already in stdint.h
-
 #ifndef	_BSD_INT8_T_
 typedef	__int8_t	int8_t;
 #define	_BSD_INT8_T_
@@ -89,8 +84,6 @@ typedef	__intptr_t	intptr_t;
 typedef	__uintptr_t	uintptr_t;
 #define	_BSD_UINTPTR_T_
 #endif
-
-*/
 
 #include <machine/int_mwgwtypes.h>
 
