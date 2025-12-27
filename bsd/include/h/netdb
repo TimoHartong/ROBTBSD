@@ -132,13 +132,13 @@ typedef _BSD_SIZE_T_	size_t;
 #endif
 #endif
 
-__BEGIN_DECLS
+//__BEGIN_DECLS FIXME
 extern int h_errno;
 extern int * __h_errno(void);
 #ifdef _REENTRANT
 #define	h_errno (*__h_errno())
 #endif
-__END_DECLS
+//__END_DECLS FIXME
 
 /*%
  * Structures returned by network data base library.  All addresses are

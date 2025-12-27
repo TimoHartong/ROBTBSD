@@ -28,13 +28,17 @@
 #define _XOPEN_SOURCE      0
 #define _POSIX_C_SOURCE    0
 // FIXME where are these located ?
-#define __PTRDIFF_TYPE__
+#define __WCHAR_MIN__      0
+#define __WCHAR_MAX__      0xffff
+#define __PTRDIFF_TYPE__   long int
+//#define _BSD_SIZE_T_       unsigned int
 #define __SIZE_TYPE__
 #define __WCHAR_TYPE__
 #define __WCHAR_UNSIGNED__
 #define __WINT_TYPE__
 #define __lint__
 #define __cplusplus             199711
+#define _KERNEL
 
 #include "sys/cdefs.h"
 // FIXME remove to get it compiled for RO

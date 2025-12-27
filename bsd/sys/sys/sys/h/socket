@@ -596,7 +596,7 @@ sockaddr_getlen(const struct sockaddr *sa)
 	return sa->sa_len;
 }
 
-__BEGIN_DECLS
+//__BEGIN_DECLS FIXME
 socklen_t sockaddr_getsize_by_family(sa_family_t);
 struct sockaddr *sockaddr_copy(struct sockaddr *, socklen_t,
     const struct sockaddr *);
@@ -612,12 +612,12 @@ int sockaddr_cmp(const struct sockaddr *, const struct sockaddr *);
 struct sockaddr *sockaddr_dup(const struct sockaddr *, int);
 int sockaddr_format(const struct sockaddr *, char *, size_t);
 void sockaddr_free(struct sockaddr *);
-__END_DECLS
+//__END_DECLS FIXME
 #endif /* _KERNEL */
 
 #ifndef	_KERNEL
 
-__BEGIN_DECLS
+//__BEGIN_DECLS FXIME
 int	accept(int, struct sockaddr * __restrict, socklen_t * __restrict);
 int	accept4(int, struct sockaddr * __restrict, socklen_t * __restrict, int);
 int	bind(int, const struct sockaddr *, socklen_t);
@@ -653,7 +653,7 @@ struct timespec;
 int	recvmmsg(int, struct mmsghdr *, unsigned int, unsigned int,
     struct timespec *);
 #endif
-__END_DECLS
+// __END_DECLS FIXME
 #endif /* !_KERNEL */
 
 #endif /* !_SYS_SOCKET_H_ */

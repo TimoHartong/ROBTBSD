@@ -66,12 +66,12 @@ typedef __in_port_t	in_port_t;
 #define	in_port_t	__in_port_t
 #endif
 
-__BEGIN_DECLS
-uint32_t htonl(uint32_t) __constfunc;
-uint16_t htons(uint16_t) __constfunc;
-uint32_t ntohl(uint32_t) __constfunc;
-uint16_t ntohs(uint16_t) __constfunc;
-__END_DECLS
+//__BEGIN_DECLS
+uint32_t htonl(uint32_t); // __constfunc;
+uint16_t htons(uint16_t); // __constfunc;
+uint32_t ntohl(uint32_t); // __constfunc;
+uint16_t ntohs(uint16_t); // __constfunc;
+//__END_DECLS
 
 #endif /* !_LOCORE */
 #endif /* _XOPEN_SOURCE || _POSIX_C_SOURCE >= 200112L || _NETBSD_SOURCE */

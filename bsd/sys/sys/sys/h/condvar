@@ -1,11 +1,11 @@
-/*	$NetBSD: wchar_limits.h,v 1.4 2013/01/24 10:17:00 matt Exp $	*/
+/*	$NetBSD: condvar.h,v 1.17 2020/05/11 03:59:33 riastradh Exp $	*/
 
 /*-
- * Copyright (c) 2004 The NetBSD Foundation, Inc.
+ * Copyright (c) 2006, 2007, 2008, 2020 The NetBSD Foundation, Inc.
  * All rights reserved.
  *
  * This code is derived from software contributed to The NetBSD Foundation
- * by Klaus Klein.
+ * by Andrew Doran.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -29,47 +29,40 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _ARM_WCHAR_LIMITS_H_
-#define _ARM_WCHAR_LIMITS_H_
+#ifndef _SYS_CONDVAR_H_
+#define	_SYS_CONDVAR_H_
 
-/*
- * 7.18.3 Limits of other integer types
- */
+typedef struct kcondvar {
+	void		*cv_opaque[2];
+} kcondvar_t;
 
-/* limits of wchar_t */
+#ifdef _KERNEL
 
-#ifdef __WCHAR_MIN__
-#define	WCHAR_MIN	__WCHAR_MIN__			/* wchar_t	  */
-#elif __WCHAR_UNSIGNED__
-#define	WCHAR_MIN	0                               /* was 0U wchar_t	  */
-#else
-#define	WCHAR_MIN	(-0x7fffffff-1)			/* wchar_t	  */
-#endif
+struct bintime;
+struct kmutex;
+struct timespec;
 
-#ifdef __WCHAR_MAX__
-#define	WCHAR_MAX	__WCHAR_MAX__			/* wchar_t	  */
-#elif __WCHAR_UNSIGNED__
-#define	WCHAR_MAX	0xffffffff			/* had suffix U wchar_t	  */
-#else
-#define	WCHAR_MAX	0x7fffffff			/* wchar_t	  */
-#endif
+void	cv_init(kcondvar_t *, const char *);
+void	cv_destroy(kcondvar_t *);
 
-/* limits of wint_t */
+void	cv_wait(kcondvar_t *, struct kmutex *);
+int	cv_wait_sig(kcondvar_t *, struct kmutex *);
+int	cv_timedwait(kcondvar_t *, struct kmutex *, int);
+int	cv_timedwait_sig(kcondvar_t *, struct kmutex *, int);
+int	cv_timedwaitbt(kcondvar_t *, struct kmutex *, struct bintime *,
+	    const struct bintime *);
+int	cv_timedwaitbt_sig(kcondvar_t *, struct kmutex *, struct bintime *,
+	    const struct bintime *);
 
-#ifdef __WINT_MIN__
-#define	WINT_MIN	__WINT_MIN__			/* wint_t	  */
-#elif __WINT_UNSIGNED__
-#define	WINT_MIN	0U				/* wint_t	  */
-#else
-#define	WINT_MIN	(-0x7fffffff-1)			/* wint_t	  */
-#endif
+void	cv_signal(kcondvar_t *);
+void	cv_broadcast(kcondvar_t *);
 
-#ifdef __WINT_MAX__
-#define	WINT_MAX	__WINT_MAX__			/* wint_t	  */
-#elif __WINT_UNSIGNED__
-#define	WINT_MAX	0xffffffffU			/* wint_t	  */
-#else
-#define	WINT_MAX	0x7fffffff			/* wint_t	  */
-#endif
+bool	cv_has_waiters(kcondvar_t *);
+bool	cv_is_valid(kcondvar_t *);
 
-#endif /* !_ARM_WCHAR_LIMITS_H_ */
+/* The "lightning bolt", awoken once per second by the clock interrupt. */
+extern kcondvar_t lbolt;
+
+#endif	/* _KERNEL */
+
+#endif /* _SYS_CONDVAR_H_ */
