@@ -32,7 +32,7 @@
 #define __WCHAR_MAX__      0xffff
 #define __PTRDIFF_TYPE__   long int
 //#define _BSD_SIZE_T_       unsigned int
-#define __SIZE_TYPE__
+//#define __SIZE_TYPE__
 #define __WCHAR_TYPE__
 #define __WCHAR_UNSIGNED__
 #define __WINT_TYPE__

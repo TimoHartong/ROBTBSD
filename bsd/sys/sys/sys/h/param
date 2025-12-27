@@ -523,8 +523,7 @@ extern int hz;
 static __inline unsigned int
 mstohz(unsigned int ms)
 {
-	return __predict_false(ms >= 0x20000u) ?
-	    (ms / 1000u) * hz : (ms * hz) / 1000u;
+	return (ms >= 0x20000u) ? (ms / 1000u) * hz : (ms * hz) / 1000u;
 }
 # endif
 #endif
@@ -536,8 +535,7 @@ mstohz(unsigned int ms)
 static __inline unsigned int
 hztoms(unsigned int t)
 {
-	return __predict_false(t >= 0x20000u) ?
-	    (t / hz) * 1000u : (t * 1000u) / hz;
+	return (t >= 0x20000u) ? (t / hz) * 1000u : (t * 1000u) / hz;
 }
 # endif
 #endif

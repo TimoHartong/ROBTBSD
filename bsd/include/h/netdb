@@ -307,7 +307,7 @@ struct addrinfo {
 #endif
 #endif /* (_POSIX_C_SOURCE - 0) >= 200112L || ... */
 
-__BEGIN_DECLS
+//__BEGIN_DECLS FIXME
 void		endhostent(void);
 void		endnetent(void);
 void		endprotoent(void);
@@ -356,6 +356,6 @@ struct addrinfo *allocaddrinfo(socklen_t);
 void		freeaddrinfo(struct addrinfo *);
 const char	*gai_strerror(int);
 #endif
-__END_DECLS
+//__END_DECLS
 
 #endif /* !_NETDB_H_ */

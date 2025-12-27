@@ -174,7 +174,7 @@ struct devhandle {
 typedef struct devhandle devhandle_t;
 #endif
 
-#if defined(_KERNEL) || defined(_KMEMUSER) 
+#if defined(_KERNEL) || defined(_KMEMUSER)
 struct device_compatible_entry {
 	union {
 		const char *compat;
@@ -215,8 +215,8 @@ typedef enum {
 	/* Private (opaque data) */
 	DEVHANDLE_TYPE_PRIVATE		=	0x50525654,	/* 'PRVT' */
 
-	/* Max value. */
-	DEVHANDLE_TYPE_MAX		=	0xffffffff
+	/* Max value. FIXME RO  */
+	DEVHANDLE_TYPE_MAX		=	0x7fffffff
 } devhandle_type_t;
 
 /* Device method call function signature. */

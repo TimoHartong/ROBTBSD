@@ -267,8 +267,9 @@ ns2bintime(uint64_t ns)
 #define timespec2ns(x) (((uint64_t)(x)->tv_sec) * 1000000000L + (x)->tv_nsec)
 
 #ifdef _KERNEL
-bool timespecaddok(const struct timespec *, const struct timespec *) __pure;
-bool timespecsubok(const struct timespec *, const struct timespec *) __pure;
+// FIXME RO
+bool timespecaddok(const struct timespec *, const struct timespec *);
+bool timespecsubok(const struct timespec *, const struct timespec *);
 #endif
 
 #endif /* _NETBSD_SOURCE */

@@ -681,12 +681,13 @@
 /*
  * Only to be used in other headers that are included from both c or c++
  * NOT to be used in code.
+ * FIXME RO
  */
-#ifdef __cplusplus
-#define __CAST(__dt, __st)	static_cast<__dt>(__st)
-#else
+//#ifdef __cplusplus
+//#define __CAST(__dt, __st)	static_cast<__dt>(__st)
+//#else
 #define __CAST(__dt, __st)	((__dt)(__st))
-#endif
+//#endif
 
 #define __CASTV(__dt, __st)	__CAST(__dt, __CAST(void *, __st))
 #define __CASTCV(__dt, __st)	__CAST(__dt, __CAST(const void *, __st))

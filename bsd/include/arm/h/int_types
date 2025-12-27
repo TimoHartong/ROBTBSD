@@ -95,5 +95,22 @@ typedef	__UINT64_TYPE__		 __uint64_t;
 typedef	__INTPTR_TYPE__		 __intptr_t;
 typedef	__UINTPTR_TYPE__	__uintptr_t;
 #endif
+/* Region for  FIXME RO compilation */
+#define  __SIZE_TYPE__            unsigned long
+
+// For arm/wchar_limits.h
+#define __WINT_UNSIGNED__         0
+
+// for sys/null.h
+#define __GNUG__                  0
+#define __GNUC_MINOR__            0
+
+// for sys/types.h
+#define _NETBSD_SOURCE            1
+
+//#define __unused
+// arm/mcontaxt.h
+#define __arm__                   1
+
 
 #endif	/* !_ARM_INT_TYPES_H_ */
