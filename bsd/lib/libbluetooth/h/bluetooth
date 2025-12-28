@@ -43,7 +43,7 @@
 #include <stdio.h>
 #include <time.h>
 
-__BEGIN_DECLS
+//__BEGIN_DECLS
 
 /*
  * Interface to the outside world
@@ -192,6 +192,6 @@ typedef struct {
 
 #endif	/* COMPAT_BLUEZ */
 
-__END_DECLS
+//__END_DECLS
 
 #endif /* ndef _BLUETOOTH_H_ */

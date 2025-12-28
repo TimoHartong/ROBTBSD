@@ -43,8 +43,7 @@
 
 #include <prop/plistref.h>
 
-#ifdef _KERNEL
 void	prop_kern_init(void);
-#endif
+
 
 #endif /* _PROPLIB_PROPLIB_H_ */

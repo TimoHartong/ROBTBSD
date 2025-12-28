@@ -34,22 +34,6 @@
 #ifndef _SYS_MALLOCVAR_H_
 #define	_SYS_MALLOCVAR_H_
 
-#include <sys/types.h>
-
-/*
- * This structure describes a type of malloc'd memory and carries
- * allocation statistics for that memory.
- */
-struct malloc_type;
-
-#ifdef _KERNEL
-#define	MALLOC_JUSTDEFINE(type, shortdesc, longdesc)
-#define	MALLOC_DEFINE(type, shortdesc, longdesc)
-#define	MALLOC_DECLARE(type)						\
-	static struct malloc_type *const __unused type = 0
-
-#define	malloc_type_attach(malloc_type)
-#define	malloc_type_detach(malloc_type)
-#endif /* _KERNEL */
+ /* FIXME empty file */
 
 #endif /* _SYS_MALLOCVAR_H_ */

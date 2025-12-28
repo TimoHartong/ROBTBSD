@@ -37,16 +37,7 @@
 #ifndef _SYS_TIMESPEC_H_
 #define	_SYS_TIMESPEC_H_
 
-#include <sys/ansi.h>
 
-#ifdef	_BSD_TIME_T_
-typedef	_BSD_TIME_T_	time_t;
-#undef	_BSD_TIME_T_
-#endif
-
-struct timespec {
-	time_t	tv_sec;		/* seconds */
-	long	tv_nsec;	/* and nanoseconds */
-};
+/* FIXME Empty file */
 
 #endif /* !_SYS_TIMESPEC_H_ */

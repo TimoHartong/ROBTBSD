@@ -32,28 +32,6 @@
 #ifndef _SYS_UIDINFO_H_
 #define _SYS_UIDINFO_H_
 
-#include <sys/types.h>
-#include <sys/queue.h>
-#include <sys/mutex.h>
 
-/*
- * Structure associated with user caching.
- */
-struct uidinfo {
-	//SLIST_ENTRY(uidinfo) ui_hash; FIXME
-	uid_t	ui_uid;
-	u_long	ui_proccnt;	/* Number of processes */
-	u_long	ui_lwpcnt;	/* Number of lwps */
-	u_long	ui_lockcnt;	/* Number of locks */
-	u_long	ui_semcnt;	/* Number of semaphores */
-	u_long	ui_sbsize;	/* Socket buffer size */
-};
-
-int	chgproccnt(uid_t, int);
-int	chglwpcnt(uid_t, int);
-int	chgsemcnt(uid_t, int);
-int	chgsbsize(struct uidinfo *, u_long *, u_long, rlim_t);
-struct uidinfo *uid_find(uid_t);
-void	uid_init(void);
-
+/* FIXME Empty file */
 #endif /* _SYS_UIDINFO_H_ */

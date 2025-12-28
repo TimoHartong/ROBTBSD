@@ -64,20 +64,6 @@
 #ifndef _SYS_SELINFO_H_
 #define	_SYS_SELINFO_H_
 
-#include <sys/event.h>		/* for struct klist */
-
-/*
- * Used to maintain information about processes that wish to be
- * notified when I/O becomes possible.
- */
-struct selinfo {
-	uint64_t	sel_collision;	/* mask of colliding cpus */
-	struct klist	sel_klist;	/* knotes attached to this selinfo */
-	void		*sel_cluster;	/* current cluster association */
-	struct lwp	*sel_lwp;	/* first LWP to be notified */
-	uintptr_t	sel_fdinfo;	/* selected descriptor by first LWP */
-	SLIST_ENTRY(selinfo) sel_chain;	/* entry on LWP's list of selinfo */
-	uintptr_t	sel_reserved[2];/* reserved for future expansion */
-};
+/* FIXME Empty file */
 
 #endif /* !_SYS_SELINFO_H_ */

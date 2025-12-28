@@ -45,46 +45,6 @@ typedef enum {
 	PROP_INGEST_FLAG_OPTIONAL		= 0x01
 } prop_ingest_flag_t;
 
-typedef struct _prop_ingest_context *prop_ingest_context_t;
-
-typedef bool (*prop_ingest_handler_t)(prop_ingest_context_t, prop_object_t);
-
-typedef struct {
-	const char *pite_key;
-	prop_type_t pite_type;
-	unsigned int pite_flags;
-	prop_ingest_handler_t pite_handler;
-} prop_ingest_table_entry;
-
-#define	PROP_INGEST(key_, type_, handler_)				\
-	{ .pite_key = key_ ,						\
-	  .pite_type = type_ ,						\
-	  .pite_flags = 0 ,						\
-	  .pite_handler = handler_ }
-
-#define	PROP_INGEST_OPTIONAL(key_, type_, handler_)			\
-	{ .pite_key = key_ ,						\
-	  .pite_type = type_ ,						\
-	  .pite_flags = PROP_INGEST_FLAG_OPTIONAL ,			\
-	  .pite_handler = handler_ }
-
-#define	PROP_INGEST_END							\
-	{ .pite_key = NULL }
-
-//__BEGIN_DECLS
-prop_ingest_context_t
-		prop_ingest_context_alloc(void *);
-void		prop_ingest_context_free(prop_ingest_context_t);
-
-prop_ingest_error_t
-		prop_ingest_context_error(prop_ingest_context_t);
-prop_type_t	prop_ingest_context_type(prop_ingest_context_t);
-const char *	prop_ingest_context_key(prop_ingest_context_t);
-void *		prop_ingest_context_private(prop_ingest_context_t);
-
-bool		prop_dictionary_ingest(prop_dictionary_t,
-				       const prop_ingest_table_entry[],
-				       prop_ingest_context_t);
-//__END_DECLS
+/* FIXME empty file */
 
 #endif /* _PROPLIB_PROP_INGEST_H_ */

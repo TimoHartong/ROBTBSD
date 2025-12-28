@@ -32,9 +32,8 @@
 #ifndef _ARM_INT_TYPES_H_
 #define _ARM_INT_TYPES_H_
 
-#ifdef __UINTPTR_TYPE__
+/* Empty file */
 #include <sys/common_int_types.h>
-#else
 #include <sys/cdefs.h>
 
 /*
@@ -86,6 +85,7 @@ typedef	__UINT64_TYPE__		 __uint64_t;
 /* 7.18.1.4 Integer types capable of holding object pointers */
 
 #ifndef __UINTPTR_TYPE__
+//#warning "No __UINTPTR_TYPE__ "
 # ifndef __INTPTR_TYPE__
 #  define __INTPTR_TYPE__	long int
 # endif
@@ -94,23 +94,6 @@ typedef	__UINT64_TYPE__		 __uint64_t;
 
 typedef	__INTPTR_TYPE__		 __intptr_t;
 typedef	__UINTPTR_TYPE__	__uintptr_t;
-#endif
-/* Region for  FIXME RO compilation */
-#define  __SIZE_TYPE__            unsigned long
-
-// For arm/wchar_limits.h
-#define __WINT_UNSIGNED__         0
-
-// for sys/null.h
-#define __GNUG__                  0
-#define __GNUC_MINOR__            0
-
-// for sys/types.h
-#define _NETBSD_SOURCE            1
-
-//#define __unused
-// arm/mcontaxt.h
-#define __arm__                   1
 
 
 #endif	/* !_ARM_INT_TYPES_H_ */

@@ -150,7 +150,7 @@
 #define SIOCSUMBPARAM	_IOW('i', 191, struct ifreq)	/* set MBIM param */
 #define SIOCGUMBPARAM	_IOWR('i', 192, struct ifreq)	/* get MBIM param */
 
-#define	SIOCSETPFSYNC	_IOW('i', 247, struct ifreq)	
+#define	SIOCSETPFSYNC	_IOW('i', 247, struct ifreq)
 #define	SIOCGETPFSYNC	_IOWR('i', 248, struct ifreq)
 
 #define	SIOCGNBRINFO	_IOWR('i', 249, struct in_nbrinfo) /* get IA ND info */

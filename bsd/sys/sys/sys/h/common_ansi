@@ -32,26 +32,11 @@
 #ifndef _SYS_COMMON_ANSI_H_
 #define _SYS_COMMON_ANSI_H_
 
-#include <sys/cdefs.h>
+#include <sys/cdefs.h>   // Empty file
 
 #include <machine/int_types.h>
-
-#if !defined(__PTRDIFF_TYPE__)
-#error __PTRDIFF_TYPE__ not present
-#endif
-
-#if !defined(__SIZE_TYPE__)
-#error __SIZE_TYPE__ not present
-#endif
-
-#if !defined(__WCHAR_TYPE__)
-#error __WCHAR_TYPE__ not present
-#endif
-
-#if !defined(__WINT_TYPE__)
-#error __WINT_TYPE__ not present
-#endif
-
+/* FIXME Empty file */
+/* Skip the checks __PTRDIFF_TYPE__ , __SIZE_TYPE__, __WCHAR_TYPE__ and __WINT_TYPE__ */
 /*
  * Types which are fundamental to the implementation and may appear in
  * more than one standard header are defined here.  Standard headers

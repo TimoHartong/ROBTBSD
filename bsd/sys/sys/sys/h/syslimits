@@ -34,57 +34,13 @@
 #ifndef _SYS_SYSLIMITS_H_
 #define _SYS_SYSLIMITS_H_
 
-#include <sys/featuretest.h>
+#include <sys/featuretest.h> // Empty file
 
-#if defined(_KERNEL_OPT)
-#include "opt_syslimits.h"
-#endif
-
-#if defined(_POSIX_C_SOURCE) || defined(_XOPEN_SOURCE) || \
-    defined(_NETBSD_SOURCE)
-#define	ARG_MAX		 (256 * 1024)	/* max bytes for an exec function */
-#ifndef CHILD_MAX
-#define	CHILD_MAX		  160	/* max simultaneous processes */
-#endif
-#define	GID_MAX		   2147483647U	/* max value for a gid_t (2^31-2) */
-#define	LINK_MAX		32767	/* max file link count */
-#define	MAX_CANON		  255	/* max bytes in term canon input line */
-#define	MAX_INPUT		  255	/* max bytes in terminal input */
-#define	NAME_MAX		  511	/* max bytes in a file name, must be */
-					/* kept in sync with MAXNAMLEN */
-#define	NGROUPS_MAX		   16	/* max supplemental group id's */
-#define	UID_MAX		   2147483647U	/* max value for a uid_t (2^31-2) */
-#ifndef OPEN_MAX
-#define	OPEN_MAX		  128	/* max open files per process */
-#endif
+/*
+* FIXME Empty file
+* when looked to content it looks it has little defines of interrest
+* relevant for RISC-OS
+*/
 #define	PATH_MAX		 1024	/* max bytes in pathname */
-#define	PIPE_BUF		  512	/* max bytes for atomic pipe writes */
-
-#define	BC_BASE_MAX	      INT_MAX	/* max ibase/obase values in bc(1) */
-#define	BC_DIM_MAX		65535	/* max array elements in bc(1) */
-#define	BC_SCALE_MAX	      INT_MAX	/* max scale value in bc(1) */
-#define	BC_STRING_MAX	      INT_MAX	/* max const string length in bc(1) */
-#define	COLL_WEIGHTS_MAX	    2	/* max weights for order keyword */
-#define	EXPR_NEST_MAX		   32	/* max expressions nested in expr(1) */
-#define	LINE_MAX		 2048	/* max bytes in an input line */
-#define	RE_DUP_MAX		  255	/* max RE's in interval notation */
-
-/*
- * IEEE Std 1003.1c-95, adopted in X/Open CAE Specification Issue 5 Version 2
- */
-#if (_POSIX_C_SOURCE - 0) >= 199506L || (_XOPEN_SOURCE - 0) >= 500 || \
-    defined(_NETBSD_SOURCE)
-#define	LOGIN_NAME_MAX		   17	/* max login name length incl. NUL */
-#endif
-
-/*
- * X/Open CAE Specification Issue 5 Version 2
- */
-#if defined(_XOPEN_SOURCE) || defined(_NETBSD_SOURCE)
-#define	IOV_MAX			 1024	/* max # of iovec's for readv(2) etc. */
-#define	NZERO			   20	/* default "nice" */
-#endif /* _XOPEN_SOURCE || _NETBSD_SOURCE */
-
-#endif /* !_ANSI_SOURCE */
 
 #endif /* !_SYS_SYSLIMITS_H_ */

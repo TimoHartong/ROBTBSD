@@ -77,6 +77,5 @@
 	(((cmd) >> 30) & 1) ? "R" : "", \
 	(((cmd) >> 30) & 2) ? "W" : "", \
 	(char)IOCGROUP(cmd), (unsigned char)(cmd))
-		
 
 #endif /* !_SYS_IOCCOM_H_ */

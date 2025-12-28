@@ -44,12 +44,7 @@
 #define	_BIG_ENDIAN	4321	/* MSB first: 68000, ibm, net */
 #define	_PDP_ENDIAN	3412	/* LSB first in word, MSW first in long */
 
-
-#if defined(_XOPEN_SOURCE) || \
-    (_POSIX_C_SOURCE - 0) >= 200112L || \
-    defined(_NETBSD_SOURCE)
-#ifndef _LOCORE
-
+/* Skip _XOPEN_SOURCE tests */
 /* C-family endian-ness definitions */
 
 #include <sys/ansi.h>
@@ -66,16 +61,10 @@ typedef __in_port_t	in_port_t;
 #define	in_port_t	__in_port_t
 #endif
 
-//__BEGIN_DECLS
-uint32_t htonl(uint32_t); // __constfunc;
-uint16_t htons(uint16_t); // __constfunc;
-uint32_t ntohl(uint32_t); // __constfunc;
-uint16_t ntohs(uint16_t); // __constfunc;
-//__END_DECLS
-
-#endif /* !_LOCORE */
-#endif /* _XOPEN_SOURCE || _POSIX_C_SOURCE >= 200112L || _NETBSD_SOURCE */
-
+uint32_t htonl(uint32_t);
+uint16_t htons(uint16_t);
+uint32_t ntohl(uint32_t);
+uint16_t ntohs(uint16_t);
 
 #include <machine/endian_machdep.h>
 
@@ -92,8 +81,6 @@ uint16_t ntohs(uint16_t); // __constfunc;
 #define _QUAD_LOWWORD 1
 #endif
 
-
-#if defined(_XOPEN_SOURCE) || defined(_NETBSD_SOURCE)
 /*
  *  Traditional names for byteorder.  These are defined as the numeric
  *  sequences so that third party code can "#define XXX_ENDIAN" and not
@@ -104,14 +91,12 @@ uint16_t ntohs(uint16_t); // __constfunc;
 #define	PDP_ENDIAN	3412		/* LSB first in word, MSW first in long */
 #define BYTE_ORDER	_BYTE_ORDER
 
-#ifndef _LOCORE
-
 #include <machine/bswap.h>
 
 /*
  * Macros for network/external number representation conversion.
  */
-#if BYTE_ORDER == BIG_ENDIAN && !defined(__lint__)
+#if BYTE_ORDER == BIG_ENDIAN
 #define	ntohl(x)	(x)
 #define	ntohs(x)	(x)
 #define	htonl(x)	(x)
@@ -186,50 +171,6 @@ uint16_t ntohs(uint16_t); // __constfunc;
 #define LE16TOH(x)	HTOLE16(x)
 #define LE32TOH(x)	HTOLE32(x)
 #define LE64TOH(x)	HTOLE64(x)
-
-/*
- * Routines to encode/decode big- and little-endian multi-octet values
- * to/from an octet stream.
- */
-
-#ifdef _NETBSD_SOURCE
-
-#if __GNUC_PREREQ__(2, 95)
-
-#define __GEN_ENDIAN_ENC(bits, endian) \
-static __inline void  \
-endian ## bits ## enc(void *dst, uint ## bits ## _t u) \
-{ \
-	u = hto ## endian ## bits (u); \
-	__builtin_memcpy(dst, &u, sizeof(u)); \
-}
-
-__GEN_ENDIAN_ENC(16, be)
-__GEN_ENDIAN_ENC(32, be)
-__GEN_ENDIAN_ENC(64, be)
-__GEN_ENDIAN_ENC(16, le)
-__GEN_ENDIAN_ENC(32, le)
-__GEN_ENDIAN_ENC(64, le)
-#undef __GEN_ENDIAN_ENC
-
-#define __GEN_ENDIAN_DEC(bits, endian) \
-static __inline uint ## bits ## _t  \
-endian ## bits ## dec(const void *buf) \
-{ \
-	uint ## bits ## _t u; \
-	__builtin_memcpy(&u, buf, sizeof(u)); \
-	return endian ## bits ## toh (u); \
-}
-
-__GEN_ENDIAN_DEC(16, be)
-__GEN_ENDIAN_DEC(32, be)
-__GEN_ENDIAN_DEC(64, be)
-__GEN_ENDIAN_DEC(16, le)
-__GEN_ENDIAN_DEC(32, le)
-__GEN_ENDIAN_DEC(64, le)
-#undef __GEN_ENDIAN_DEC
-
-#else	/* !(GCC >= 2.95) */
 
 // FIXME
 static __inline void be16enc(void *buf, uint16_t u)
@@ -326,10 +267,6 @@ static __inline uint64_t le64dec(const void *buf)
 	return (le32dec(p) | (__CAST(uint64_t, le32dec(p + 4)) << 32));
 }
 
-#endif	/* GCC >= 2.95 */
 
-#endif	/* _NETBSD_SOURCE */
-
-#endif /* !_LOCORE */
-#endif /* _XOPEN_SOURCE || _NETBSD_SOURCE */
+/* FIXME Empty file */
 #endif /* !_SYS_ENDIAN_H_ */

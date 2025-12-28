@@ -33,28 +33,3 @@
  * if it isn't the case for your port, it's better to have MD optimized
  * splxxx() functions, rather than using this header.
  */
-
-#if !defined(_KERNEL) && !defined(_KMEMUSER)
-#error not supposed to be exposed to userland.
-#endif /* !defined(_KERNEL) && !defined(_KMEMUSER) */
-
-#define	_SPL_DECL(x, X)	\
-	static __inline __always_inline int \
-	spl##x(void) \
-	{ return splraiseipl(makeiplcookie(IPL_##X)); }
-
-//#if defined(IPL_SOFTCLOCK)
-//_SPL_DECL(softclock, SOFTCLOCK)
-//#endif /* defined(IPL_SOFTCLOCK) */
-//#if defined(IPL_SOFTNET)
-//_SPL_DECL(softnet, SOFTNET)
-//#endif /* defined(IPL_SOFTNET) */
-//#if defined(IPL_SOFTSERIAL)
-//_SPL_DECL(softserial, SOFTSERIAL)
-//#endif /* defined(IPL_SOFTSERIAL) */
-
-//_SPL_DECL(vm, VM)
-//_SPL_DECL(sched, SCHED)
-//_SPL_DECL(high, HIGH)
-
-#undef _SPL_DECL

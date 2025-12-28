@@ -34,29 +34,6 @@
 
 #include <prop/prop_object.h>
 
-typedef struct _prop_data *prop_data_t;
-
-//__BEGIN_DECLS FIXME
-prop_data_t	prop_data_create_copy(const void *, size_t);
-prop_data_t	prop_data_create_nocopy(const void *, size_t);
-
-prop_data_t	prop_data_copy(prop_data_t);
-
-size_t		prop_data_size(prop_data_t);
-
-const void *	prop_data_value(prop_data_t);
-bool		prop_data_copy_value(prop_data_t, void *, size_t);
-
-bool		prop_data_equals(prop_data_t, prop_data_t);
-bool		prop_data_equals_data(prop_data_t, const void *, size_t);
-
-
-/* Deprecated functions. */
-prop_data_t	prop_data_create_data(const void *, size_t);
-prop_data_t	prop_data_create_data_nocopy(const void *, size_t);
-
-void *		prop_data_data(prop_data_t);
-const void *	prop_data_data_nocopy(prop_data_t);
-//__END_DECLS
+/* FIXME Empty file */
 
 #endif /* _PROPLIB_PROP_DATA_H_ */

@@ -34,16 +34,6 @@
 
 #include <prop/prop_object.h>
 
-typedef struct _prop_bool *prop_bool_t;
-
-//__BEGIN_DECLS FIXME
-prop_bool_t	prop_bool_create(bool);
-prop_bool_t	prop_bool_copy(prop_bool_t);
-
-bool		prop_bool_true(prop_bool_t);
-bool		prop_bool_value(prop_bool_t);
-
-bool		prop_bool_equals(prop_bool_t, prop_bool_t);
-//__END_DECLS
+/* FIXME Empty file */
 
 #endif /* _PROPLIB_PROP_BOOL_H_ */

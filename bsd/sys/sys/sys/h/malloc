@@ -34,43 +34,8 @@
 #ifndef _SYS_MALLOC_H_
 #define	_SYS_MALLOC_H_
 
-#ifdef _KERNEL
-
-/*
- * flags to malloc
- */
-#define	M_WAITOK	0x0000	/* can wait for resources */
-#define	M_NOWAIT	0x0001	/* do not wait for resources */
-#define	M_ZERO		0x0002	/* zero the allocation */
-
 #include <sys/mallocvar.h>
-#if 0
-/*
- * The following are standard, built-in malloc types that are
- * not specific to any one subsystem.
- *
- * They are currently not defined, but are still passed to malloc()
- * and free(). They may be re-instated as diagnostics at some point.
- */
-MALLOC_DECLARE(M_DEVBUF);
-MALLOC_DECLARE(M_DMAMAP);
-MALLOC_DECLARE(M_FREE);
-MALLOC_DECLARE(M_TEMP);
-MALLOC_DECLARE(M_RTABLE);
-MALLOC_DECLARE(M_FTABLE);
-MALLOC_DECLARE(M_UFSMNT);
-MALLOC_DECLARE(M_NETADDR);
-MALLOC_DECLARE(M_MRTABLE);
-#endif
 
-void	*kern_malloc(unsigned long, int);
-void	*kern_realloc(void *, unsigned long, int);
-void	kern_free(void *);
-
-#define	malloc(size, type, flags)	kern_malloc(size, flags)
-#define	free(addr, type)		kern_free(addr)
-#define	realloc(ptr, size, type, flags)	kern_realloc(ptr, size, flags)
-
-#endif /* _KERNEL */
+/* FIXME Empty file */
 
 #endif /* !_SYS_MALLOC_H_ */
