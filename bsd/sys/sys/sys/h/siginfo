@@ -32,6 +32,55 @@
 #ifndef	_SYS_SIGINFO_H_
 #define	_SYS_SIGINFO_H_
 
+#include <machine/signal.h>
+#include <sys/featuretest.h>
+
+#include <sys/queue.h>
+
 /* FIXME Empty file */
+struct _ksiginfo {
+	int	_signo;
+	int	_code;
+	int	_errno;
+#ifdef _LP64
+	/* In _LP64 the union starts on an 8-byte boundary. */
+	int	_pad;
+#endif
+	union {
+	        /* Deleted _rt and _child */
+		struct {
+			void   *_addr;
+			int	_trap;
+			int	_trap2;
+			int	_trap3;
+		} _fault;
+
+		struct {
+			long	_band;
+			int	_fd;
+		} _poll;
+
+		struct {
+			int	_sysnum;
+			int	_retval[2];
+			int	_error;
+			uint64_t _args[8]; /* SYS_MAXSYSARGS */
+		} _syscall;
+
+		struct {
+			int	_pe_report_event;
+	//		union {
+	//			pid_t _pe_other_pid;
+	//			lwpid_t _pe_lwp;
+	//		} _option;
+		} _ptrace_state;
+	} _reason;
+};
+
+/* Line 148 */
+typedef union siginfo {
+	char	si_pad[128];	/* Total size; for future expansion */
+	struct _ksiginfo _info;
+} siginfo_t;
 
 #endif /* !_SYS_SIGINFO_H_ */

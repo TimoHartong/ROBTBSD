@@ -37,6 +37,10 @@
 #include <sys/cdefs.h>
 #include <stdarg.h>
 
+__dead void	err(int, const char *, ...);
+__dead void	errx(int, const char *, ...);
+void		warn(const char *, ...);
+
 /*
 FIXME emty file
 __dead void	err(int, const char *, ...);

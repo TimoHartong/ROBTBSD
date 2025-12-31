@@ -39,6 +39,7 @@
 // Looks the most suitable for the ROOL DDE compiler
 #define	__dead
 
+#include <machine/cdefs.h>
 /*
  * Only to be used in other headers that are included from both c or c++
  * NOT to be used in code.
@@ -50,7 +51,18 @@
 #define __CAST(__dt, __st)	((__dt)(__st))
 //#endif
 
+/*
+ * Return the number of elements in a statically-allocated array,
+ * __x. Line 641
+ */
+#define	__arraycount(__x)	(sizeof(__x) / sizeof(__x[0]))
+
+
+/* FIXME Empty file */
 /* This include file is added because it contains the definition needed for open */
 #include <sys/fcntl.h>
+
+#include <sys/bsdfix.h>
+//#include <sys/select.h>
 
 #endif /* !_SYS_CDEFS_H_ */

@@ -1,0 +1,9 @@
+/* From strings.h Line 63 */
+int	 strcasecmp(const char *, const char *);
+/* From stdlib.h Line 294 */
+int	 daemon(int, int);
+/* From stdlib.h Line 334 */
+const char *getprogname(void);
+/* From stdio.h Line 412 */
+int	 asprintf(char ** __restrict, const char * __restrict, ...);
+

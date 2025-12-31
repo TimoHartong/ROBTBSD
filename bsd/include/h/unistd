@@ -70,6 +70,14 @@
 #include <sys/types.h>
 #include <sys/unistd.h>
 
+/* Line 89 */
+unsigned int alarm(unsigned int);
+/* Line 96 */
+int	 close(int);
+/* Line 132 */
+ssize_t	 read(int, void *, size_t);
+/* Line 139 */
+unsigned int	 sleep(unsigned int);
 /* Skip to line 153 */
 int	 getopt(int, char * const [], const char *);
 
@@ -77,6 +85,5 @@ extern	 char *optarg;			/* getopt(3) external variables */
 extern	 int opterr;
 extern	 int optind;
 extern	 int optopt;
-/* Empty file */
 
 #endif /* !_UNISTD_H_ */

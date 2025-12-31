@@ -39,6 +39,12 @@
 #ifndef _SYS_ERRNO_H_
 #define _SYS_ERRNO_H_
 
-/* FIXME Empty file */
+/* Line 81 */
+/* non-blocking and interrupt i/o */
+#define	EAGAIN		35		/* Resource temporarily unavailable */
+#define	EWOULDBLOCK	EAGAIN		/* Operation would block */
+#define	EINPROGRESS	36		/* Operation now in progress */
+#define	EALREADY	37		/* Operation already in progress */
+
 
 #endif /* !_SYS_ERRNO_H_ */

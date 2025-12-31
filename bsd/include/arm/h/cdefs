@@ -4,5 +4,4 @@
 #define	_ARM_CDEFS_H_
 
 /* FIXME Empty file */
-
 #endif /* !_ARM_CDEFS_H_ */
