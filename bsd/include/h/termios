@@ -138,8 +138,9 @@ struct termios {
 
 #include <sys/cdefs.h>
 
-/* A limited set of function we need for the serial port */
+/* A limited set of function we need for the serial port start at line 271 */
 
+int	tcgetattr(int, struct termios *);
 int	tcsetattr(int, int, const struct termios *);
 int	tcdrain(int);
 int	tcflush(int, int);
@@ -147,8 +148,6 @@ int	tcflush(int, int);
 void	cfmakeraw(struct termios *);
 int	cfsetspeed(struct termios *, speed_t);
 
-
-/* FIXME Empty file */
-
+#include <sys/ttycom.h>
 
 #endif

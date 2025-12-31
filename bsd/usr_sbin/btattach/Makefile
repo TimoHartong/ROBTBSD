@@ -47,6 +47,7 @@ clean::
 # Dynamic dependencies:
 o.btattach:	c.btattach
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.fcntl
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
@@ -147,6 +148,7 @@ o.btattach:	<BTBSD$Root>.bsd.include.h.termios
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.btattach:	<BTBSD$Root>.bsd.include.h.unistd
 o.btattach:	<BTBSD$Root>.bsd.include.machine.h.ansi
 o.btattach:	<BTBSD$Root>.bsd.include.arm.h.ansi
@@ -156,6 +158,8 @@ o.btattach:	<BTBSD$Root>.bsd.include.arm.h.int_types
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.unistd
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
 o.btattach:	<BTBSD$Root>.bsd.include.h.util
 o.btattach:	h.btattach
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
