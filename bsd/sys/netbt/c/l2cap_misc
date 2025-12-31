@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: l2cap_misc.c,v 1.7 2009/09/13 18:45:11 pooka Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: l2cap_misc.c,v 1.7 2009/09/13 18:45:11 pooka Exp $");
 
 #include <sys/param.h>
 #include <sys/kernel.h>

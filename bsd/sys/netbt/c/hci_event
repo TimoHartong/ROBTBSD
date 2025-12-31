@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: hci_event.c,v 1.26 2019/09/28 07:06:33 plunky Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: hci_event.c,v 1.26 2019/09/28 07:06:33 plunky Exp $");
 
 #include <sys/param.h>
 #include <sys/kernel.h>
@@ -1105,13 +1105,13 @@ hci_cmd_read_local_extended_features(struct hci_unit *unit, struct mbuf *m)
 	case 2:
 		memcpy(unit->hci_feat2, rp.features, HCI_FEATURES_SIZE);
 		break;
-		
+
 	case 1:
 		memcpy(unit->hci_feat1, rp.features, HCI_FEATURES_SIZE);
 		break;
 
 	case 0:	/* (already handled) */
-	default: 
+	default:
 		break;
 	}
 

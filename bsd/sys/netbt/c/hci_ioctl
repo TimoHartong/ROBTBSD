@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: hci_ioctl.c,v 1.15 2021/09/21 15:03:08 christos Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: hci_ioctl.c,v 1.15 2021/09/21 15:03:08 christos Exp $");
 
 #include <sys/param.h>
 #include <sys/domain.h>

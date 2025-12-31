@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: init_bgb2xx.c,v 1.1 2008/04/15 11:17:48 plunky Exp $");
+//__RCSID("$NetBSD: init_bgb2xx.c,v 1.1 2008/04/15 11:17:48 plunky Exp $");
 
 #include <bluetooth.h>
 #include <errno.h>
@@ -50,7 +50,8 @@ typedef struct {
 	uint8_t		d0;	/* ? */
 	uint8_t		d1;	/* ? */
 	bdaddr_t	bdaddr;
-} __attribute__ ((__packed__)) hci_store_in_nvds_cp;
+} hci_store_in_nvds_cp;
+// FIXME __attribute__ ((__packed__)) removed
 
 static const char *default_bdaddr = "bd:b2:10:00:ab:ba";
 

@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: l2cap_upper.c,v 1.19 2016/12/12 15:58:45 maya Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: l2cap_upper.c,v 1.19 2016/12/12 15:58:45 maya Exp $");
 
 #include <sys/param.h>
 #include <sys/kernel.h>

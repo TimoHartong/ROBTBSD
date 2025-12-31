@@ -51,6 +51,9 @@
 #define __CAST(__dt, __st)	((__dt)(__st))
 //#endif
 
+/* Line 469 */
+//#define	__RCSID(_s)		/* nothing */
+
 /*
  * Return the number of elements in a statically-allocated array,
  * __x. Line 641

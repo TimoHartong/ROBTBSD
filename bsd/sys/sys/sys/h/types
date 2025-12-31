@@ -49,6 +49,8 @@
 
 #include <sys/ansi.h>
 
+#include <stdint.h>
+
 /* int8_t till uint64_t already define in stdint.h from CLib */
 
 typedef	uint8_t		u_int8_t;

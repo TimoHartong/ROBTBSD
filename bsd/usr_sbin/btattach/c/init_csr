@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: init_csr.c,v 1.2 2009/12/06 12:29:48 kiyohara Exp $");
+//__RCSID("$NetBSD: init_csr.c,v 1.2 2009/12/06 12:29:48 kiyohara Exp $");
 
 #include <bluetooth.h>
 #include <errno.h>
@@ -54,7 +54,8 @@ struct bccmd {
 		uint16_t status;
 		uint16_t payload[4];
 	} message;
-} __attribute__ ((__packed__));
+};
+// FIXME __attribute__ ((__packed__)) removed
 
 #define CSR_BCCMD_FIRST		(1<<6)
 #define CSR_BCCMD_LAST		(1<<7)

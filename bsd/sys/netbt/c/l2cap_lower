@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: l2cap_lower.c,v 1.10 2014/08/05 07:55:31 rtr Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: l2cap_lower.c,v 1.10 2014/08/05 07:55:31 rtr Exp $");
 
 #include <sys/param.h>
 #include <sys/kernel.h>

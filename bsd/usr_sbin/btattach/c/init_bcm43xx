@@ -34,7 +34,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: init_bcm43xx.c,v 1.6 2023/02/07 20:45:44 mlelstv Exp $");
+//__RCSID("$NetBSD: init_bcm43xx.c,v 1.6 2023/02/07 20:45:44 mlelstv Exp $");
 
 #include <sys/param.h>
 
@@ -133,15 +133,15 @@ init_bcm43xx(int fd, unsigned int speed)
 		uart_send_cmd(fd, fw_cmd, &fw_buf[4], fw_len);
 		uart_recv_cc(fd, fw_cmd, &resp, sizeof(resp));
 	}
-	
+
 	close(fwfd);
-		
+
 	sleep(4);
 	uart_send_cmd(fd, HCI_CMD_RESET, NULL, 0);
 	uart_recv_cc(fd, HCI_CMD_RESET, &resp, sizeof(resp));
 	/* assume it succeeded? */
 
-	if (speed >= 3000000) 
+	if (speed >= 3000000)
 		clock = BCM43XX_CLK_48;
 	else
 		clock = BCM43XX_CLK_24;

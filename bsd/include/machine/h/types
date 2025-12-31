@@ -5,6 +5,6 @@
 
 /* FIXME Empty file */
 
-#include <arm/arm32/types.h>
+#include <arm/types.h>
 
 #endif

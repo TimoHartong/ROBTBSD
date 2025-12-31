@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: hci_unit.c,v 1.16 2021/08/07 16:19:18 thorpej Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: hci_unit.c,v 1.16 2021/08/07 16:19:18 thorpej Exp $");
 
 #include <sys/param.h>
 #include <sys/conf.h>

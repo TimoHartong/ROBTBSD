@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: hci_link.c,v 1.27 2024/07/05 04:31:53 rin Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: hci_link.c,v 1.27 2024/07/05 04:31:53 rin Exp $");
 
 #include <sys/param.h>
 #include <sys/kernel.h>
@@ -434,7 +434,7 @@ hci_acl_recv(struct mbuf *m, struct hci_unit *unit)
 
 	if (m->m_pkthdr.len < sizeof(hdr))
 		goto bad;
-		
+
 	m_copydata(m, 0, sizeof(hdr), &hdr);
 	m_adj(m, sizeof(hdr));
 

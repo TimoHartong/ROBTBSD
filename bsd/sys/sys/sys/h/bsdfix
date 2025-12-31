@@ -6,4 +6,6 @@ int	 daemon(int, int);
 const char *getprogname(void);
 /* From stdio.h Line 412 */
 int	 asprintf(char ** __restrict, const char * __restrict, ...);
+/* From string.h Line */
+unsigned int strlcpy(char *, const char *, unsigned int); // size_t = unsigned int
 

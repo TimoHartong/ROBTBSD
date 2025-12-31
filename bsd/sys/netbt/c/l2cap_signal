@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: l2cap_signal.c,v 1.22 2022/12/24 22:33:12 andvar Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: l2cap_signal.c,v 1.22 2022/12/24 22:33:12 andvar Exp $");
 
 #include <sys/param.h>
 #include <sys/kernel.h>

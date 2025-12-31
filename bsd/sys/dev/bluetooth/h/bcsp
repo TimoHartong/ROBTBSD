@@ -33,21 +33,22 @@
  */
 
 /*
- * Reference to bcore-sp-012p.
+ * Reference to bcore-sp-012p. FIXME solve the byteorder
  */
 /* BCSP packet header */
+// FXIME
 typedef struct {
 	uint8_t flags;
 #if BYTE_ORDER == BIG_ENDIAN
-	uint8_t plen1 :4;		/* Payload Length (bits 0-3) */
-	uint8_t ident :4;		/* Protocol Identifier */
+	uint8_t plen1 ;//:4;		/* Payload Length (bits 0-3) */
+	uint8_t ident ;//:4;		/* Protocol Identifier */
 #else
-	uint8_t ident :4;		/* Protocol Identifier */
-	uint8_t plen1 :4;		/* Payload Length (bits 0-3) */
+	uint8_t ident ;//:4;		/* Protocol Identifier */
+	uint8_t plen1 ;//:4;		/* Payload Length (bits 0-3) */
 #endif
 	uint8_t plen2;			/* Payload Length (bits 4-11) */
 	uint8_t csum;			/* Checksum */
-	u_char payload[0];
+	u_char payload[]; // [0]
 } __packed bcsp_hdr_t;
 
 #define BCSP_FLAGS_SEQ_SHIFT	0

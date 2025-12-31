@@ -32,7 +32,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: rfcomm_session.c,v 1.30 2024/07/05 04:31:53 rin Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: rfcomm_session.c,v 1.30 2024/07/05 04:31:53 rin Exp $");
 
 #include <sys/param.h>
 #include <sys/kernel.h>

@@ -31,7 +31,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: init_swave.c,v 1.4 2015/06/16 23:04:14 christos Exp $");
+//__RCSID("$NetBSD: init_swave.c,v 1.4 2015/06/16 23:04:14 christos Exp $");
 
 #include <bluetooth.h>
 #include <err.h>
@@ -52,12 +52,14 @@ typedef struct {
 	uint8_t		transport_flow;
 	uint8_t		transport_type;
 	uint8_t		transport_rate;
-} __attribute__ ((__packed__)) hci_param_access_set_cp;
+} hci_param_access_set_cp;
+// FIXME __attribute__ ((__packed__)) removed
 
 typedef struct {
 	uint8_t			d0;	/* ? */
 	hci_param_access_set_cp	cp;
-} __attribute__ ((__packed__)) hci_param_access_set_rp;
+} hci_param_access_set_rp;
+// FIXME __attribute__ ((__packed__)) removed
 
 void
 init_swave(int fd, unsigned int speed)
