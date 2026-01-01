@@ -30,7 +30,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: sdp_set.c,v 1.4 2011/04/05 18:58:43 plunky Exp $");
+//__RCSID("$NetBSD: sdp_set.c,v 1.4 2011/04/05 18:58:43 plunky Exp $");
 
 #include <bluetooth.h>
 #include <limits.h>

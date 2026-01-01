@@ -32,7 +32,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: bluetooth.c,v 1.1 2006/06/19 15:44:36 gdamore Exp $");
+//__RCSID("$NetBSD: bluetooth.c,v 1.1 2006/06/19 15:44:36 gdamore Exp $");
 
 #include <bluetooth.h>
 #include <stdio.h>
@@ -293,7 +293,7 @@ bt_aton(char const *str, bdaddr_t *ba)
 	int	 i, b;
 	char	*end = NULL;
 
-	memset(ba, 0, sizeof(*ba));
+	memset((void*) ba, 0, sizeof(*ba));
 
 	for (i = 5, end = strchr(str, ':');
 	     i > 0 && *str != '\0' && end != NULL;

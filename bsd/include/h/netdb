@@ -90,5 +90,37 @@
 #ifndef _NETDB_H_
 #define	_NETDB_H_
 
+//extern int h_errno;
+/* Line 136 */
+extern int h_errno;
+
+/* Line 143 */
+/*%
+ * Structures returned by network data base library.  All addresses are
+ * supplied in host order, and returned in network order (suitable for
+ * use in system calls).
+ */
+struct	hostent {
+	char	*h_name;	/*%< official name of host */
+	char	**h_aliases;	/*%< alias list */
+	int	h_addrtype;	/*%< host address type */
+	int	h_length;	/*%< length of address */
+	char	**h_addr_list;	/*%< list of addresses from name server */
+#define	h_addr	h_addr_list[0]	/*%< address, for backward compatibility */
+};
+
+/* Line 181 */
+struct	protoent {
+	char	*p_name;	/*%< official protocol name */
+	char	**p_aliases;	/*%< alias list */
+	int	p_proto;	/*%< protocol # */
+};
+
+/* Line 224 */
+#define	NETDB_INTERNAL	-1	/*%< see errno */
+#define	NETDB_SUCCESS	0	/*%< no problem */
+#define	HOST_NOT_FOUND	1 /*%< Authoritative Answer Host not found */
+#define	NO_RECOVERY	3 /*%< Non recoverable errors, FORMERR, REFUSED, NOTIMP */
+
 
 #endif /* !_NETDB_H_ */

@@ -27,7 +27,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: btuart.c,v 1.32 2024/07/05 04:31:50 rin Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: btuart.c,v 1.32 2024/07/05 04:31:50 rin Exp $");
 
 #include <sys/param.h>
 #include <sys/conf.h>

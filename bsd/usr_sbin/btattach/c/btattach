@@ -50,6 +50,7 @@
 
 #include "btattach.h"
 
+
 static void sighandler(int);
 __dead static void usage(void);
 static void test(const char *, tcflag_t, tcflag_t);

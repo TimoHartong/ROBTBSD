@@ -104,6 +104,9 @@ typedef int            ssize_t;    /* _BSD_SSIZE_T_ */
 
 #define	NBBY			8
 
+//typedef int                     time_t;
+typedef signed int              suseconds_t;
+
 typedef int pri_t;
 
 /*

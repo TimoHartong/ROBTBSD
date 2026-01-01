@@ -1,0 +1,16 @@
+# Makefile for ZVector Library using DDE
+
+COMPONENT = lib_bt
+
+# This is a list of source/object files for the library
+OBJS = bluetooth
+
+include CLibrary
+#cflags+=-c99
+#-Ospace
+
+
+clean::
+	${WIPE} ${INSTAPP} ${WFLAGS}
+
+# Dynamic dependencies:

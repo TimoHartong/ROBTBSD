@@ -6,7 +6,35 @@ Set BTBSD$Root <Obey$Dir>
 
 WimpSlot -min 8000K
 
-echo ----------------------
-echo Directory path set
-echo ----------------------
+echo --------------------------
+echo Make Extra Stdlib
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.lib.libc.stdlib
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+amu all_libs THROWBACK=-throwback
+
+echo --------------------------
+echo Make Extra Stdlib
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.lib.libc.gen
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+amu all_libs THROWBACK=-throwback
+
+echo --------------------------
+echo Make Lib Bluetooth library
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.lib.libbluetooth
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+amu all_libs THROWBACK=-throwback
+
+echo --------------------------
+echo Make btattach
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.usr_sbin.btattach
+amu all THROWBACK=-throwback 
+
 

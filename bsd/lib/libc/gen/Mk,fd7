@@ -1,0 +1,4 @@
+Dir <Obey$Dir>
+WimpSlot -min 4096k
+echo <BTBSD$Root>
+amu all_libs THROWBACK=-throwback

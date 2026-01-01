@@ -34,12 +34,45 @@
 #ifndef _SYS_TIME_H_
 #define	_SYS_TIME_H_
 
-/*
-*
-* Taken time.h from CLib and then let's see what we need more
-*
-*/
-
+#include <sys/featuretest.h>
+#include <sys/types.h>
 #include <time.h>
+
+/* Line 40 */
+/*
+ * Structure returned by gettimeofday(2) system call,
+ * and used in other calls.
+ */
+struct timeval {
+	time_t    	tv_sec;		/* seconds */
+	suseconds_t	tv_usec;	/* and microseconds */
+};
+
+#include <sys/timespec.h>
+
+#define	timerclear(tvp)		(tvp)->tv_sec = (tvp)->tv_usec = 0L
+
+
+
+/* Line 277 */
+/*
+ * Names of the interval timers, and structure
+ * defining a timer setting.
+ * NB: Must match the CLOCK_ constants below.
+ */
+#define	ITIMER_REAL		0
+#define	ITIMER_VIRTUAL		1
+#define	ITIMER_PROF		2
+#define	ITIMER_MONOTONIC	3
+
+struct	itimerval {
+	struct	timeval it_interval;	/* timer interval */
+	struct	timeval it_value;	/* current value */
+};
+
+/* Line 333 */
+int	setitimer(int, const struct itimerval * __restrict,
+	    struct itimerval * __restrict);
+
 
 #endif /* !_SYS_TIME_H_ */

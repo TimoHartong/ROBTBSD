@@ -85,7 +85,7 @@
  *****************************************************************************/
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: btmagic.c,v 1.21 2021/08/07 16:19:09 thorpej Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: btmagic.c,v 1.21 2021/08/07 16:19:09 thorpej Exp $");
 
 #include <sys/param.h>
 #include <sys/conf.h>
@@ -1478,7 +1478,7 @@ static const struct {
 };
 
 /*
- * as for btmagic_input_magicm, 
+ * as for btmagic_input_magicm,
  * the phase of the touch starts at 0x01 as the finger is first detected
  * approaching the mouse, increasing to 0x04 while the finger is touching,
  * then increases towards 0x07 as the finger is lifted, and we get 0x00
@@ -1496,7 +1496,7 @@ static const struct {
 #define MAGICT_Y_MAX	(2455)
 
 /*
- * area for detecting the buttons: divide in 3 areas on X, 
+ * area for detecting the buttons: divide in 3 areas on X,
  * below -1900 on y
  */
 #define MAGICT_B_YMAX	(-1900)
@@ -1574,7 +1574,7 @@ btmagic_input_magict(struct btmagic_softc *sc, uint8_t *data, size_t len)
 			}
 			if (id >= __arraycount(sc->sc_ax))
 				continue;
-					
+
 			tx = ax - sc->sc_ax[id];
 			ty = ay - sc->sc_ay[id];
 
@@ -1620,7 +1620,7 @@ btmagic_input_magict(struct btmagic_softc *sc, uint8_t *data, size_t len)
 						sc->sc_taptime.tv_sec++;
 					}
 				}
-					
+
 			}
 
 			break;

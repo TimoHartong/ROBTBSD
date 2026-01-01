@@ -77,7 +77,7 @@
 #define SDP_COMPAT
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: sdp_compat.c,v 1.2 2009/05/14 19:12:45 plunky Exp $");
+//__RCSID("$NetBSD: sdp_compat.c,v 1.2 2009/05/14 19:12:45 plunky Exp $");
 
 #include <errno.h>
 #include <sdp.h>

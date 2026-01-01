@@ -26,7 +26,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: bcsp.c,v 1.34 2024/07/05 04:31:50 rin Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: bcsp.c,v 1.34 2024/07/05 04:31:50 rin Exp $");
 
 #include <sys/types.h>
 #include <sys/param.h>
@@ -684,7 +684,7 @@ bcsp_slip_receive(int c, struct tty *tp)
 
 		if (sc->sc_slip_rxexp == BCSP_SLIP_ESCAPE) {
 			discard = 1;
-			errstr = "waiting 0xdc or 0xdb"; 
+			errstr = "waiting 0xdc or 0xdb";
 		} else
 			sc->sc_slip_rxexp = BCSP_SLIP_ESCAPE;
 		break;
@@ -1058,7 +1058,7 @@ bcsp_sequencing_receive(struct bcsp_softc *sc, struct mbuf *m)
 
 	/*
 	 * We remove the header of BCSP and add the 'uint8_t type' of
-	 * hci_*_hdr_t to the head. 
+	 * hci_*_hdr_t to the head.
 	 */
 	m_adj(m, sizeof(bcsp_hdr_t) - sizeof(uint8_t));
 
@@ -1338,7 +1338,7 @@ bcsp_datagramq_receive(struct bcsp_softc *sc, struct mbuf *m)
 	case BCSP_CHANNEL_HCI_SCO:
 		/*
 		 * We remove the header of BCSP and add the 'uint8_t type' of
-		 * hci_scodata_hdr_t to the head. 
+		 * hci_scodata_hdr_t to the head.
 		 */
 		m_adj(m, sizeof(bcsp_hdr_t) - sizeof(uint8_t));
 		*(mtod(m, uint8_t *)) = HCI_SCO_DATA_PKT;

@@ -29,7 +29,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: bth5.c,v 1.9 2024/07/05 04:31:50 rin Exp $");
+//__KERNEL_RCSID(0, "$NetBSD: bth5.c,v 1.9 2024/07/05 04:31:50 rin Exp $");
 
 #include <sys/types.h>
 #include <sys/param.h>
@@ -720,7 +720,7 @@ bth5_slip_receive(int c, struct tty *tp)
 
 		if (sc->sc_slip_rxexp == BTH5_SLIP_ESCAPE) {
 			discard = 1;
-			errstr = "waiting 0xdc or 0xdb or 0xde of 0xdf"; 
+			errstr = "waiting 0xdc or 0xdb or 0xde of 0xdf";
 		} else
 			sc->sc_slip_rxexp = BTH5_SLIP_ESCAPE;
 		break;
@@ -1114,7 +1114,7 @@ bth5_sequencing_receive(struct bth5_softc *sc, struct mbuf *m)
 
 	/*
 	 * We remove the header of BTH5 and add the 'uint8_t type' of
-	 * hci_*_hdr_t to the head. 
+	 * hci_*_hdr_t to the head.
 	 */
 	m_adj(m, sizeof(bth5_hdr_t) - sizeof(uint8_t));
 
@@ -1386,7 +1386,7 @@ bth5_datagramq_receive(struct bth5_softc *sc, struct mbuf *m)
 	case BTH5_CHANNEL_HCI_SCO:
 		/*
 		 * We remove the header of BTH5 and add the 'uint8_t type' of
-		 * hci_scodata_hdr_t to the head. 
+		 * hci_scodata_hdr_t to the head.
 		 */
 		m_adj(m, sizeof(bth5_hdr_t) - sizeof(uint8_t));
 		*(mtod(m, uint8_t *)) = HCI_SCO_DATA_PKT;

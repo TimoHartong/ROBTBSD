@@ -107,6 +107,9 @@ struct	accept_filter_arg {
 	char	af_arg[256-16];
 };
 
+/* Line 243 */
+#define AF_BLUETOOTH	31		/* Bluetooth: HCI, SCO, L2CAP, RFCOMM */
+
 /* Skip till line 251 (sock addre ) */
 /*
  * Structure used by kernel to store most

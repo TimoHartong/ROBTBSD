@@ -30,7 +30,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: sdp_service.c,v 1.4 2010/11/20 12:12:21 plunky Exp $");
+//__RCSID("$NetBSD: sdp_service.c,v 1.4 2010/11/20 12:12:21 plunky Exp $");
 
 #include <sys/atomic.h>
 

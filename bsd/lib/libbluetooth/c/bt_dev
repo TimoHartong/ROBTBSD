@@ -59,7 +59,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: bt_dev.c,v 1.4 2019/10/03 17:10:16 christos Exp $");
+//__RCSID("$NetBSD: bt_dev.c,v 1.4 2019/10/03 17:10:16 christos Exp $");
 
 #include <sys/event.h>
 #include <sys/ioctl.h>
