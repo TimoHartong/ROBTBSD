@@ -69,7 +69,9 @@
  * FREAD and FWRITE are excluded from the #ifdef _KERNEL so that TIOCFLUSH,
  * which was documented to use FREAD/FWRITE, continues to work.
  */
- /* Line 81 */
+ /* Line 78 */
+#define	FREAD		0x00000001
+#define	FWRITE		0x00000002
 #define	O_NONBLOCK	0x00000004	/* no delay */
 /* Line 85 */
 #define	O_EXLOCK	0x00000020	/* open with exclusive file lock */

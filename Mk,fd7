@@ -15,10 +15,18 @@ IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 amu all_libs THROWBACK=-throwback
 
 echo --------------------------
-echo Make Extra Stdlib
+echo Make Extra libc gen
 echo --------------------------
 
 Dir <BTBSD$Root>.bsd.lib.libc.gen
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+amu all_libs THROWBACK=-throwback
+
+echo --------------------------
+echo Make Extra libc termios
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.lib.libc.termios
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 amu all_libs THROWBACK=-throwback
 
