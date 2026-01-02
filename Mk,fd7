@@ -3,6 +3,9 @@
 | This code is released under the same licence as NetBSD
 
 Set BTBSD$Root <Obey$Dir>
+Set LibC$Root <Obey$Dir>.bsd.lib.libc
+
+echo <LibC$Root>
 
 WimpSlot -min 8000K
 
