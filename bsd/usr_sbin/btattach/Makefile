@@ -29,6 +29,8 @@ LIBBT = <BTBSD$Root>.bsd.lib.libbluetooth.
 LIBINCL = <BTBSD$Root>.bsd.include.
 # The netbt include folder
 LIBSYSNTBT = <BTBSD$Root>.bsd.sys
+LIBCROOT = <LibC$Root>
+COMMONLIB = <CommonLib$Root>
 
 
 # You need to specify all the files that go into the application directory.
@@ -38,8 +40,24 @@ INSTAPP_FILES = !Boot !Run !Sprites !Sprites11 !Sprites22 !RunImage
 
 include CApp
 
+#Suppress non ANSI warnings
+CFLAGS += +wp
+
 CINCLUDES += -I${LIBNETBT},${LIBBT},${LIBINCL},${LIBSYSNTBT}
-LIBS += ${LIBBT}o.bluetooth ${LIBDIREC}.lib.libc.stdlib.o.getopt ${LIBDIREC}.lib.libc.gen.o.errx ${LIBDIREC}.lib.libc.gen.o.err ${LIBDIREC}.lib.libc.gen.o.alarm ${LIBDIREC}.lib.libc.gen.o.daemon ${LIBDIREC}.lib.libc.gen.o.getprogname  ${LIBDIREC}.lib.libc.gen.o.sleep ${LIBDIREC}.lib.libc.gen.o.warn ${LIBDIREC}.lib.libc.termios.o.tcdrain ${LIBDIREC}.lib.libc.termios.o.tcflush ${LIBDIREC}.lib.libc.termios.o.tcgetattr ${LIBDIREC}.lib.libc.termios.o.tcsetattr ${LIBDIREC}.lib.libc.termios.o.cfmakeraw ${LIBDIREC}.lib.libc.termios.o.cfsetspeed
+# Add bluetooth lib
+LIBS += ${LIBBT}o.bluetooth 
+# Add stdlib libraries
+LIBS += ${LIBCROOT}.stdlib.o.getopt 
+# Add Clib gen library
+LIBS += ${LIBCROOT}.gen.o.errx ${LIBCROOT}.gen.o.err ${LIBCROOT}.gen.o.alarm 
+LIBS += ${LIBCROOT}.gen.o.daemon ${LIBCROOT}.gen.o.getprogname  ${LIBCROOT}.gen.o.sleep 
+LIBS += ${LIBCROOT}.gen.o.warn 
+# Add Clib Termios
+LIBS += ${LIBCROOT}.termios.o.tcdrain ${LIBCROOT}.termios.o.tcflush 
+LIBS += ${LIBCROOT}.termios.o.tcgetattr ${LIBCROOT}.termios.o.tcsetattr 
+LIBS += ${LIBCROOT}.termios.o.cfmakeraw ${LIBCROOT}.termios.o.cfsetspeed
+# Add Common Lib - String
+LIBS += ${COMMONLIB}.libc.string.o.strlcpy ${COMMONLIB}.libc.string.o.strcasecmp
 
 clean::
 	${WIPE} ${INSTAPP} ${WFLAGS}

@@ -17,6 +17,9 @@ LIBINCL = <BTBSD$Root>.bsd.include.
 
 include CLibrary
 
+#Suppress non ANSI warnings
+cflags+=-Wp
+
 CINCLUDES += -I${LIBINCL},${LIBNETBT}
 
 clean::

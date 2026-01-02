@@ -8,16 +8,14 @@ COMPONENT = libc_stdlib
 OBJS = getopt
 
 
-#LIBDIREC = <BTBSD$Root>.bsd
 # There are two bases for BT in NetBSD these are in sys/dev and sys/netbt
 LIBNETBT = <BTBSD$Root>.bsd.sys.sys
-#LIBBT = <BTBSD$Root>.bsd.lib.libbluetooth.
 # The netbsd include folder
 LIBINCL = <BTBSD$Root>.bsd.include.
-# The netbt include folder
-#LIBSYSNTBT = <BTBSD$Root>.bsd.sys
 
 include CLibrary
+#Suppress non ANSI warnings
+cflags+=-Wp
 
 CINCLUDES += -I${LIBINCL},${LIBNETBT}
 

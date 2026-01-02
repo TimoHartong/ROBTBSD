@@ -19,8 +19,10 @@ LIBSYSNTBT = <BTBSD$Root>.bsd.sys
 
 include CLibrary
 
+#Suppress non ANSI warnings
+cflags+=-Wp
+
 CINCLUDES += -I${LIBNETBT},${LIBBT},${LIBINCL},${LIBSYSNTBT},${LIBDIREC}
-|LIBS += ${LIBDIREC}.o.zvectorlib
 
 clean::
 	${WIPE} ${INSTAPP} ${WFLAGS}

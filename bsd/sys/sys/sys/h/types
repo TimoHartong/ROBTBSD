@@ -89,6 +89,21 @@ typedef	quad_t *	qaddr_t;
 typedef	int64_t		longlong_t;	/* for XDR */
 typedef	uint64_t	u_longlong_t;	/* for XDR */
 
+/* Line 196 */
+#ifndef	pid_t
+typedef	__pid_t		pid_t;		/* process id */
+#define	pid_t		__pid_t
+#endif
+typedef int32_t		lwpid_t;	/* LWP id */
+typedef uint64_t	rlim_t;		/* resource limit */
+typedef	int32_t		segsz_t;	/* segment size */
+typedef	int32_t		swblk_t;	/* swap offset */
+
+#ifndef	uid_t
+typedef	__uid_t		uid_t;		/* user id */
+#define	uid_t		__uid_t
+#endif
+
 /* Skip to line 220 */
 #include <sys/stdbool.h>
 

@@ -4,32 +4,32 @@
 
 Set BTBSD$Root <Obey$Dir>
 Set LibC$Root <Obey$Dir>.bsd.lib.libc
+Set CommonLib$Root <Obey$Dir>.bsd.common.lib
 
-echo <LibC$Root>
 
 WimpSlot -min 8000K
 
 echo --------------------------
-echo Make Extra Stdlib
+echo Make Clib - stdlib
 echo --------------------------
 
-Dir <BTBSD$Root>.bsd.lib.libc.stdlib
+Dir <LibC$Root>.stdlib
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 amu all_libs THROWBACK=-throwback
 
 echo --------------------------
-echo Make Extra libc gen
+echo Make Clib - gen
 echo --------------------------
 
-Dir <BTBSD$Root>.bsd.lib.libc.gen
+Dir <LibC$Root>.gen
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 amu all_libs THROWBACK=-throwback
 
 echo --------------------------
-echo Make Extra libc termios
+echo Make Clib - termios
 echo --------------------------
 
-Dir <BTBSD$Root>.bsd.lib.libc.termios
+Dir <LibC$Root>.termios
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 amu all_libs THROWBACK=-throwback
 
@@ -40,6 +40,16 @@ echo --------------------------
 Dir <BTBSD$Root>.bsd.lib.libbluetooth
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 amu all_libs THROWBACK=-throwback
+
+echo --------------------------
+echo Make Common Libc string
+echo --------------------------
+
+Dir <CommonLib$Root>.libc.string
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+amu all_libs THROWBACK=-throwback
+
+
 
 echo --------------------------
 echo Make btattach
