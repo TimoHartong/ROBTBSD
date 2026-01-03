@@ -74,10 +74,16 @@
 unsigned int alarm(unsigned int);
 /* Line 96 */
 int	 close(int);
+/* Line 118 */
+gid_t	 getgid(void);
+/* Line 123 */
+pid_t	 getpid(void);
 /* Line 132 */
 ssize_t	 read(int, void *, size_t);
 /* Line 139 */
 unsigned int	 sleep(unsigned int);
+/* Line 144 */
+int	 unlink(const char *);
 /* Skip to line 153 */
 int	 getopt(int, char * const [], const char *);
 
@@ -85,5 +91,20 @@ extern	 char *optarg;			/* getopt(3) external variables */
 extern	 int opterr;
 extern	 int optind;
 extern	 int optopt;
+
+/* Line 180 */
+/*
+ * The following three syscalls are also defined in <sys/types.h>
+ * We protect them against double declarations.
+ */
+off_t	 lseek(int, off_t, int);
+
+
+/* Line 195 */
+/*
+ * IEEE Std 1003.1b-93,
+ * also found in X/Open Portability Guide >= Issue 4 Version 2
+ */
+int	 ftruncate(int, off_t);
 
 #endif /* !_UNISTD_H_ */

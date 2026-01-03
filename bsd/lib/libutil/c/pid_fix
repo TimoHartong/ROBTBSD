@@ -1,0 +1,55 @@
+#include <sys/cdefs.h>
+
+#include <sys/param.h>
+
+#include <errno.h>
+#include <sys/errno.h>   // Now look in the BSD errorno
+#include <fcntl.h>
+#include <inttypes.h>
+#include <machine/int_types.h> // FIXME added to non existing inttypes.h  functions
+#include <paths.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <machine/stdio.h>  // FIXME added to non existing stio.h functions
+#include <string.h>
+#include <unistd.h>
+#include <util.h>
+
+/* FIXME To get rid of all the link errors we put the functions here */
+pid_t getpid(void)
+{
+
+}
+
+int unlink(const char *path)
+{
+  return 0;
+}
+
+off_t lseek(int fildes, off_t offset, int whence)
+{
+  return 0;
+}
+
+int ftruncate(int fd, off_t lenght)
+{
+  return 0;
+}
+
+int strtoi(const char *nptr, char **endptr, int base, int lo, int hi, int *rstatus)
+{
+}
+
+/* asprint is defines on several places so we do it here */
+int asprintf(char **ptr, const char *fmt, ...)
+{
+//  va_list vargs;
+  int retval;
+
+ // va_start(vargs, fmt);
+ // retval = vasprintf(ptr, fmt, vargs);
+//  va_end(vargs);
+
+  return retval;
+}

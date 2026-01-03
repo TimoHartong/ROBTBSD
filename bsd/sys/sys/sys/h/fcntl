@@ -76,6 +76,10 @@
 /* Line 85 */
 #define	O_EXLOCK	0x00000020	/* open with exclusive file lock */
 
+/* Line 97 */
+#define	O_CREAT		0x00000200	/* create if nonexistent */
+
+
 /*  Some prototypes of functions used in the BT stack */
 
 /* Line 315 */

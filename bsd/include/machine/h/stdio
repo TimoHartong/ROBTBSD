@@ -1,0 +1,8 @@
+#ifndef _MACH_STDIO_H_
+#define _MACH_STDIO_H_
+
+
+
+int dprintf(int fd, const char * __restrict fmt, ...);
+
+#endif

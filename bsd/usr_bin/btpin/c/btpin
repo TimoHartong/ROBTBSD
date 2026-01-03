@@ -32,8 +32,8 @@
  */
 
 #include <sys/cdefs.h>
-__COPYRIGHT("@(#) Copyright (c) 2006 Itronix, Inc.  All rights reserved.");
-__RCSID("$NetBSD: btpin.c,v 1.8 2019/10/12 17:50:56 christos Exp $");
+//__COPYRIGHT("@(#) Copyright (c) 2006 Itronix, Inc.  All rights reserved.");
+//__RCSID("$NetBSD: btpin.c,v 1.8 2019/10/12 17:50:56 christos Exp $");
 
 #include <sys/types.h>
 #include <sys/un.h>
@@ -145,13 +145,13 @@ main(int ac, char *av[])
 
 	if (connect(s, (struct sockaddr *)&un, sizeof(un)) == -1)
 		err(EXIT_FAILURE, "connect(\"%s\")", un.sun_path);
-	
+
 	if (send(s, &rp, sizeof(rp), 0) != sizeof(rp))
 		err(EXIT_FAILURE, "send");
 
 	close(s);
 
-	if (pair == 0) 
+	if (pair == 0)
 		exit(EXIT_SUCCESS);
 
 	s = socket(PF_BLUETOOTH, SOCK_SEQPACKET, BTPROTO_L2CAP);

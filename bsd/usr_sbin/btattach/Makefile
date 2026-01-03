@@ -41,7 +41,7 @@ INSTAPP_FILES = !Boot !Run !Sprites !Sprites11 !Sprites22 !RunImage
 include CApp
 
 #Suppress non ANSI warnings
-CFLAGS += +wp
+cflags+=-Wp
 
 CINCLUDES += -I${LIBNETBT},${LIBBT},${LIBINCL},${LIBSYSNTBT}
 # Add bluetooth lib
@@ -56,127 +56,18 @@ LIBS += ${LIBCROOT}.gen.o.warn
 LIBS += ${LIBCROOT}.termios.o.tcdrain ${LIBCROOT}.termios.o.tcflush 
 LIBS += ${LIBCROOT}.termios.o.tcgetattr ${LIBCROOT}.termios.o.tcsetattr 
 LIBS += ${LIBCROOT}.termios.o.cfmakeraw ${LIBCROOT}.termios.o.cfsetspeed
-# Add Common Lib - String
+# Add Clib stdio
+LIBS += ${LIBCROOT}.stdio.o.dprintf
+# Add Common CLib - String That is something else then Clib in Lib
 LIBS += ${COMMONLIB}.libc.string.o.strlcpy ${COMMONLIB}.libc.string.o.strcasecmp
+# Add LibUtil 
+LIBS += ${LIBDIREC}.lib.libutil.o.pidfile ${LIBDIREC}.lib.libutil.o.pid_fix
+
 
 clean::
 	${WIPE} ${INSTAPP} ${WFLAGS}
 
 # Dynamic dependencies:
-o.firmload:	c.firmload
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.param
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.null
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.inttypes
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdint
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_fmtio
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_fmtio
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_int_fmtio
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.types
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.fcntl
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.bsdfix
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_int_types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.endian
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.endian
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdint
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.endian_machdep
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.endian_machdep
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.bswap
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.bswap
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.byte_swap
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.bswap
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdint
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.bswap
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.bswap
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdbool
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.fd_set
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.param
-o.firmload:	<BTBSD$Root>.bsd.include.arm.arm32.h.param
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.limits
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.limits
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.errno
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.time
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.timespec
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.resource
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ucred
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.uio
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.include.uvm.h.uvm_param
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.signal
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.sigtypes
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.siginfo
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.signal
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.signal
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.sigtypes
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.queue
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ucontext
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.signal
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.signal
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.sysctl
-o.firmload:	<BTBSD$Root>.bsd.include.h.fcntl
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stat
-o.firmload:	<BTBSD$Root>.bsd.include.h.unistd
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
-o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.unistd
-o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.firmload:	h.firmload
 o.btattach:	c.btattach
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.btattach:	<BTBSD$Root>.bsd.include.machine.h.cdefs
@@ -344,6 +235,120 @@ o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.inttypes
 o.btattach:	h.btattach
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.firmload:	c.firmload
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.param
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.null
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.inttypes
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdint
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_fmtio
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_fmtio
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_int_fmtio
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.types
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.fcntl
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.bsdfix
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_int_types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.endian
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.endian
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdint
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.endian_machdep
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.endian_machdep
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.bswap
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.bswap
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.byte_swap
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.bswap
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdint
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.bswap
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.bswap
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stdbool
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.fd_set
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.param
+o.firmload:	<BTBSD$Root>.bsd.include.arm.arm32.h.param
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.limits
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.limits
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.errno
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.time
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.timespec
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.resource
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ucred
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.uio
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.include.uvm.h.uvm_param
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.signal
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.sigtypes
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.siginfo
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.signal
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.signal
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.sigtypes
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.queue
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.ucontext
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.signal
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.signal
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.sysctl
+o.firmload:	<BTBSD$Root>.bsd.include.h.fcntl
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.stat
+o.firmload:	<BTBSD$Root>.bsd.include.h.unistd
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.ansi
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
+o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.unistd
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	h.firmload
 o.init_bcm2035:	c.init_bcm2035
 o.init_bcm2035:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_bcm2035:	<BTBSD$Root>.bsd.include.machine.h.cdefs

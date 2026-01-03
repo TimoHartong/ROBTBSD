@@ -28,7 +28,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: device.c,v 1.3 2009/02/09 12:44:32 plunky Exp $");
+//__RCSID("$NetBSD: device.c,v 1.3 2009/02/09 12:44:32 plunky Exp $");
 
 #include <bluetooth.h>
 #include <errno.h>

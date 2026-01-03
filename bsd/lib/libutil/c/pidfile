@@ -37,10 +37,12 @@
 #include <sys/errno.h>   // Now look in the BSD errorno
 #include <fcntl.h>
 #include <inttypes.h>
+#include <machine/int_types.h> // FIXME added to non existing inttypes.h  functions
 #include <paths.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <machine/stdio.h>  // FIXME added to non existing stio.h functions
 #include <string.h>
 #include <unistd.h>
 #include <util.h>
@@ -49,11 +51,11 @@ static pid_t pidfile_pid;
 static char pidfile_path[PATH_MAX];
 static int pidfile_fd = -1;
 
+
 /* Closes pidfile resources.
  *
  * Returns 0 on success, otherwise -1. */
-static int
-pidfile_close(void)
+static int pidfile_close(void)
 {
 	int error;
 

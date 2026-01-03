@@ -39,10 +39,13 @@
 #ifndef _SYS_ERRNO_H_
 #define _SYS_ERRNO_H_
 
-
+#define	EPERM		1		/* Operation not permitted */
 #define	ENOENT          2		/* No such file or directory */
 /* Line 46 */
 #define	EIO		5		/* Input/output error */
+#define	EBADF		9		/* Bad file descriptor */
+#define	EEXIST		17		/* File exists */
+
 #define	EINVAL		22		/* Invalid argument */
 /* Line 81 */
 /* non-blocking and interrupt i/o */
@@ -50,6 +53,10 @@
 #define	EWOULDBLOCK	EAGAIN		/* Operation would block */
 #define	EINPROGRESS	36		/* Operation now in progress */
 #define	EALREADY	37		/* Operation already in progress */
+#define	ENAMETOOLONG	63		/* File name too long */
 
+/* From IEEE Std 1003.1-2001 */
+/* Base, Realtime, Threads or Thread Priority Scheduling option errors */
+#define ENOTSUP		86		/* Not supported */
 
 #endif /* !_SYS_ERRNO_H_ */

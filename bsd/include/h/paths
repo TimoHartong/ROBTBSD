@@ -34,6 +34,14 @@
 #ifndef _PATHS_H_
 #define	_PATHS_H_
 
+/* Line 114 */
+
+/*
+ * Provide trailing slash, since mostly used for building pathnames.
+ * See the __CONCAT() macro from <sys/cdefs.h> for cpp examples.
+ */
+
+#define	_PATH_VARRUN	"/var/run/"
 
 #endif /* !_PATHS_H_ */
 

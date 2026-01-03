@@ -32,7 +32,7 @@
  */
 
 #include <sys/cdefs.h>
-__RCSID("$NetBSD: db.c,v 1.6 2020/06/07 00:12:00 thorpej Exp $");
+//__RCSID("$NetBSD: db.c,v 1.6 2020/06/07 00:12:00 thorpej Exp $");
 
 #include <bluetooth.h>
 #include <err.h>

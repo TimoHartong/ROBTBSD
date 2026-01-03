@@ -89,7 +89,25 @@ typedef	quad_t *	qaddr_t;
 typedef	int64_t		longlong_t;	/* for XDR */
 typedef	uint64_t	u_longlong_t;	/* for XDR */
 
-/* Line 196 */
+/* Line 160 */
+#ifndef	gid_t
+typedef	__gid_t		gid_t;		/* group id */
+#define	gid_t		__gid_t
+#endif
+
+/*
+ * Some first stage bootloaders may want to avoid 64bit math, especially
+ * when the firmware can only access small disks/partitions anyway.
+ * Example: hppa/stand/xxboot
+ */
+
+
+/* Line 191 */
+#ifndef	off_t
+typedef	__off_t		off_t;		/* file offset */
+#define	off_t		__off_t
+#endif
+
 #ifndef	pid_t
 typedef	__pid_t		pid_t;		/* process id */
 #define	pid_t		__pid_t

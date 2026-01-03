@@ -34,6 +34,16 @@ IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 amu all_libs THROWBACK=-throwback
 
 echo --------------------------
+echo Make Clib - stdio
+echo --------------------------
+
+Dir <LibC$Root>.stdio
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+amu all_libs THROWBACK=-throwback
+
+
+
+echo --------------------------
 echo Make Lib Bluetooth library
 echo --------------------------
 
@@ -49,6 +59,13 @@ Dir <CommonLib$Root>.libc.string
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 amu all_libs THROWBACK=-throwback
 
+echo --------------------------
+echo Make Lib LibUtil
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.lib.libutil
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+amu all_libs THROWBACK=-throwback
 
 
 echo --------------------------

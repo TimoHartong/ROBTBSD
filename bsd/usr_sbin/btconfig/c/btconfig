@@ -32,8 +32,8 @@
  */
 
 #include <sys/cdefs.h>
-__COPYRIGHT("@(#) Copyright (c) 2006 Itronix, Inc.  All rights reserved.");
-__RCSID("$NetBSD: btconfig.c,v 1.28 2017/12/21 09:31:22 plunky Exp $");
+//__COPYRIGHT("@(#) Copyright (c) 2006 Itronix, Inc.  All rights reserved.");
+//__RCSID("$NetBSD: btconfig.c,v 1.28 2017/12/21 09:31:22 plunky Exp $");
 
 #include <sys/ioctl.h>
 #include <sys/param.h>
@@ -42,6 +42,7 @@ __RCSID("$NetBSD: btconfig.c,v 1.28 2017/12/21 09:31:22 plunky Exp $");
 #include <bluetooth.h>
 #include <err.h>
 #include <errno.h>
+#include <sys/errno.h>  // FIXME errno.h points to ROOL DDE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
