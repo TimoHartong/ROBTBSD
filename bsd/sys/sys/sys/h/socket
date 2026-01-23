@@ -93,14 +93,15 @@ typedef __socklen_t	socklen_t;
 #include <sys/uio.h>
 #include <sys/sigtypes.h>
 
-/* Line 102 */
 /*
  * Socket types.
+ * Line 102
  */
 #define	SOCK_RAW	3		/* raw-protocol interface */
 
+/* Line 134 */
+#define	SO_TIMESTAMP	0x2000		/* timestamp received dgram traffic */
 
-/* Skip defines for the moment until line 182 definition of linger  */
 /*
  * Structure used for manipulating linger option.
  */
@@ -113,6 +114,12 @@ struct	accept_filter_arg {
 	char	af_name[16];
 	char	af_arg[256-16];
 };
+
+/*
+ * Level number for (get/set)sockopt() to apply to socket itself.
+ */
+#define	SOL_SOCKET	0xffff		/* options for socket level */
+
 
 /* Line 243 */
 #define AF_BLUETOOTH	31		/* Bluetooth: HCI, SCO, L2CAP, RFCOMM */
@@ -143,6 +150,7 @@ struct sockproto {
  * sizeof(sb_len) + sizeof(sb_family) + 253 + '\0'
  */
 #define _SB_DATASIZE	254
+
 struct sockaddr_big {
     union {
 	struct {
@@ -226,7 +234,10 @@ struct mmsghdr {
 /* Line 623 */
 int bind(int s, const struct sockaddr *name, socklen_t nameLen);
 int connect(int s, const struct sockaddr *name, socklen_t nameLen);
+int	getsockopt(int, int, int, void *__restrict, socklen_t * __restrict);
+ssize_t	recv(int, void *, size_t, int);
 
+int	setsockopt(int, int, int, const void *, socklen_t);
 /* Line 643 */
 int socket(int domain, int type, int protocol);
 

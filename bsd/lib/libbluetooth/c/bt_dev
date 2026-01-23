@@ -69,6 +69,7 @@
 
 #include <bluetooth.h>
 #include <errno.h>
+#include <sys/errno.h> /* Extra addition for RO */
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -345,7 +346,7 @@ bt__devreq(int s, struct bt_devreq *req, time_t t_end)
 		if (sizeof(ev) > (size_t)n || p[0] != HCI_EVENT_PKT)
 			return EIO;
 
-		memcpy(&ev, p, sizeof(ev));
+		memcpy((void*) &ev, p, sizeof(ev));
 		p += sizeof(ev);
 		n -= sizeof(ev);
 
@@ -356,7 +357,7 @@ bt__devreq(int s, struct bt_devreq *req, time_t t_end)
 			if (sizeof(cs) > (size_t)n)
 				return EIO;
 
-			memcpy(&cs, p, sizeof(cs));
+			memcpy((void*) &cs, p, sizeof(cs));
 			p += sizeof(cs);
 			n -= sizeof(cs);
 
@@ -375,7 +376,7 @@ bt__devreq(int s, struct bt_devreq *req, time_t t_end)
 			if (sizeof(cc) > (size_t)n)
 				return EIO;
 
-			memcpy(&cc, p, sizeof(cc));
+			memcpy((void*) &cc, p, sizeof(cc));
 			p += sizeof(cc);
 			n -= sizeof(cc);
 
@@ -645,7 +646,7 @@ bt_devinquiry(const char *name, time_t to, int max_rsp,
 	cp.inquiry_length = (uint8_t)(to * 100 / 128);
 	cp.num_responses = (uint8_t)max_rsp;
 
-	if (bt_devsend(s, HCI_CMD_INQUIRY, &cp, sizeof(cp)) == -1)
+	if (bt_devsend(s, HCI_CMD_INQUIRY, (void*) &cp, sizeof(cp)) == -1)
 		goto fail;
 
 	count = 0;
@@ -661,7 +662,7 @@ bt_devinquiry(const char *name, time_t to, int max_rsp,
 			goto fail;
 		}
 
-		memcpy(&ev, p, sizeof(ev));
+		memcpy((void*)&ev, p, sizeof(ev));
 		p += sizeof(ev);
 		n -= sizeof(ev);
 
@@ -670,7 +671,7 @@ bt_devinquiry(const char *name, time_t to, int max_rsp,
 			if (sizeof(sp) > (size_t)n)
 				break;
 
-			memcpy(&sp, p, sizeof(sp));
+			memcpy((void*) &sp, p, sizeof(sp));
 
 			if (le16toh(sp.opcode) != HCI_CMD_INQUIRY
 			    || sp.status == 0)
@@ -688,7 +689,7 @@ bt_devinquiry(const char *name, time_t to, int max_rsp,
 			if (sizeof(ip) > (size_t)n)
 				break;
 
-			memcpy(&ip, p, sizeof(ip));
+			memcpy((void*) &ip, p, sizeof(ip));
 			p += sizeof(ip);
 			n -= sizeof(ip);
 
@@ -696,14 +697,14 @@ bt_devinquiry(const char *name, time_t to, int max_rsp,
 				break;
 
 			for (i = 0; i < ip.num_responses; i++) {
-				memcpy(&ir, p, sizeof(ir));
+				memcpy((void*) &ir, p, sizeof(ir));
 				p += sizeof(ir);
 
 				bt__devresult(ii, &count, max_rsp,
 					&ir.bdaddr,
 					ir.page_scan_rep_mode,
 					ir.page_scan_period_mode,
-					ir.uclass,
+					(void*) ir.uclass,
 					ir.clock_offset,
 					0,		/* rssi */
 					NULL);		/* extended data */
@@ -715,7 +716,7 @@ bt_devinquiry(const char *name, time_t to, int max_rsp,
 			if (sizeof(rp) > (size_t)n)
 				break;
 
-			memcpy(&rp, p, sizeof(rp));
+			memcpy((void*) &rp, p, sizeof(rp));
 			p += sizeof(rp);
 			n -= sizeof(rp);
 
@@ -723,14 +724,14 @@ bt_devinquiry(const char *name, time_t to, int max_rsp,
 				break;
 
 			for (i = 0; i < rp.num_responses; i++) {
-				memcpy(&rr, p, sizeof(rr));
+				memcpy((void*) &rr, p, sizeof(rr));
 				p += sizeof(rr);
 
 				bt__devresult(ii, &count, max_rsp,
 					&rr.bdaddr,
 					rr.page_scan_rep_mode,
 					0,	/* page scan period mode */
-					rr.uclass,
+					(void*) rr.uclass,
 					rr.clock_offset,
 					rr.rssi,
 					NULL);		/* extended data */
@@ -742,19 +743,21 @@ bt_devinquiry(const char *name, time_t to, int max_rsp,
 			if (sizeof(ep) != (size_t)n)
 				break;
 
-			memcpy(&ep, p, sizeof(ep));
+			memcpy((void*) &ep, p, sizeof(ep));
 
 			if (ep.num_responses != 1)
 				break;
 
-			bt__devresult(ii, &count, max_rsp,
+			bt__devresult(
+			        ii,
+			        &count, max_rsp,
 				&ep.bdaddr,
 				ep.page_scan_rep_mode,
 				0,	/* page scan period mode */
 				ep.uclass,
-				ep.clock_offset,
-				ep.rssi,
-				ep.response);
+				(uint16_t) ep.clock_offset,
+				(int8_t) ep.rssi,
+				(uint8_t*) ep.response);
 
 			break;
 

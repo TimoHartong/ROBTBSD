@@ -31,7 +31,47 @@
 #ifndef _SYS_EVENT_H_
 #define	_SYS_EVENT_H_
 
+#include <sys/featuretest.h>
+#include <sys/types.h>			/* for size_t */
+#include <sys/inttypes.h>		/* for uintptr_t */
+#include <sys/null.h>			/* for NULL */
 
-/* FIXME Empty file */
+#define	EVFILT_READ		0U
+
+/* Line 66 */
+struct kevent {
+	uintptr_t	ident;		/* identifier for this event */
+	uint32_t	filter;		/* filter for event */
+	uint32_t	flags;		/* action flags for kqueue */
+	uint32_t	fflags;		/* filter flag value */
+	int64_t		data;		/* filter data value */
+	void		*udata;		/* opaque user data identifier */
+};
+
+static __inline void
+_EV_SET(struct kevent *_kevp, uintptr_t _ident, uint32_t _filter,
+    uint32_t _flags, uint32_t _fflags, int64_t _data, void *_udata)
+{
+	_kevp->ident = _ident;
+	_kevp->filter = _filter;
+	_kevp->flags = _flags;
+	_kevp->fflags = _fflags;
+	_kevp->data = _data;
+	_kevp->udata = _udata;
+}
+
+#define EV_SET(kevp, ident, filter, flags, fflags, data, udata)	\
+    _EV_SET((kevp), __CAST(uintptr_t, (ident)), (filter), (flags), \
+    (fflags), (data), __CAST(void *, (udata)))
+
+/* actions */
+#define	EV_ADD		0x0001U		/* add event to kq (implies ENABLE) */
+
+/* Line 348 */
+int	kqueue(void);
+
+int	kevent(int, const struct kevent *, size_t, struct kevent *, size_t,
+		    const struct timespec *);
+
 
 #endif /* !_SYS_EVENT_H_ */
