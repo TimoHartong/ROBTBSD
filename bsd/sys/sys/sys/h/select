@@ -44,9 +44,8 @@
 #include <sys/sigtypes.h>
 #include <time.h>
 
-/* Line 72 */
-int	select(int, fd_set * __restrict, fd_set * __restrict,
-    fd_set * __restrict, struct timeval * __restrict);
+/* Line 72  This function has been adapted from the orginal */
+int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
 
 
 /* FIXME empty file */

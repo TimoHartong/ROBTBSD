@@ -83,4 +83,10 @@ echo --------------------------
 Dir <BTBSD$Root>.bsd.usr_sbin.btattach
 amu all THROWBACK=-throwback 
 
+echo --------------------------
+echo Make btconfig
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.usr_sbin.btconfig
+amu all THROWBACK=-throwback 
 

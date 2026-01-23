@@ -48,7 +48,7 @@ struct iovec {
 
 #include <sys/cdefs.h>
 /* Line 117 */
-ssize_t	writev(int, const struct iovec *, int);
+ssize_t	writev(int d, const struct iovec *iov, int iovcnt);
 
 
 

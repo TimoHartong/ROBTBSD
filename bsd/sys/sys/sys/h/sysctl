@@ -38,6 +38,6 @@
 #define	_SYS_SYSCTL_H_
 
 /* FIXME line 1233 */
-void	*asysctlbyname(const char *, size_t *);
+void	*asysctlbyname(const char *sname, size_t *len);
 
 #endif	/* !_SYS_SYSCTL_H_ */

@@ -43,4 +43,26 @@ int open(const char *path, int flags, ...)
 {
 }
 
+/* sys/uio.h */
+ssize_t	writev(int d, const struct iovec *iov, int iovcnt)
+{
+
+}
+
+/* sys/select.h */
+int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout)
+{
+}
+
+/* unknown */
+int sigaction(int sig, const struct sigaction *act, struct sigaction *oact)
+{
+}
+
+/* sys/sysctl.h */
+void *asysctlbyname(const char *sname, size_t *len)
+{
+}
+
+
 
