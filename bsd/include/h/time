@@ -1,8 +1,13 @@
-/*	$NetBSD: err.h,v 1.18 2022/01/06 00:16:47 uwe Exp $	*/
+/*	$NetBSD: time.h,v 1.48 2022/10/23 15:43:40 jschauma Exp $	*/
 
-/*-
- * Copyright (c) 1993
+/*
+ * Copyright (c) 1989, 1993
  *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -28,33 +33,18 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)err.h	8.1 (Berkeley) 6/2/93
+ *	@(#)time.h	8.3 (Berkeley) 1/21/94
  */
 
-#ifndef _ERR_H_
-#define	_ERR_H_
+#ifndef _TIME_H_
+#define	_TIME_H_
 
 #include <sys/cdefs.h>
-#include <stdarg.h>
+#include <sys/featuretest.h>
+#include <machine/ansi.h>
 
-__dead void	err(int, const char *, ...);
-__dead void	errx(int, const char *, ...);
-void		warn(const char *, ...);
-void		warnx(const char *fmt, ...);
+#include <sys/null.h>
 
-/*
-FIXME emty file
-__dead void	err(int, const char *, ...);
-__dead void	verr(int, const char *, va_list);
-__dead void	errx(int, const char *, ...);
-__dead void	verrx(int, const char *, va_list);
-__dead void	errc(int, int, const char *, ...);
-__dead void	verrc(int, int, const char *, va_list);
-void		warn(const char *, ...);
-void		vwarn(const char *, va_list);
-void		warnx(const char *, ...);
-void		vwarnx(const char *, va_list);
-void		warnc(int, const char *, ...);
-void		vwarnc(int, const char *, va_list);
-*/
-#endif /* !_ERR_H_ */
+//int nanosleep(const struct timespec *rqtp, struct timespec *rmtp);
+
+#endif /* !_TIME_H_ */

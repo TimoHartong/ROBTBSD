@@ -74,5 +74,7 @@ struct	itimerval {
 int setitimer(int which, const struct itimerval * value,
 	    struct itimerval * ovalue);
 
+/* Originally not here */
+int nanosleep(const struct timespec *rqtp, struct timespec *rmtp);
 
 #endif /* !_SYS_TIME_H_ */

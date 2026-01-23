@@ -17,6 +17,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include <util.h>
+//#include "sys/bsdfix.h" // Added to have it compiled
 
 /**
 * This file contains the dummy and fixes for netbesd
@@ -64,5 +65,37 @@ void *asysctlbyname(const char *sname, size_t *len)
 {
 }
 
+/* sys/socket.h */
+int bind(int s, const struct sockaddr *name, socklen_t nameLen)
+{
 
+}
 
+int connect(int s, const struct sockaddr *name, socklen_t nameLen)
+{
+}
+
+int socket(int domain, int type, int protocol)
+{
+}
+
+/* time.h */
+int nanosleep(const struct timespec *rqtp, struct timespec *rmtp)
+{
+
+}
+
+/* err.h */
+void warnx(const char *fmt, ...)
+{
+}
+
+/* util.h */
+int snprintb(char *buf, size_t bufsize, const char *fmt, uint64_t val)
+{
+
+}
+
+int pidfile(const char *path)
+{
+}

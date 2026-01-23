@@ -93,6 +93,13 @@ typedef __socklen_t	socklen_t;
 #include <sys/uio.h>
 #include <sys/sigtypes.h>
 
+/* Line 102 */
+/*
+ * Socket types.
+ */
+#define	SOCK_RAW	3		/* raw-protocol interface */
+
+
 /* Skip defines for the moment until line 182 definition of linger  */
 /*
  * Structure used for manipulating linger option.
@@ -168,6 +175,9 @@ struct sockaddr_storage {
 #define	sstosa(__ss)	((struct sockaddr *)(__ss))
 #define	sstocsa(__ss)	((const struct sockaddr *)(__ss))
 
+/* Line 353 */
+#define PF_BLUETOOTH	AF_BLUETOOTH
+
 /* skip to line 378 (sockcred ) */
 /*
  * Socket credentials.
@@ -213,7 +223,12 @@ struct mmsghdr {
 };
 
 
+/* Line 623 */
+int bind(int s, const struct sockaddr *name, socklen_t nameLen);
+int connect(int s, const struct sockaddr *name, socklen_t nameLen);
 
+/* Line 643 */
+int socket(int domain, int type, int protocol);
 
 
 

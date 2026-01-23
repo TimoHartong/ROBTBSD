@@ -1,3 +1,13 @@
+#ifndef _BSDFIX_H_
+#define	_BSDFIX_H_
+
+//#include <sys/cdefs.h>
+//#include <sys/time.h>
+
+/* Taken from the microchip website */
+#define __CHAR_BIT__      8
+#define __UINTMAX_TYPE__  unsigned int
+
 /* From strings.h Line 63 */
 int	 strcasecmp(const char *, const char *);
 /* From stdlib.h Line 294 */
@@ -8,4 +18,7 @@ const char *getprogname(void);
 int	 asprintf(char ** __restrict, const char * __restrict, ...);
 /* From string.h Line */
 unsigned int strlcpy(char *, const char *, unsigned int); // size_t = unsigned int
+//int nanosleep(const struct timespec *rqtp, struct timespec *rmtp);
+
+#endif
 

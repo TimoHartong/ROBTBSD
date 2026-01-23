@@ -68,4 +68,29 @@
 #include <sys/bsdfix.h>
 //#include <sys/select.h>
 
+/* line 649 */
+#define	__BIT(__n)							      \
+	(((__UINTMAX_TYPE__)(__n) >= __CHAR_BIT__ * sizeof(__UINTMAX_TYPE__)) \
+	    ? 0								      \
+	    : ((__UINTMAX_TYPE__)1 <<					      \
+		(__UINTMAX_TYPE__)((__n) &				      \
+		    (__CHAR_BIT__ * sizeof(__UINTMAX_TYPE__) - 1))))
+
+/* __MASK(n): first n bits all set, where __MASK(4) == 0b1111. */
+#define	__MASK(__n)	(__BIT(__n) - 1)
+
+/* Macros for min/max. */
+#define	__MIN(a,b)	((/*CONSTCOND*/(a)<=(b))?(a):(b))
+#define	__MAX(a,b)	((/*CONSTCOND*/(a)>(b))?(a):(b))
+
+/* __BITS(m, n): bits m through n, m < n. */
+#define	__BITS(__m, __n)	\
+	((__BIT(__MAX((__m), (__n)) + 1) - 1) ^ (__BIT(__MIN((__m), (__n))) - 1))
+
+/* Line 668 */
+/* find least significant bit that is set */
+#define	__LOWEST_SET_BIT(__mask) ((((__mask) - 1) & (__mask)) ^ (__mask))
+
+#define	__SHIFTOUT(__x, __mask)	(((__x) & (__mask)) / __LOWEST_SET_BIT(__mask))
+
 #endif /* !_SYS_CDEFS_H_ */

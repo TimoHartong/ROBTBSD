@@ -49,6 +49,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <util.h>
+#include "sys/bsdfix.h" // Added to have it compiled
 
 __dead static void badarg(const char *);
 __dead static void badparam(const char *);
@@ -1095,15 +1096,15 @@ print_result(int num, struct bt_devinquiry *r)
 
 	printf("\n");
 
-	memset(&ncp, 0, sizeof(ncp));
+	memset((void*) &ncp, 0, sizeof(ncp));
 	bdaddr_copy(&ncp.bdaddr, &r->bdaddr);
 	ncp.page_scan_rep_mode = r->pscan_rep_mode;
 	ncp.clock_offset = r->clock_offset;
 
 	hci_req(HCI_CMD_REMOTE_NAME_REQ,
 		HCI_EVENT_REMOTE_NAME_REQ_COMPL,
-		&ncp, sizeof(ncp),
-		&nep, sizeof(nep));
+		(void*) &ncp, sizeof(ncp),
+		(void*) &nep, sizeof(nep));
 
 	printf("   : name \"%s\"\n", nep.name);
 	print_class("   : class", r->dev_class);
