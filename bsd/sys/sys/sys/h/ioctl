@@ -85,7 +85,7 @@ struct ioctl_pt {
 
 /* skip #include <sys/cdefs.h> and the kernel if also no __BEGIN_DECLS */
 
-int	ioctl(int, unsigned long, ...);
+int	ioctl(int d, unsigned long request, ...);
 
 #endif /* !_SYS_IOCTL_H_ */
 

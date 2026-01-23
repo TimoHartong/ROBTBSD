@@ -62,7 +62,8 @@ LIBS += ${LIBCROOT}.stdio.o.dprintf
 LIBS += ${COMMONLIB}.libc.string.o.strlcpy ${COMMONLIB}.libc.string.o.strcasecmp
 # Add LibUtil 
 LIBS += ${LIBDIREC}.lib.libutil.o.pidfile ${LIBDIREC}.lib.libutil.o.pid_fix
-
+# Add BSD Fixes
+LIBS += ${LIBDIREC}.lib.bsdfix.o.fix
 
 clean::
 	${WIPE} ${INSTAPP} ${WFLAGS}

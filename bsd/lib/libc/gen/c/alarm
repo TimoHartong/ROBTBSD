@@ -38,6 +38,14 @@
 #include <sys/time.h>
 #include <unistd.h>
 
+/* For shure this function is defined somewhere else but I can not find where * sys/time.h
+ *
+*/
+int setitimer(int which, const struct itimerval * value, struct itimerval * ovalue)
+{
+
+}
+
 unsigned int alarm(unsigned int secs)
 {
 	struct itimerval it, oitv;

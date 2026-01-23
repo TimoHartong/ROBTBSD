@@ -73,13 +73,13 @@
 /* Line 89 */
 unsigned int alarm(unsigned int);
 /* Line 96 */
-int	 close(int);
+int	 close(int d);
 /* Line 118 */
 gid_t	 getgid(void);
 /* Line 123 */
 pid_t	 getpid(void);
 /* Line 132 */
-ssize_t	 read(int, void *, size_t);
+ssize_t	 read(int d, void *buf, size_t nbytes);
 /* Line 139 */
 unsigned int	 sleep(unsigned int);
 /* Line 144 */

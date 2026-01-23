@@ -178,8 +178,6 @@ main(int argc, char *argv[])
 	const char *name;
 	char *ptr;
 
-//	printf("%d \n", PTIOCNETBSD );
-
 	init_speed = 0;
 	cflag = CLOCAL;
 	Cflag = 0;

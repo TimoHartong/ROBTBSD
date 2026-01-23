@@ -86,7 +86,7 @@ bt_gethostbyaddr(char const *addr, socklen_t len, int type)
 	struct hostent	*p;
 
 	if (type != AF_BLUETOOTH || len != sizeof(bdaddr_t)) {
-		h_errno = NO_RECOVERY;
+//		h_errno = NO_RECOVERY;
 		return (NULL);
 	}
 
@@ -108,12 +108,12 @@ bt_gethostent(void)
 		hostf = fopen(_PATH_BT_HOSTS, "r");
 
 	if (hostf == NULL) {
-		h_errno = NETDB_INTERNAL;
+	//	h_errno = NETDB_INTERNAL;
 		return (NULL);
 	}
 again:
 	if ((p = fgets(buf, sizeof(buf), hostf)) == NULL) {
-		h_errno = HOST_NOT_FOUND;
+	//	h_errno = HOST_NOT_FOUND;
 		return (NULL);
 	}
 	if (*p == '#')
@@ -148,7 +148,7 @@ again:
 			*cp++ = 0;
 	}
 	*q = NULL;
-	h_errno = NETDB_SUCCESS;
+//	h_errno = NETDB_SUCCESS;
 
 	return (&host);
 }

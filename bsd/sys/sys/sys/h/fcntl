@@ -83,6 +83,6 @@
 /*  Some prototypes of functions used in the BT stack */
 
 /* Line 315 */
-int	open(const char *, int, ...);
+int open(const char *path, int flags, ...);
 
 #endif /* !_SYS_FCNTL_H_ */

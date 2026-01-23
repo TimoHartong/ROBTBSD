@@ -1,0 +1,46 @@
+#include "sys/cdefs.h"
+
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/uio.h>
+#include <sys/select.h>
+#include <sys/fcntl.h>
+
+#include <bluetooth.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <signal.h>
+#include <termios.h>
+#include <unistd.h>
+#include <util.h>
+
+/**
+* This file contains the dummy and fixes for netbesd
+*/
+
+/* Defined in sys/ioctl.h */
+int ioctl(int d, unsigned long request, ...)
+{
+
+}
+
+/* Defined in unistd.h */
+int close(int d)
+{
+
+}
+
+ssize_t	read(int d, void *buf, size_t nbytes)
+{
+}
+
+/* sys/fcntl.h */
+int open(const char *path, int flags, ...)
+{
+}
+
+
