@@ -68,10 +68,9 @@ _EV_SET(struct kevent *_kevp, uintptr_t _ident, uint32_t _filter,
 #define	EV_ADD		0x0001U		/* add event to kq (implies ENABLE) */
 
 /* Line 348 */
-int	kqueue(void);
+int kqueue(void);
 
-int	kevent(int, const struct kevent *, size_t, struct kevent *, size_t,
-		    const struct timespec *);
+int kevent(int kq, const struct kevent *changelist, size_t nchanges, struct kevent *eventlist, size_t nevents, const struct timespec *timeout );
 
 
 #endif /* !_SYS_EVENT_H_ */

@@ -46,6 +46,7 @@ cflags+=-Wp
 CINCLUDES += -I${LIBNETBT},${LIBBT},${LIBINCL},${LIBSYSNTBT}
 # Add bluetooth lib
 LIBS += ${LIBBT}o.bluetooth 
+LIBS += ${LIBBT}o.bt_dev
 # Add stdlib libraries
 LIBS += ${LIBCROOT}.stdlib.o.getopt 
 # Add Clib gen library
