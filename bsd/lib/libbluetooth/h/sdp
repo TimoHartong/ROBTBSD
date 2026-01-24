@@ -368,9 +368,9 @@ extern const uuid_t BLUETOOTH_BASE_UUID;
 
 #ifndef SDP_COMPAT
 /* sdp_session.c */
-sdp_session_t sdp_open(const bdaddr_t *, const bdaddr_t *) __RENAME(_sdp_open);
-sdp_session_t sdp_open_local(const char *) __RENAME(_sdp_open_local);
-void sdp_close(sdp_session_t) __RENAME(_sdp_close);
+sdp_session_t sdp_open(const bdaddr_t *, const bdaddr_t *); // __RENAME(_sdp_open);
+sdp_session_t sdp_open_local(const char *);// __RENAME(_sdp_open_local);
+void sdp_close(sdp_session_t);// __RENAME(_sdp_close);
 
 /* sdp_record.c */
 bool sdp_record_insert(sdp_session_t, bdaddr_t *, uint32_t *, const sdp_data_t *);

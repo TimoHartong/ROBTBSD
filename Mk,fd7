@@ -90,3 +90,9 @@ echo --------------------------
 Dir <BTBSD$Root>.bsd.usr_sbin.btconfig
 amu all THROWBACK=-throwback 
 
+echo --------------------------
+echo Make btdevctl
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.usr_sbin.btdevctl
+amu all THROWBACK=-throwback 

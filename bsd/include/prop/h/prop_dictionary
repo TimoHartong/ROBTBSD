@@ -35,5 +35,52 @@
 #include <prop/prop_object.h>
 #include <prop/prop_array.h>
 
-/* FIXME Empty file */
+/*
+ * prop_dictionary_keysym_t is allocated with space at the end to hold the
+ * key.  This must be a regular object so that we can maintain sane iterator
+ * semantics -- we don't want to require that the caller release the result
+ * of prop_object_iterator_next().
+ *
+ * We'd like to have some small'ish keysym objects for up-to-16 characters
+ * in a key, some for up-to-32 characters in a key, and then a final bucket
+ * for up-to-128 characters in a key (not including NUL).  Keys longer than
+ * 128 characters are not allowed.
+ */
+struct _prop_dictionary_keysym {
+//	struct _prop_object		pdk_obj;
+	size_t				pdk_size;
+//	struct rb_node			pdk_link;
+	char 				pdk_key[1];
+	/* actually variable length */
+};
+
+typedef struct _prop_dictionary_keysym prop_dictionary_keysym_t;
+
+/* Taken from lib/libprop/prop.c */
+struct _prop_dict_entry {
+	prop_dictionary_keysym_t	pde_key;
+	prop_object_t			pde_objref;
+};
+
+struct _prop_dictionary {
+//	struct _prop_object	pd_obj;
+//	_PROP_RWLOCK_DECL(pd_rwlock)
+	struct _prop_dict_entry	*pd_array;
+	unsigned int		pd_capacity;
+	unsigned int		pd_count;
+	int			pd_flags;
+	uint32_t		pd_version;
+};
+
+typedef struct _prop_dictionary *prop_dictionary_t;
+//typedef struct _prop_dictionary_keysym *prop_dictionary_keysym_t;
+
+prop_dictionary_t prop_dictionary_create(void);
+bool prop_dictionary_set(prop_dictionary_t pd, const char *key, prop_object_t po);
+bool prop_dictionary_set_bool(prop_dictionary_t dict, const char *key, bool val);
+bool prop_dictionary_set_int16(prop_dictionary_t dict, const char *key, int16_t val);
+bool prop_dictionary_set_uint16(prop_dictionary_t dict, const char *key, uint16_t val);
+bool prop_dictionary_set_int32(prop_dictionary_t dict, const char *key, int32_t val);
+bool prop_dictionary_set_string_nocopy(prop_dictionary_t dict, const char *key, const char *cp);
+
 #endif /* _PROPLIB_PROP_DICTIONARY_H_ */

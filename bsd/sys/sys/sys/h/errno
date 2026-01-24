@@ -62,4 +62,8 @@
 /* Base, Realtime, Threads or Thread Priority Scheduling option errors */
 #define ENOTSUP		86		/* Not supported */
 
+/* File system extended attribute errors */
+#define	ENOATTR		93		/* Attribute not found */
+
+
 #endif /* !_SYS_ERRNO_H_ */

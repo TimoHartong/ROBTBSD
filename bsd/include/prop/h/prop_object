@@ -36,11 +36,11 @@
 
 #include <stdbool.h>
 
-/* FIXME Empty file */
+typedef void *prop_object_t;
 
 typedef enum {
 	PROP_TYPE_UNKNOWN	=	0x00000000,
-#ifndef _PROPLIB_ZFS_CONFLICT
+//#ifndef _PROPLIB_ZFS_CONFLICT
 	PROP_TYPE_BOOL		=	0x626f6f6c,	/* 'bool' */
 	PROP_TYPE_NUMBER	=	0x6e6d6272,	/* 'nmbr' */
 	PROP_TYPE_STRING	=	0x73746e67,	/* 'stng' */
@@ -48,8 +48,10 @@ typedef enum {
 	PROP_TYPE_ARRAY		=	0x61726179,	/* 'aray' */
 	PROP_TYPE_DICTIONARY	=	0x64696374,	/* 'dict' */
 	PROP_TYPE_DICT_KEYSYM	=	0x646b6579	/* 'dkey' */
-#endif	/* !_PROPLIB_ZFS_CONFLICT */
+//#endif	/* !_PROPLIB_ZFS_CONFLICT */
 } prop_type_t;
 
+void prop_object_retain(prop_object_t obj);
+void prop_object_release(prop_object_t obj);
 
 #endif /* _PROPLIB_PROP_OBJECT_H_ */

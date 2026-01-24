@@ -34,5 +34,21 @@
 
 #include <prop/prop_object.h>
 
+/* Taken from lib/libprob/xyz.c */
+struct _prop_array {
+//	struct _prop_object	pa_obj;
+//	_PROP_RWLOCK_DECL(pa_rwlock)
+	prop_object_t *		pa_array;
+	unsigned int		pa_capacity;
+	unsigned int		pa_count;
+	int			pa_flags;
+
+	uint32_t		pa_version;
+};
+
+
+typedef struct _prop_array *prop_array_t;
+
+
 /* FIXME Empty file */
 #endif /* _PROPLIB_PROP_ARRAY_H_ */

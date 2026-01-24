@@ -72,10 +72,12 @@
 #include <bluetooth.h>
 #include <err.h>
 #include <errno.h>
+#include <sys/errno.h> /* FIXME Added for RO */
 #include <sdp.h>
 #include <stdlib.h>
 #include <strings.h>
-#include <usbhid.h>
+/* Also USB */
+//#include <usbhid.h>
 
 #include "btdevctl.h"
 

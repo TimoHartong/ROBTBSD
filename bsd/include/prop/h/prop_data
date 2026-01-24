@@ -34,6 +34,24 @@
 
 #include <prop/prop_object.h>
 
-/* FIXME Empty file */
+struct _prop_data {
+//	struct _prop_object	pd_obj;
+	union {
+		void *		pdu_mutable;
+		const void *	pdu_immutable;
+	} pd_un;
+#define	pd_mutable		pd_un.pdu_mutable
+#define	pd_immutable		pd_un.pdu_immutable
+	size_t			pd_size;
+	int			pd_flags;
+};
+
+
+typedef struct _prop_data *prop_data_t;
+
+prop_data_t prop_data_create_copy(const void *v, size_t size);
+size_t prop_data_size(prop_data_t pd);
+const void *prop_data_value(prop_data_t pd);
+
 
 #endif /* _PROPLIB_PROP_DATA_H_ */
