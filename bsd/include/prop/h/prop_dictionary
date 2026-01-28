@@ -54,7 +54,7 @@ struct _prop_dictionary_keysym {
 	/* actually variable length */
 };
 
-typedef struct _prop_dictionary_keysym prop_dictionary_keysym_t;
+typedef struct _prop_dictionary_keysym *prop_dictionary_keysym_t;
 
 /* Taken from lib/libprop/prop.c */
 struct _prop_dict_entry {
@@ -75,16 +75,49 @@ struct _prop_dictionary {
 typedef struct _prop_dictionary *prop_dictionary_t;
 //typedef struct _prop_dictionary_keysym *prop_dictionary_keysym_t;
 
+
+
 prop_dictionary_t prop_dictionary_create(void);
+prop_dictionary_t prop_dictionary_create_with_capacity(unsigned int capacity);
+prop_dictionary_t prop_dictionary_copy(prop_dictionary_t opd);
+prop_dictionary_t prop_dictionary_copy_mutable(prop_dictionary_t opd);
+unsigned int prop_dictionary_count(prop_dictionary_t pd);
+bool prop_dictionary_ensure_capacity(prop_dictionary_t pd, unsigned int capacity);
+void prop_dictionary_make_immutable(prop_dictionary_t pd);
+bool prop_dictionary_mutable(prop_dictionary_t pd);
+prop_object_iterator_t prop_dictionary_iterator(prop_dictionary_t pd);
+prop_array_t prop_dictionary_all_keys(prop_dictionary_t pd);
 prop_object_t prop_dictionary_get(prop_dictionary_t pd, const char *key);
 bool prop_dictionary_set(prop_dictionary_t pd, const char *key, prop_object_t po);
+void prop_dictionary_remove(prop_dictionary_t pd, const char *key);
+prop_object_t prop_dictionary_get_keysym(prop_dictionary_t pd, prop_dictionary_keysym_t pdk);
+bool prop_dictionary_set_keysym(prop_dictionary_t pd, prop_dictionary_keysym_t pdk, prop_object_t po);
+void prop_dictionary_remove_keysym(prop_dictionary_t pd, prop_dictionary_keysym_t pdk);
+bool prop_dictionary_equals(prop_dictionary_t dict1, prop_dictionary_t dict2);
+char *prop_dictionary_externalize(prop_dictionary_t pd);
+prop_dictionary_t prop_dictionary_internalize(const char *xml);
+prop_dictionary_t prop_dictionary_internalize_from_file(const char *fname);
+bool prop_dictionary_externalize_to_file(prop_dictionary_t dict, const char *fname);
+const char *prop_dictionary_keysym_value(prop_dictionary_keysym_t pdk);
+bool prop_dictionary_keysym_equals(prop_dictionary_keysym_t pdk1, prop_dictionary_keysym_t pdk2);
+
+int prop_array_send_ioctl(prop_array_t array, int fd, unsigned long cmd);
+int prop_dictionary_send_ioctl(prop_dictionary_t dict, int fd, unsigned longcmd);
+int prop_array_recv_ioctl(int fd, unsigned long cmd, prop_array_t *arrayp);
+int prop_dictionary_recv_ioctl(int fd, unsigned long cmd, prop_dictionary_t *dictp);
+/* Utility functions */
+bool prop_dictionary_get_dict(prop_dictionary_t dict, const char *key, prop_dictionary_t *valp);
 bool prop_dictionary_set_bool(prop_dictionary_t dict, const char *key, bool val);
 bool prop_dictionary_set_int16(prop_dictionary_t dict, const char *key, int16_t val);
-bool prop_dictionary_set_uint16(prop_dictionary_t dict, const char *key, uint16_t val);
+bool prop_dictionary_set_int(prop_dictionary_t dict, const char *key, int val);
 bool prop_dictionary_set_int32(prop_dictionary_t dict, const char *key, int32_t val);
 bool prop_dictionary_set_string_nocopy(prop_dictionary_t dict, const char *key, const char *cp);
 bool prop_dictionary_get_uint16(prop_dictionary_t dict, const char *key, uint16_t *valp);
-
+bool prop_dictionary_set_uint16(prop_dictionary_t dict, const char *key, uint16_t val);
+bool prop_dictionary_get_string(prop_dictionary_t dict, const char *key, const char **cpp);
+bool prop_dictionary_set_string(prop_dictionary_t dict, const char *key, const char *cp);
+bool prop_dictionary_get_data(prop_dictionary_t dict, const char *key, const void **vp, size_t *sizep);
+bool prop_dictionary_set_data(prop_dictionary_t dict, const char *key, const void *v, size_t size);
 
 
 #endif /* _PROPLIB_PROP_DICTIONARY_H_ */

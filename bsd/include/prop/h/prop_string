@@ -34,6 +34,10 @@
 
 #include <prop/prop_object.h>
 
+typedef struct _prop_string *prop_string_t;
+
 const char *prop_string_value(prop_string_t ps);
+bool prop_string_equals(prop_string_t str1, prop_string_t str2);
+bool prop_string_equals_string(prop_string_t ps, const char *cp);
 
 #endif /* _PROPLIB_PROP_STRING_H_ */

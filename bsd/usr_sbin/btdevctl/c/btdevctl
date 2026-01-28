@@ -174,11 +174,11 @@ main(int argc, char *argv[])
 		errx(EXIT_FAILURE, "service store failed");
 
 	/* add binary local-bdaddr */
-	if (!prop_dictionary_set_data(dev, BTDEVladdr, &laddr, sizeof(laddr)))
+	if (!prop_dictionary_set_data(dev, BTDEVladdr, (void*) &laddr, sizeof(laddr)))
 		errx(EXIT_FAILURE, "proplib failure (%s)", BTDEVladdr);
 
 	/* add binary remote-bdaddr */
-	if (!prop_dictionary_set_data(dev, BTDEVraddr, &raddr, sizeof(raddr)))
+	if (!prop_dictionary_set_data(dev, BTDEVraddr, (void*) &raddr, sizeof(raddr)))
 		errx(EXIT_FAILURE, "proplib failure (%s)", BTDEVraddr);
 
 	/* add service name */

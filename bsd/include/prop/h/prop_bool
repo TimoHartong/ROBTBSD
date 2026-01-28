@@ -34,6 +34,9 @@
 
 #include <prop/prop_object.h>
 
-/* FIXME Empty file */
+typedef struct _prop_bool *prop_bool_t;
+
+bool prop_bool_true(prop_bool_t pb);
+
 
 #endif /* _PROPLIB_PROP_BOOL_H_ */

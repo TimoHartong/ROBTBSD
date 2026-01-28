@@ -1,0 +1,88 @@
+| Building BT based on NetBSD for RISC-OS
+| Copyright (c) Timo Hartong. All rights reserved
+| This code is released under the same licence as NetBSD
+
+Set BTBSD$Root <Obey$Dir>
+Set LibC$Root <Obey$Dir>.bsd.lib.libc
+Set CommonLib$Root <Obey$Dir>.bsd.common.lib
+
+
+WimpSlot -min 8000K
+
+echo --------------------------
+echo Clean Clib - stdlib
+echo --------------------------
+
+Dir <LibC$Root>.stdlib
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean Clib - gen
+echo --------------------------
+
+Dir <LibC$Root>.gen
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean Clib - termios
+echo --------------------------
+
+Dir <LibC$Root>.termios
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean Clib - stdio
+echo --------------------------
+
+Dir <LibC$Root>.stdio
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean Lib Bluetooth library
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.lib.libbluetooth
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean Common Libc string
+echo --------------------------
+
+Dir <CommonLib$Root>.libc.string
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean Lib LibUtil
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.lib.libutil
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+
+echo --------------------------
+echo Clean BSD Fix
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.lib.bsdfix
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean btattach
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.usr_sbin.btattach
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean btconfig
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.usr_sbin.btconfig
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean btdevctl
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.usr_sbin.btdevctl
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V

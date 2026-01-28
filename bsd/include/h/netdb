@@ -122,5 +122,7 @@ struct	protoent {
 #define	HOST_NOT_FOUND	1 /*%< Authoritative Answer Host not found */
 #define	NO_RECOVERY	3 /*%< Non recoverable errors, FORMERR, REFUSED, NOTIMP */
 
+/* Line 338 */
+const char	*hstrerror(int);
 
 #endif /* !_NETDB_H_ */

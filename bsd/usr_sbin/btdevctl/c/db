@@ -179,7 +179,7 @@ db_update0(void)
 	if (iter == NULL)
 		err(EXIT_FAILURE, "prop_dictionary_iterator");
 
-	while ((key = prop_object_iterator_next(iter)) != NULL) {
+	while ((key = (prop_dictionary_keysym_t) prop_object_iterator_next(iter)) != NULL) {
 		dev = prop_dictionary_get_keysym(old, key);
 		if (prop_object_type(dev) != PROP_TYPE_DICTIONARY)
 			errx(EXIT_FAILURE, "invalid device dictionary");
