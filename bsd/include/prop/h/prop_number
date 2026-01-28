@@ -36,5 +36,9 @@
 #include <stdint.h>
 #include <prop/prop_object.h>
 /* FIXME Empty file */
+typedef struct _prop_number *prop_number_t;
+
+intmax_t prop_number_signed_value(prop_number_t pn);
+
 
 #endif /* _PROPLIB_PROP_NUMBER_H_ */

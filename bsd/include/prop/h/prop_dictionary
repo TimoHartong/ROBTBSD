@@ -76,11 +76,15 @@ typedef struct _prop_dictionary *prop_dictionary_t;
 //typedef struct _prop_dictionary_keysym *prop_dictionary_keysym_t;
 
 prop_dictionary_t prop_dictionary_create(void);
+prop_object_t prop_dictionary_get(prop_dictionary_t pd, const char *key);
 bool prop_dictionary_set(prop_dictionary_t pd, const char *key, prop_object_t po);
 bool prop_dictionary_set_bool(prop_dictionary_t dict, const char *key, bool val);
 bool prop_dictionary_set_int16(prop_dictionary_t dict, const char *key, int16_t val);
 bool prop_dictionary_set_uint16(prop_dictionary_t dict, const char *key, uint16_t val);
 bool prop_dictionary_set_int32(prop_dictionary_t dict, const char *key, int32_t val);
 bool prop_dictionary_set_string_nocopy(prop_dictionary_t dict, const char *key, const char *cp);
+bool prop_dictionary_get_uint16(prop_dictionary_t dict, const char *key, uint16_t *valp);
+
+
 
 #endif /* _PROPLIB_PROP_DICTIONARY_H_ */

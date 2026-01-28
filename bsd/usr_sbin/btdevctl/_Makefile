@@ -43,8 +43,7 @@ include CApp
 #Suppress non ANSI warnings
 cflags+=-Wp
 
-# Includes
-CINCLUDES += -I${LIBNETBT},${LIBBT},${LIBINCL},${LIBSYSNTBT},${LIBDIREC}.lib.libusbhid
+CINCLUDES += -I${LIBNETBT},${LIBBT},${LIBINCL},${LIBSYSNTBT}
 # Add bluetooth lib
 LIBS += ${LIBBT}o.bluetooth 
 # Add stdlib libraries
@@ -340,6 +339,4 @@ o.sdp:	<BTBSD$Root>.bsd.include.machine.h.ansi
 o.sdp:	<BTBSD$Root>.bsd.include.arm.h.ansi
 o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_ansi
 o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
-o.sdp:	<BTBSD$Root>.bsd.lib.libusbhid.h.usbhid
-o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.sdp:	h.btdevctl

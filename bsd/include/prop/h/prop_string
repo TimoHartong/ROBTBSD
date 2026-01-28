@@ -33,6 +33,7 @@
 #define	_PROPLIB_PROP_STRING_H_
 
 #include <prop/prop_object.h>
-/* FIXME Empty file */
+
+const char *prop_string_value(prop_string_t ps);
 
 #endif /* _PROPLIB_PROP_STRING_H_ */
