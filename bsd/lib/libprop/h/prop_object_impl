@@ -32,15 +32,15 @@
 #ifndef _PROPLIB_PROP_OBJECT_IMPL_H_
 #define	_PROPLIB_PROP_OBJECT_IMPL_H_
 
-#if defined(HAVE_NBTOOL_CONFIG_H)
-#include "nbtool_config.h"
-#endif
+//#if defined(HAVE_NBTOOL_CONFIG_H)
+//#include "nbtool_config.h"
+//#endif
 
-#if defined(_KERNEL) || defined(_STANDALONE)
-#include <lib/libkern/libkern.h>
-#else
+//#if defined(_KERNEL) || defined(_STANDALONE)
+//#include <lib/libkern/libkern.h>
+//#else
 #include <inttypes.h>
-#endif
+//#endif
 
 #include "prop_stack.h"
 
@@ -150,7 +150,7 @@ struct _prop_object_internalize_context *
 void		_prop_object_internalize_context_free(
 				struct _prop_object_internalize_context *);
 
-#if !defined(_KERNEL) && !defined(_STANDALONE)
+//#if !defined(_KERNEL) && !defined(_STANDALONE)
 bool		_prop_object_externalize_write_file(const char *,
 						    const char *, size_t);
 
@@ -163,7 +163,7 @@ struct _prop_object_internalize_mapped_file *
 		_prop_object_internalize_map_file(const char *);
 void		_prop_object_internalize_unmap_file(
 				struct _prop_object_internalize_mapped_file *);
-#endif /* !_KERNEL && !_STANDALONE */
+//#endif /* !_KERNEL && !_STANDALONE */
 
 typedef bool (*prop_object_internalizer_t)(prop_stack_t, prop_object_t *,
 				struct _prop_object_internalize_context *);
@@ -434,49 +434,49 @@ void *		_prop_standalone_realloc(void *, size_t);
 /*
  * Use pthread mutexes everywhere else.
  */
-#include <pthread.h>
-#define	_PROP_MUTEX_DECL_STATIC(x)	static pthread_mutex_t x;
-#define	_PROP_MUTEX_INIT(x)		pthread_mutex_init(&(x), NULL)
-#define	_PROP_MUTEX_LOCK(x)		pthread_mutex_lock(&(x))
-#define	_PROP_MUTEX_UNLOCK(x)		pthread_mutex_unlock(&(x))
+//#include <pthread.h>
+//#define	_PROP_MUTEX_DECL_STATIC(x)	static pthread_mutex_t x;
+//#define	_PROP_MUTEX_INIT(x)		pthread_mutex_init(&(x), NULL)
+//#define	_PROP_MUTEX_LOCK(x)		pthread_mutex_lock(&(x))
+//#define	_PROP_MUTEX_UNLOCK(x)		pthread_mutex_unlock(&(x))
 
-#define	_PROP_RWLOCK_DECL(x)		pthread_rwlock_t x ;
-#define	_PROP_RWLOCK_INIT(x)		pthread_rwlock_init(&(x), NULL)
-#define	_PROP_RWLOCK_RDLOCK(x)		pthread_rwlock_rdlock(&(x))
-#define	_PROP_RWLOCK_WRLOCK(x)		pthread_rwlock_wrlock(&(x))
-#define	_PROP_RWLOCK_UNLOCK(x)		pthread_rwlock_unlock(&(x))
-#define	_PROP_RWLOCK_DESTROY(x)		pthread_rwlock_destroy(&(x))
+//#define	_PROP_RWLOCK_DECL(x)		pthread_rwlock_t x ;
+//#define	_PROP_RWLOCK_INIT(x)		pthread_rwlock_init(&(x), NULL)
+//#define	_PROP_RWLOCK_RDLOCK(x)		pthread_rwlock_rdlock(&(x))
+//#define	_PROP_RWLOCK_WRLOCK(x)		pthread_rwlock_wrlock(&(x))
+//#define	_PROP_RWLOCK_UNLOCK(x)		pthread_rwlock_unlock(&(x))
+//#define	_PROP_RWLOCK_DESTROY(x)		pthread_rwlock_destroy(&(x))
 
-#define _PROP_ONCE_DECL(x)						\
+//#define _PROP_ONCE_DECL(x)						\
 	static pthread_once_t x = PTHREAD_ONCE_INIT;
-#define _PROP_ONCE_RUN(x,f)		pthread_once(&(x),(void(*)(void))f)
+//#define _PROP_ONCE_RUN(x,f)		pthread_once(&(x),(void(*)(void))f)
 
 #define _PROP_NEED_REFCNT_MTX
 
 #define	_PROP_ATOMIC_LOAD(x)		*(x)
 
-#define _PROP_ATOMIC_INC32(x)						\
+//#define _PROP_ATOMIC_INC32(x)						\
 do {									\
 	pthread_mutex_lock(&_prop_refcnt_mtx);				\
 	(*(x))++;							\
 	pthread_mutex_unlock(&_prop_refcnt_mtx);			\
 } while (/*CONSTCOND*/0)
 
-#define _PROP_ATOMIC_DEC32(x)						\
+//#define _PROP_ATOMIC_DEC32(x)						\
 do {									\
 	pthread_mutex_lock(&_prop_refcnt_mtx);				\
 	(*(x))--;							\
 	pthread_mutex_unlock(&_prop_refcnt_mtx);			\
 } while (/*CONSTCOND*/0)
 
-#define _PROP_ATOMIC_INC32_NV(x, v)					\
+//#define _PROP_ATOMIC_INC32_NV(x, v)					\
 do {									\
 	pthread_mutex_lock(&_prop_refcnt_mtx);				\
 	v = ++(*(x));							\
 	pthread_mutex_unlock(&_prop_refcnt_mtx);			\
 } while (/*CONSTCOND*/0)
 
-#define _PROP_ATOMIC_DEC32_NV(x, v)					\
+//#define _PROP_ATOMIC_DEC32_NV(x, v)					\
 do {									\
 	pthread_mutex_lock(&_prop_refcnt_mtx);				\
 	v = --(*(x));							\

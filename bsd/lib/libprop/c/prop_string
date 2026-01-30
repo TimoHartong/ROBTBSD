@@ -33,11 +33,11 @@
 #include <prop/prop_string.h>
 
 #include <sys/rbtree.h>
-#if defined(_KERNEL) || defined(_STANDALONE)
-#include <sys/stdarg.h>
-#else
-#include <stdarg.h>
-#endif /* _KERNEL || _STANDALONE */
+//#if defined(_KERNEL) || defined(_STANDALONE)
+//#include <sys/stdarg.h>
+//#else
+//#include <stdarg.h>
+//#endif /* _KERNEL || _STANDALONE */
 
 struct _prop_string {
 	struct _prop_object	ps_obj;
@@ -123,7 +123,8 @@ static const rb_tree_ops_t _prop_string_rb_tree_ops = {
 static struct rb_tree _prop_string_tree;
 
 _PROP_ONCE_DECL(_prop_string_init_once)
-_PROP_MUTEX_DECL_STATIC(_prop_string_tree_mutex)
+/* FIXME Leave out mutex for this moment */
+//_PROP_MUTEX_DECL_STATIC(_prop_string_tree_mutex)
 
 static int
 _prop_string_init(void)

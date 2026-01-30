@@ -7,7 +7,7 @@ Set LibC$Root <Obey$Dir>.bsd.lib.libc
 Set CommonLib$Root <Obey$Dir>.bsd.common.lib
 
 
-WimpSlot -min 8000K
+WimpSlot -min 12000K
 
 echo --------------------------
 echo Clean Clib - stdlib
@@ -35,6 +35,13 @@ echo Clean Clib - stdio
 echo --------------------------
 
 Dir <LibC$Root>.stdio
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo Clean  Clib - string
+echo --------------------------
+
+Dir <LibC$Root>.string
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 
 echo --------------------------

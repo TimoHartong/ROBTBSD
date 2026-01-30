@@ -32,9 +32,11 @@
 #include "prop_object_impl.h"
 #include <prop/prop_array.h>
 
-#if !defined(_KERNEL) && !defined(_STANDALONE)
+//#if !defined(_KERNEL) && !defined(_STANDALONE)
 #include <errno.h>
-#endif
+/* FIXME for RO */
+#include <sys/errno.h>
+//#endif
 
 struct _prop_array {
 	struct _prop_object	pa_obj;
