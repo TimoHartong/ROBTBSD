@@ -32,20 +32,22 @@
 #include "prop_object_impl.h"
 #include <prop/prop_object.h>
 
-#ifdef _PROP_NEED_REFCNT_MTX
-static pthread_mutex_t _prop_refcnt_mtx = PTHREAD_MUTEX_INITIALIZER;
-#endif /* _PROP_NEED_REFCNT_MTX */
+/* FIXME RO compiling */
+//#ifdef _PROP_NEED_REFCNT_MTX
+//static pthread_mutex_t _prop_refcnt_mtx = PTHREAD_MUTEX_INITIALIZER;
+//#endif /* _PROP_NEED_REFCNT_MTX */
 
-#if !defined(_KERNEL) && !defined(_STANDALONE)
+//#if !defined(_KERNEL) && !defined(_STANDALONE)
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <sys/errno.h> /* FIXME for RO compile */
 #include <fcntl.h>
 #include <limits.h>
 #include <unistd.h>
-#endif
+//#endif
 
-#ifdef _STANDALONE
+//#ifdef _STANDALONE
 void *
 _prop_standalone_calloc(size_t size)
 {
@@ -71,7 +73,7 @@ _prop_standalone_realloc(void *v, size_t size)
 
 	return (rv);
 }
-#endif /* _STANDALONE */
+//#endif /* _STANDALONE */
 
 /*
  * _prop_object_init --

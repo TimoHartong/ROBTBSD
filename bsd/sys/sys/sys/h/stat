@@ -39,4 +39,51 @@
 #ifndef _SYS_STAT_H_
 #define	_SYS_STAT_H_
 
+#include <sys/featuretest.h>
+#include <sys/types.h>		/* XXX */
+
+#include <sys/time.h>
+
+struct stat {
+//	dev_t	  st_dev;		/* inode's device */
+//	mode_t	  st_mode;		/* inode protection mode */
+//	ino_t	  st_ino;		/* inode's number */
+//	nlink_t	  st_nlink;		/* number of hard links */
+	uid_t	  st_uid;		/* user ID of the file's owner */
+	gid_t	  st_gid;		/* group ID of the file's group */
+//	dev_t	  st_rdev;		/* device type */
+#if (_POSIX_C_SOURCE - 0) >= 200809L || (_XOPEN_SOURCE - 0) >= 700 || \
+    defined(_NETBSD_SOURCE)
+	struct	  timespec st_atim;	/* time of last access */
+	struct	  timespec st_mtim;	/* time of last data modification */
+	struct	  timespec st_ctim;	/* time of last file status change */
+	struct	  timespec st_birthtim;	/* time of creation */
+#else
+	time_t	  st_atime;		/* time of last access */
+	long	  st_atimensec;		/* nsec of last access */
+	time_t	  st_mtime;		/* time of last data modification */
+	long	  st_mtimensec;		/* nsec of last data modification */
+	time_t	  st_ctime;		/* time of last file status change */
+	long	  st_ctimensec;		/* nsec of last file status change */
+	time_t	  st_birthtime;		/* time of creation */
+	long	  st_birthtimensec;	/* nsec of time of creation */
+#endif
+	off_t	  st_size;		/* file size, in bytes */
+	blkcnt_t  st_blocks;		/* blocks allocated for file */
+	blksize_t st_blksize;		/* optimal blocksize for I/O */
+	uint32_t  st_flags;		/* user defined flags for file */
+	uint32_t  st_gen;		/* file generation number */
+	uint32_t  st_spare[2];
+};
+
+/* Line 240 */
+#include <sys/cdefs.h>
+
+int	fstat(int, struct stat *) __RENAME(__fstat50);
+/* Line 250 */
+mode_t	umask(mode_t);
+
+/* Line 258 */
+int fchmod(int, mode_t);
+
 #endif /* !_SYS_STAT_H_ */

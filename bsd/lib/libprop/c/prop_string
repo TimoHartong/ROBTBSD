@@ -34,10 +34,17 @@
 
 #include <sys/rbtree.h>
 //#if defined(_KERNEL) || defined(_STANDALONE)
-//#include <sys/stdarg.h>
+#include <sys/stdarg.h>
 //#else
 //#include <stdarg.h>
 //#endif /* _KERNEL || _STANDALONE */
+/* FIXME for offsetof */
+//#include <stddef.h>
+
+#define offsetof(st,m) \
+    ((size_t)((char*)&((st*)0)->m - (char*)0))
+
+#define	__printflike(x, y)		/* nothing */
 
 struct _prop_string {
 	struct _prop_object	ps_obj;
@@ -325,7 +332,7 @@ prop_string_create_format(const char *fmt, ...)
 
 	_PROP_ASSERT(fmt != NULL);
 
-	va_start(ap, fmt);
+//	va_start(ap, fmt); /* FIXME ROOL C Compiler error */
 	len = vsnprintf(NULL, 0, fmt, ap);
 	va_end(ap);
 
@@ -337,7 +344,7 @@ prop_string_create_format(const char *fmt, ...)
 	if (str == NULL)
 		return (NULL);
 
-	va_start(ap, fmt);
+//	va_start(ap, fmt); /* FIXME ROOL C Compiler error */
 	vsnprintf(str, nlen, fmt, ap);
 	va_end(ap);
 

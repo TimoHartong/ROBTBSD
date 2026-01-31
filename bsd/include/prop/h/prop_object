@@ -54,10 +54,13 @@ typedef enum {
 void prop_object_retain(prop_object_t obj);
 void prop_object_release(prop_object_t obj);
 prop_type_t prop_object_type(prop_object_t obj);
+bool prop_object_equals(prop_object_t obj1, prop_object_t obj2);
+bool prop_object_equals_with_error(prop_object_t obj1, prop_object_t obj2, bool *error_flag);
 
 typedef struct _prop_object_iterator *prop_object_iterator_t;
 
 prop_object_t prop_object_iterator_next(prop_object_iterator_t pi);
+void prop_object_iterator_reset(prop_object_iterator_t pi);
 void prop_object_iterator_release(prop_object_iterator_t pi);
 
 #endif /* _PROPLIB_PROP_OBJECT_H_ */

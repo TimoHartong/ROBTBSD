@@ -93,3 +93,7 @@ echo --------------------------
 
 Dir <BTBSD$Root>.bsd.usr_sbin.btdevctl
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
+echo     !Clean Completed !
+echo --------------------------

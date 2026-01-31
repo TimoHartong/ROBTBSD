@@ -337,6 +337,10 @@ o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.fix:	<BTBSD$Root>.bsd.include.h.fcntl
 o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
 o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.stat
+o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.time
+o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.fix:	<BTBSD$Root>.bsd.include.h.unistd
 o.fix:	<BTBSD$Root>.bsd.include.machine.h.ansi
 o.fix:	<BTBSD$Root>.bsd.include.arm.h.ansi

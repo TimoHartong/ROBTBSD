@@ -34,5 +34,20 @@
 #ifndef _SYS_STDARG_H_
 #define	_SYS_STDARG_H_
 
-/* FIXME Empty file */
+#include <sys/cdefs.h>
+#include <sys/ansi.h>
+#include <sys/featuretest.h>
+
+#define	__builtin_va_start(a, l)	((a) = (va_list)(void *)&(l))
+#define	__builtin_va_end(a)		__nothing
+
+/* Line 52 */
+#ifndef __VA_LIST_DECLARED
+typedef __va_list va_list;
+#define __VA_LIST_DECLARED
+#endif
+
+#define	va_start(ap, last)	__builtin_va_start((ap), (last))
+#define	va_end(ap)		__builtin_va_end(ap)
+
 #endif /* !_SYS_STDARG_H_ */

@@ -243,34 +243,6 @@ struct _prop_object_iterator {
 		}							\
 	} while (/*CONSTCOND*/0)
 
-#warning "Line 246"
-
-/* Line 351 */
-#define	_PROP_MUTEX_INIT(x)		/* nothing */
-/* Line 356 */
-#define	_PROP_MUTEX_LOCK(x)		/* nothing */
-#define	_PROP_MUTEX_UNLOCK(x)		/* nothing */
-
-/* Line 383 */
-#define	_PROP_MALLOC(s, t)		malloc((s))
-#define	_PROP_CALLOC(s, t)		calloc(1, (s))
-#define	_PROP_REALLOC(v, s, t)		realloc((v), (s))
-#define	_PROP_FREE(v, t)		free((v))
-
-#define	_PROP_POOL_GET(p)		malloc((p))
-#define	_PROP_POOL_PUT(p, v)		free((v))
-
-/* Line 362 */
-#define _PROP_ONCE_DECL(x)		_PROP_NOTHREAD_ONCE_DECL(x)
-#define _PROP_ONCE_RUN(x,f)		_PROP_NOTHREAD_ONCE_RUN(x,f)
-
-/* Line 378 */
-#define _PROP_ATOMIC_INC32(x)		++*(x)
-#define _PROP_ATOMIC_DEC32(x)		--*(x)
-#define _PROP_ATOMIC_INC32_NV(x, v)	v = ++*(x)
-#define _PROP_ATOMIC_DEC32_NV(x, v)	v = --*(x)
-
-
 #if defined(_KERNEL)
 
 /*
@@ -321,7 +293,6 @@ __link_set_add_rodata(prop_linkpools, _link_ ## pp);
 #define	_PROP_RWLOCK_UNLOCK(x)		rw_exit(&(x))
 #define	_PROP_RWLOCK_DESTROY(x)		rw_destroy(&(x))
 
-#warning "kernel _PROP_ONCE_DECL(x)"
 #define _PROP_ONCE_DECL(x)		static ONCE_DECL(x);
 #define _PROP_ONCE_RUN(x,f)		RUN_ONCE(&(x), f)
 
@@ -334,7 +305,6 @@ __link_set_add_rodata(prop_linkpools, _link_ ## pp);
 #define _PROP_ATOMIC_DEC32_NV(x, v)	v = atomic_dec_32_nv(x)
 
 #elif defined(_STANDALONE)
-#warning "Standalone  _PROP_ONCE_DECL(x)"
 
 /*
  * proplib in a standalone environment...
@@ -371,7 +341,6 @@ void *		_prop_standalone_realloc(void *, size_t);
 #define	_PROP_RWLOCK_UNLOCK(x)		/* nothing */
 #define	_PROP_RWLOCK_DESTROY(x)		/* nothing */
 
-#warning "Standalone _PROP_ONCE_DECL"
 #define _PROP_ONCE_DECL(x)		_PROP_NOTHREAD_ONCE_DECL(x)
 #define _PROP_ONCE_RUN(x,f)		_PROP_NOTHREAD_ONCE_RUN(x,f)
 
@@ -386,13 +355,12 @@ void *		_prop_standalone_realloc(void *, size_t);
 /*
  * proplib in user space...
  */
-#warning "User space"
 
 #include <assert.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-//#include <stddef.h>
+#include <stddef.h>
 
 #define	_PROP_ASSERT(x)			/*LINTED*/assert(x)
 
@@ -427,7 +395,6 @@ void *		_prop_standalone_realloc(void *, size_t);
 #define	_PROP_RWLOCK_UNLOCK(x)		rwlock_unlock(&(x))
 #define	_PROP_RWLOCK_DESTROY(x)		rwlock_destroy(&(x))
 
-#warning "User space _PROP_ONCE_DEC_ "
 #define _PROP_ONCE_DECL(x)						\
 	static pthread_once_t x = PTHREAD_ONCE_INIT;
 #define _PROP_ONCE_RUN(x,f)		thr_once(&(x), (void(*)(void))f);
@@ -454,7 +421,6 @@ void *		_prop_standalone_realloc(void *, size_t);
 #define	_PROP_RWLOCK_UNLOCK(x)		/* nothing */
 #define	_PROP_RWLOCK_DESTROY(x)		/* nothing */
 
-#warning "HAVE_NBTOOL_CONFIG_H  _PROP_ONCE_DEC_ "
 #define _PROP_ONCE_DECL(x)		_PROP_NOTHREAD_ONCE_DECL(x)
 #define _PROP_ONCE_RUN(x,f)		_PROP_NOTHREAD_ONCE_RUN(x,f)
 
@@ -481,7 +447,6 @@ void *		_prop_standalone_realloc(void *, size_t);
 //#define	_PROP_RWLOCK_UNLOCK(x)		pthread_rwlock_unlock(&(x))
 //#define	_PROP_RWLOCK_DESTROY(x)		pthread_rwlock_destroy(&(x))
 
-#warning "else construct : _PROP_ONCE_DECL(x)"
 //#define _PROP_ONCE_DECL(x)						\
 	static pthread_once_t x = PTHREAD_ONCE_INIT;
 //#define _PROP_ONCE_RUN(x,f)		pthread_once(&(x),(void(*)(void))f)

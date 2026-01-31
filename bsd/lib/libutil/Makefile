@@ -501,6 +501,10 @@ o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.errno
 o.pid_fix:	<BTBSD$Root>.bsd.include.h.fcntl
 o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
 o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.stat
+o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.time
+o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.pid_fix:	<BTBSD$Root>.bsd.include.h.unistd
 o.pid_fix:	<BTBSD$Root>.bsd.include.machine.h.ansi
 o.pid_fix:	<BTBSD$Root>.bsd.include.arm.h.ansi
