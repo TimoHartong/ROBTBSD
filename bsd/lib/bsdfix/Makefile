@@ -171,6 +171,10 @@ oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 oz.fix:	<BTBSD$Root>.bsd.include.h.fcntl
 oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
 oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.stat
+oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.time
+oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 oz.fix:	<BTBSD$Root>.bsd.include.h.unistd
 oz.fix:	<BTBSD$Root>.bsd.include.machine.h.ansi
 oz.fix:	<BTBSD$Root>.bsd.include.arm.h.ansi

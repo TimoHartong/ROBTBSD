@@ -129,6 +129,10 @@ oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.errno
 oz.pidfile:	<BTBSD$Root>.bsd.include.h.fcntl
 oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
 oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.stat
+oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.time
+oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 oz.pidfile:	<BTBSD$Root>.bsd.include.h.unistd
 oz.pidfile:	<BTBSD$Root>.bsd.include.machine.h.ansi
 oz.pidfile:	<BTBSD$Root>.bsd.include.arm.h.ansi
@@ -253,6 +257,10 @@ oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.errno
 oz.pid_fix:	<BTBSD$Root>.bsd.include.h.fcntl
 oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
 oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.stat
+oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.time
+oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 oz.pid_fix:	<BTBSD$Root>.bsd.include.h.unistd
 oz.pid_fix:	<BTBSD$Root>.bsd.include.machine.h.ansi
 oz.pid_fix:	<BTBSD$Root>.bsd.include.arm.h.ansi
@@ -377,6 +385,10 @@ o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.errno
 o.pidfile:	<BTBSD$Root>.bsd.include.h.fcntl
 o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
 o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.stat
+o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.types
+o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.time
+o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.pidfile:	<BTBSD$Root>.bsd.include.h.unistd
 o.pidfile:	<BTBSD$Root>.bsd.include.machine.h.ansi
 o.pidfile:	<BTBSD$Root>.bsd.include.arm.h.ansi

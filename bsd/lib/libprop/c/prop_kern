@@ -29,24 +29,25 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#if defined(__NetBSD__)
+//#if defined(__NetBSD__)
 
 #include <sys/types.h>
 #include <sys/ioctl.h>
 
 #include <prop/proplib.h>
 
-#if !defined(_KERNEL) && !defined(_STANDALONE)
+//#if !defined(_KERNEL) && !defined(_STANDALONE)
 #include <sys/mman.h>
 #include <errno.h>
+#include <sys/errno.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-#ifdef RUMP_ACTION
-#include <rump/rump_syscalls.h>
-#define ioctl(a,b,c) rump_sys_ioctl(a,b,c)
-#endif
+//#ifdef RUMP_ACTION
+//#include <rump/rump_syscalls.h>
+//#define ioctl(a,b,c) rump_sys_ioctl(a,b,c)
+//#endif
 
 static int
 _prop_object_externalize_to_pref(prop_object_t obj, struct plistref *pref,
@@ -368,9 +369,9 @@ prop_dictionary_sendrecv_ioctl(prop_dictionary_t dict, int fd,
 	} else
 		return 0;
 }
-#endif /* !_KERNEL && !_STANDALONE */
+//#endif /* !_KERNEL && !_STANDALONE */
 
-#if defined(_KERNEL)
+//#if defined(_KERNEL)
 #include <sys/param.h>
 #include <sys/mman.h>
 #include <sys/errno.h>
@@ -380,7 +381,7 @@ prop_dictionary_sendrecv_ioctl(prop_dictionary_t dict, int fd,
 #include <sys/resource.h>
 #include <sys/pool.h>
 
-#include <uvm/uvm_extern.h>
+//#include <uvm/uvm_extern.h> FIXME RO
 
 #include "prop_object_impl.h"
 
@@ -391,12 +392,12 @@ unsigned int prop_object_copyin_limit = 128 * 1024;
 void
 prop_kern_init(void)
 {
-	__link_set_decl(prop_linkpools, struct prop_pool_init);
-	struct prop_pool_init * const *pi;
+//	__link_set_decl(prop_linkpools, struct prop_pool_init);
+//	struct prop_pool_init * const *pi;
 
-	__link_set_foreach(pi, prop_linkpools)
-		pool_init((*pi)->pp, (*pi)->size, 0, 0, 0, (*pi)->wchan,
-		    &pool_allocator_nointr, IPL_NONE);
+//	__link_set_foreach(pi, prop_linkpools)
+//		pool_init((*pi)->pp, (*pi)->size, 0, 0, 0, (*pi)->wchan,
+//		    &pool_allocator_nointr, IPL_NONE);
 }
 
 static int
@@ -624,6 +625,6 @@ prop_dictionary_copyout_ioctl(struct plistref *pref, const u_long cmd,
 	return (
 	    _prop_object_copyout_ioctl(pref, cmd, dict));
 }
-#endif /* _KERNEL */
+//#endif /* _KERNEL */
 
-#endif /* __NetBSD__ */
+//#endif /* __NetBSD__ */

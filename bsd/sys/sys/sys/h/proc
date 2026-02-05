@@ -1,7 +1,36 @@
-/*	$NetBSD: stat.h,v 1.69 2019/09/15 23:55:22 christos Exp $	*/
+/*	$NetBSD: proc.h,v 1.370.4.2 2023/08/09 17:42:01 martin Exp $	*/
 
 /*-
- * Copyright (c) 1982, 1986, 1989, 1993
+ * Copyright (c) 2006, 2007, 2008, 2020 The NetBSD Foundation, Inc.
+ * All rights reserved.
+ *
+ * This code is derived from software contributed to The NetBSD Foundation
+ * by Andrew Doran.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE NETBSD FOUNDATION, INC. AND CONTRIBUTORS
+ * ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ * TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR CONTRIBUTORS
+ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*-
+ * Copyright (c) 1986, 1989, 1991, 1993
  *	The Regents of the University of California.  All rights reserved.
  * (c) UNIX System Laboratories, Inc.
  * All or some portions of this file are derived from material licensed
@@ -33,56 +62,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)stat.h	8.12 (Berkeley) 8/17/94
+ *	@(#)proc.h	8.15 (Berkeley) 5/19/95
  */
 
-#ifndef _SYS_STAT_H_
-#define	_SYS_STAT_H_
+#ifndef _SYS_PROC_H_
+#define	_SYS_PROC_H_
 
-#include <sys/featuretest.h>
-#include <sys/types.h>		/* XXX */
 
-#include <sys/time.h>
-
-struct stat {
-//	dev_t	  st_dev;		/* inode's device */
-//	mode_t	  st_mode;		/* inode protection mode */
-//	ino_t	  st_ino;		/* inode's number */
-//	nlink_t	  st_nlink;		/* number of hard links */
-	uid_t	  st_uid;		/* user ID of the file's owner */
-	gid_t	  st_gid;		/* group ID of the file's group */
-//	dev_t	  st_rdev;		/* device type */
-
-	struct	  timespec st_atim;	/* time of last access */
-	struct	  timespec st_mtim;	/* time of last data modification */
-	struct	  timespec st_ctim;	/* time of last file status change */
-	struct	  timespec st_birthtim;	/* time of creation */
-
-	time_t	  st_atime;		/* time of last access */
-	long	  st_atimensec;		/* nsec of last access */
-	time_t	  st_mtime;		/* time of last data modification */
-	long	  st_mtimensec;		/* nsec of last data modification */
-	time_t	  st_ctime;		/* time of last file status change */
-	long	  st_ctimensec;		/* nsec of last file status change */
-	time_t	  st_birthtime;		/* time of creation */
-	long	  st_birthtimensec;	/* nsec of time of creation */
-
-	off_t	  st_size;		/* file size, in bytes */
-//	blkcnt_t  st_blocks;		/* blocks allocated for file */
-//	blksize_t st_blksize;		/* optimal blocksize for I/O */
-	uint32_t  st_flags;		/* user defined flags for file */
-	uint32_t  st_gen;		/* file generation number */
-	uint32_t  st_spare[2];
-};
-
-/* Line 240 */
-#include <sys/cdefs.h>
-
-int	fstat(int, struct stat *); // __RENAME(__fstat50);
-/* Line 250 */
-mode_t	umask(mode_t);
-
-/* Line 258 */
-int fchmod(int, mode_t);
-
-#endif /* !_SYS_STAT_H_ */
+#endif	/* !_SYS_PROC_H_ */

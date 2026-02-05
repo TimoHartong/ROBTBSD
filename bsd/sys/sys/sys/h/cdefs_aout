@@ -8,7 +8,12 @@
 #ifndef _SYS_CDEFS_AOUT_H_
 #define	_SYS_CDEFS_AOUT_H_
 
-/* FIXME Empty file */
+/* Line 114 */
+#define	__link_set_decl(set, ptype)					\
+extern struct {								\
+	int	__ls_length;						\
+	ptype	*__ls_items[1];						\
+} __link_set_##set
 
 
 #endif /* !_SYS_CDEFS_AOUT_H_ */

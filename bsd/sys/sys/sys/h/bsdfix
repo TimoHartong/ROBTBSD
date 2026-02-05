@@ -14,6 +14,7 @@ int	 strcasecmp(const char *, const char *);
 int	 daemon(int, int);
 /* From stdlib.h Line 334 */
 const char *getprogname(void);
+int mkstemp(char *);
 /* From stdio.h Line 412 */
 int	 asprintf(char ** __restrict, const char * __restrict, ...);
 /* From string.h Line */
@@ -22,6 +23,8 @@ unsigned int strlcpy(char *, const char *, unsigned int); // size_t = unsigned i
 /* It should be in string.h but it is not */
 char* strdup(const char *str);
 char* strndup(const char *str,unsigned int len);
+
+
 
 #endif
 

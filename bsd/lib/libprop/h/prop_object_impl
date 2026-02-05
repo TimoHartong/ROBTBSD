@@ -243,7 +243,7 @@ struct _prop_object_iterator {
 		}							\
 	} while (/*CONSTCOND*/0)
 
-#warning "Line 246"
+//#warning "Line 246"
 
 /* Line 351 */
 #define	_PROP_MUTEX_INIT(x)		/* nothing */
@@ -270,6 +270,7 @@ struct _prop_object_iterator {
 #define _PROP_ATOMIC_INC32_NV(x, v)	v = ++*(x)
 #define _PROP_ATOMIC_DEC32_NV(x, v)	v = --*(x)
 
+#define	_PROP_MUTEX_DECL_STATIC(x)	/* nothing */
 
 #if defined(_KERNEL)
 
@@ -386,7 +387,7 @@ void *		_prop_standalone_realloc(void *, size_t);
 /*
  * proplib in user space...
  */
-#warning "User space"
+//#warning "User space"
 
 #include <assert.h>
 #include <string.h>
@@ -481,7 +482,7 @@ void *		_prop_standalone_realloc(void *, size_t);
 //#define	_PROP_RWLOCK_UNLOCK(x)		pthread_rwlock_unlock(&(x))
 //#define	_PROP_RWLOCK_DESTROY(x)		pthread_rwlock_destroy(&(x))
 
-#warning "else construct : _PROP_ONCE_DECL(x)"
+//#warning "else construct : _PROP_ONCE_DECL(x)"
 //#define _PROP_ONCE_DECL(x)						\
 	static pthread_once_t x = PTHREAD_ONCE_INIT;
 //#define _PROP_ONCE_RUN(x,f)		pthread_once(&(x),(void(*)(void))f)

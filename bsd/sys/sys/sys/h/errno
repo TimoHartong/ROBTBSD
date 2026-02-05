@@ -46,6 +46,8 @@
 #define	EIO		5		/* Input/output error */
 #define	ENXIO		6		/* Device not configured */
 #define	EBADF		9		/* Bad file descriptor */
+#define	ENOMEM		12		/* Cannot allocate memory */
+#define	EFAULT		14		/* Bad address */
 #define	EEXIST		17		/* File exists */
 
 #define	EINVAL		22		/* Invalid argument */

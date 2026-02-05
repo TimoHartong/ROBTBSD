@@ -49,6 +49,9 @@ struct _prop_array {
 
 typedef struct _prop_array *prop_array_t;
 
+char* prop_array_externalize(prop_array_t pa);
 
-/* FIXME Empty file */
+prop_array_t prop_array_internalize(const char *xml);
+
+
 #endif /* _PROPLIB_PROP_ARRAY_H_ */

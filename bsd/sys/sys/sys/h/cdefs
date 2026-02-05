@@ -62,6 +62,8 @@
  */
 #define __UNVOLATILE(a)	((void *)(unsigned long)(volatile void *)(a))
 
+/* Line 301 */
+#define	__unused	/* delete */
 
 /*
  * To be used when an empty body is required like:

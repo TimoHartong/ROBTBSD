@@ -81,9 +81,11 @@ pid_t	 getpid(void);
 /* Line 132 */
 ssize_t	 read(int d, void *buf, size_t nbytes);
 /* Line 139 */
-unsigned int	 sleep(unsigned int);
+unsigned int sleep(unsigned int);
+long sysconf(int);
 /* Line 144 */
 int	 unlink(const char *);
+ssize_t	 write(int, const void *, size_t);
 /* Skip to line 153 */
 int	 getopt(int, char * const [], const char *);
 
@@ -106,5 +108,7 @@ off_t	 lseek(int, off_t, int);
  * also found in X/Open Portability Guide >= Issue 4 Version 2
  */
 int	 ftruncate(int, off_t);
+
+int	 fsync(int);
 
 #endif /* !_UNISTD_H_ */

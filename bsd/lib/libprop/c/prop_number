@@ -33,16 +33,17 @@
 #include <prop/prop_number.h>
 #include <sys/rbtree.h>
 
-#if defined(_KERNEL)
+//#if defined(_KERNEL)
 #include <sys/systm.h>
-#elif defined(_STANDALONE)
+//#elif defined(_STANDALONE)
 #include <sys/param.h>
 #include <lib/libkern/libkern.h>
-#else
+//#else
 #include <errno.h>
+#include <sys/errno.h> // Fix for RO
 #include <limits.h>
 #include <stdlib.h>
-#endif
+//#endif
 
 struct _prop_number_value {
 	union {
@@ -145,7 +146,7 @@ _prop_number_rb_compare_key(void *ctx _PROP_ARG_UNUSED,
 static const rb_tree_ops_t _prop_number_rb_tree_ops = {
 	.rbto_compare_nodes = _prop_number_rb_compare_nodes,
 	.rbto_compare_key = _prop_number_rb_compare_key,
-	.rbto_node_offset = offsetof(struct _prop_number, pn_link),
+//	.rbto_node_offset = offsetof(struct _prop_number, pn_link),
 	.rbto_context = NULL
 };
 
