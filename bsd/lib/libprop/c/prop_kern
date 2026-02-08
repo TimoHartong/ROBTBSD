@@ -536,8 +536,8 @@ prop_dictionary_copyin_ioctl(const struct plistref *pref, const u_long cmd,
 static int
 _prop_object_copyout(struct plistref *pref, prop_object_t obj)
 {
-	struct lwp *l = curlwp;		/* XXX */
-	struct proc *p = l->l_proc;
+//	struct lwp *l = curlwp;		/* XXX */
+//	struct proc *p = l->l_proc;
 	char *buf;
 	void *uaddr;
 	size_t len, rlen;
@@ -557,11 +557,11 @@ _prop_object_copyout(struct plistref *pref, prop_object_t obj)
 		return (ENOMEM);
 
 	len = strlen(buf) + 1;
-	rlen = round_page(len);
+//	rlen = round_page(len);
 	uaddr = NULL;
-	error = uvm_mmap_anon(p, &uaddr, rlen);
+//	error = uvm_mmap_anon(p, &uaddr, rlen);
 	if (error == 0) {
-		error = copyout(buf, uaddr, len);
+//		error = copyout(buf, uaddr, len);
 		if (error == 0) {
 			pref->pref_plist = uaddr;
 			pref->pref_len   = len;

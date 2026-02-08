@@ -7,7 +7,7 @@ Set LibC$Root <Obey$Dir>.bsd.lib.libc
 Set CommonLib$Root <Obey$Dir>.bsd.common.lib
 
 
-WimpSlot -min 8000K
+WimpSlot -min 12000K
 
 echo --------------------------
 echo Make Clib - stdlib

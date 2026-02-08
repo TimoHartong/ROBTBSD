@@ -34,6 +34,15 @@
 #ifndef _SYS_MALLOCVAR_H_
 #define	_SYS_MALLOCVAR_H_
 
- /* FIXME empty file */
+#include <sys/types.h>
+
+/*
+ * This structure describes a type of malloc'd memory and carries
+ * allocation statistics for that memory.
+ */
+struct malloc_type;
+
+#define	MALLOC_DECLARE(type)						\
+	static struct malloc_type *const __unused type = 0
 
 #endif /* _SYS_MALLOCVAR_H_ */

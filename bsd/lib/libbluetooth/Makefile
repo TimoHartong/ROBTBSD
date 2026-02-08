@@ -170,6 +170,7 @@ oz.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 oz.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 oz.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -399,6 +400,7 @@ o.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.bt_dev:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio

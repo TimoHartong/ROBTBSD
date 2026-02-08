@@ -24,7 +24,12 @@ unsigned int strlcpy(char *, const char *, unsigned int); // size_t = unsigned i
 char* strdup(const char *str);
 char* strndup(const char *str,unsigned int len);
 
+/* sys/arch/powerpc/ibm4cxx/trap.c */
+int copyin(const void *uaddr, void *kaddr, int len);
 
+/* sys/lib/libsa/alloc.c */
+void* alloc(int size);
+void dealloc(void *ptr, int size);
 
 #endif
 

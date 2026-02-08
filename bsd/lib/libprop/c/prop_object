@@ -44,7 +44,9 @@
 #include <sys/errno.h> /* FIXME for RO compile */
 #include <fcntl.h>
 #include <limits.h>
+#include <sys/syslimits.h> /* FIXME for RO compile */
 #include <unistd.h>
+//#include <sys/malloc.h>
 //#endif
 
 //#ifdef _STANDALONE

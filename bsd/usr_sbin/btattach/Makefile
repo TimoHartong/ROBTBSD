@@ -79,6 +79,7 @@ o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.btattach:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -297,6 +298,7 @@ o.firmload:	<BTBSD$Root>.bsd.include.machine.h.int_types
 o.firmload:	<BTBSD$Root>.bsd.include.arm.h.int_types
 o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.firmload:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.firmload:	<BTBSD$Root>.bsd.include.machine.h.param
 o.firmload:	<BTBSD$Root>.bsd.include.arm.arm32.h.param
 o.firmload:	<BTBSD$Root>.bsd.include.machine.h.limits
@@ -448,6 +450,7 @@ o.init_bcm2035:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_bcm2035:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.init_bcm2035:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_bcm2035:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_bcm2035:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_bcm2035:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.init_bcm2035:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.init_bcm2035:	h.btattach
@@ -510,6 +513,7 @@ o.init_bcm43xx:	<BTBSD$Root>.bsd.include.machine.h.int_types
 o.init_bcm43xx:	<BTBSD$Root>.bsd.include.arm.h.int_types
 o.init_bcm43xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_bcm43xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_bcm43xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_bcm43xx:	<BTBSD$Root>.bsd.include.machine.h.param
 o.init_bcm43xx:	<BTBSD$Root>.bsd.include.arm.arm32.h.param
 o.init_bcm43xx:	<BTBSD$Root>.bsd.include.machine.h.limits
@@ -692,6 +696,7 @@ o.init_bgb2xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_bgb2xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.init_bgb2xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_bgb2xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_bgb2xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_bgb2xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.init_bgb2xx:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.init_bgb2xx:	h.btattach
@@ -784,6 +789,7 @@ o.init_csr:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_csr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.init_csr:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_csr:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_csr:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_csr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.init_csr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.init_csr:	<BTBSD$Root>.bsd.sys.dev.bluetooth.h.bcsp
@@ -879,6 +885,7 @@ o.init_digi:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_digi:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.init_digi:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_digi:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_digi:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_digi:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.init_digi:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.init_digi:	h.btattach
@@ -973,6 +980,7 @@ o.init_ericsson:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_ericsson:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.init_ericsson:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_ericsson:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_ericsson:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_ericsson:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.init_ericsson:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.init_ericsson:	h.btattach
@@ -1067,6 +1075,7 @@ o.init_st:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_st:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.init_st:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_st:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_st:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_st:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.init_st:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.init_st:	h.btattach
@@ -1182,6 +1191,7 @@ o.init_stlc2500:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_stlc2500:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.init_stlc2500:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_stlc2500:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_stlc2500:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_stlc2500:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.init_stlc2500:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.init_stlc2500:	<BTBSD$Root>.bsd.include.h.unistd
@@ -1277,6 +1287,7 @@ o.init_swave:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_swave:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.init_swave:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_swave:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_swave:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_swave:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.init_swave:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.init_swave:	h.btattach
@@ -1371,6 +1382,7 @@ o.init_unistone:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.init_unistone:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.init_unistone:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.init_unistone:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.init_unistone:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.init_unistone:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.init_unistone:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.init_unistone:	<BTBSD$Root>.bsd.include.h.unistd

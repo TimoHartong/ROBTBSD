@@ -80,6 +80,7 @@ o.btconfig:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.btconfig:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.btconfig:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.btconfig:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btconfig:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.btconfig:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.btconfig:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.btconfig:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio

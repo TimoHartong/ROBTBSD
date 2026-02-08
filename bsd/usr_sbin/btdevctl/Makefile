@@ -144,6 +144,7 @@ o.btdevctl:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.btdevctl:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.btdevctl:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.btdevctl:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.btdevctl:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.btdevctl:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.btdevctl:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.btdevctl:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -406,6 +407,7 @@ o.print:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.print:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.print:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.print:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.print:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.print:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.print:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.print:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -535,6 +537,7 @@ o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.sdp:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio

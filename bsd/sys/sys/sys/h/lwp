@@ -1,11 +1,12 @@
-/*	$NetBSD: prop_bool.h,v 1.5 2020/06/06 21:25:59 thorpej Exp $	*/
+/*	$NetBSD: lwp.h,v 1.217 2022/07/23 19:15:29 mrg Exp $	*/
 
-/*-
- * Copyright (c) 2006 The NetBSD Foundation, Inc.
+/*
+ * Copyright (c) 2001, 2006, 2007, 2008, 2009, 2010, 2019, 2020
+ *    The NetBSD Foundation, Inc.
  * All rights reserved.
  *
  * This code is derived from software contributed to The NetBSD Foundation
- * by Jason R. Thorpe.
+ * by Nathan J. Williams and Andrew Doran.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -29,15 +30,9 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _PROPLIB_PROP_BOOL_H_
-#define	_PROPLIB_PROP_BOOL_H_
-
-#include <prop/prop_object.h>
-
-typedef struct _prop_bool *prop_bool_t;
-
-prop_bool_t prop_bool_create(bool val);
-bool prop_bool_true(prop_bool_t pb);
+#ifndef _SYS_LWP_H_
+#define _SYS_LWP_H_
 
 
-#endif /* _PROPLIB_PROP_BOOL_H_ */
+
+#endif	/* !_SYS_LWP_H_ */

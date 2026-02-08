@@ -36,4 +36,7 @@
 
 #include <sys/featuretest.h>
 
+#define	_SC_PAGESIZE		28
+#define	_SC_PAGE_SIZE		_SC_PAGESIZE	/* 1170 compatibility */
+
 #endif /* !_SYS_UNISTD_H_ */

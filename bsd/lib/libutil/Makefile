@@ -84,6 +84,7 @@ oz.pidfile:	<BTBSD$Root>.bsd.include.machine.h.int_types
 oz.pidfile:	<BTBSD$Root>.bsd.include.arm.h.int_types
 oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.pidfile:	<BTBSD$Root>.bsd.include.machine.h.param
 oz.pidfile:	<BTBSD$Root>.bsd.include.arm.arm32.h.param
 oz.pidfile:	<BTBSD$Root>.bsd.include.machine.h.limits
@@ -212,6 +213,7 @@ oz.pid_fix:	<BTBSD$Root>.bsd.include.machine.h.int_types
 oz.pid_fix:	<BTBSD$Root>.bsd.include.arm.h.int_types
 oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.pid_fix:	<BTBSD$Root>.bsd.include.machine.h.param
 oz.pid_fix:	<BTBSD$Root>.bsd.include.arm.arm32.h.param
 oz.pid_fix:	<BTBSD$Root>.bsd.include.machine.h.limits
@@ -340,6 +342,7 @@ o.pidfile:	<BTBSD$Root>.bsd.include.machine.h.int_types
 o.pidfile:	<BTBSD$Root>.bsd.include.arm.h.int_types
 o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.pidfile:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.pidfile:	<BTBSD$Root>.bsd.include.machine.h.param
 o.pidfile:	<BTBSD$Root>.bsd.include.arm.arm32.h.param
 o.pidfile:	<BTBSD$Root>.bsd.include.machine.h.limits
@@ -468,6 +471,7 @@ o.pid_fix:	<BTBSD$Root>.bsd.include.machine.h.int_types
 o.pid_fix:	<BTBSD$Root>.bsd.include.arm.h.int_types
 o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.pid_fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.pid_fix:	<BTBSD$Root>.bsd.include.machine.h.param
 o.pid_fix:	<BTBSD$Root>.bsd.include.arm.arm32.h.param
 o.pid_fix:	<BTBSD$Root>.bsd.include.machine.h.limits

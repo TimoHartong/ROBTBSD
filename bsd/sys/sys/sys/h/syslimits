@@ -35,7 +35,7 @@
 #define _SYS_SYSLIMITS_H_
 
 #include <sys/featuretest.h> // Empty file
-
+#include <sys/common_limits.h> // More RO compile */
 /*
 * FIXME Empty file
 * when looked to content it looks it has little defines of interrest

@@ -36,6 +36,7 @@ oz.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 oz.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 oz.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -66,6 +67,7 @@ oz.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 oz.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 oz.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -152,6 +154,7 @@ oz.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 oz.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 oz.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -182,6 +185,7 @@ oz.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 oz.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 oz.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -224,6 +228,7 @@ oz.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 oz.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 oz.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 oz.cfsetspeed:	c.cfsetspeed
@@ -247,6 +252,7 @@ oz.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 oz.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 oz.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.tcdrain:	c.tcdrain
@@ -259,6 +265,7 @@ o.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.tcdrain:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -289,6 +296,7 @@ o.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.tcflush:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -375,6 +383,7 @@ o.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.tcgetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -405,6 +414,7 @@ o.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.tcsetattr:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -447,6 +457,7 @@ o.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.cfmakeraw:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults
 o.cfsetspeed:	c.cfsetspeed
@@ -470,5 +481,6 @@ o.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.cfsetspeed:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttydefaults

@@ -97,3 +97,6 @@ IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 echo --------------------------
 echo     !Clean Completed !
 echo --------------------------
+
+Dir <BTBSD$Root>
+

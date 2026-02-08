@@ -38,6 +38,7 @@ oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 oz.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
@@ -208,6 +209,7 @@ o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioctl
 o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.ttycom
 o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.syslimits
 o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.common_limits
 o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.ioccom
 o.fix:	<BTBSD$Root>.bsd.sys.sys.sys.h.dkio
