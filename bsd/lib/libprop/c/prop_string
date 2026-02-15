@@ -71,6 +71,106 @@ struct _prop_string {
 
 #define	prop_string_contents(x)  ((x)->ps_immutable ? (x)->ps_immutable : "")
 
+static prop_string_t _prop_string_alloc(int const flags)
+{
+	prop_string_t ps;
+
+//	ps = _PROP_POOL_GET(_prop_string_pool);
+//	if (ps != NULL) {
+//		_prop_object_init(&ps->ps_obj, &_prop_object_type_string);
+
+//		ps->ps_mutable = NULL;
+//		ps->ps_size = 0;
+//		ps->ps_flags = flags;
+//	}
+
+//	return (ps);
+}
+
+/* Line 232 */
+static prop_string_t _prop_string_instantiate(int const flags, const char * const str, size_t const len)
+{
+	prop_string_t ps;
+
+//	_PROP_ONCE_RUN(_prop_string_init_once, _prop_string_init);
+
+//	ps = _prop_string_alloc(flags);
+//	if (ps != NULL) {
+//		ps->ps_immutable = str;
+//		ps->ps_size = len;
+
+//		if ((flags & PS_F_MUTABLE) == 0) {
+//			prop_string_t ops;
+
+//			_PROP_MUTEX_LOCK(_prop_string_tree_mutex);
+//			ops = rb_tree_insert_node(&_prop_string_tree, ps);
+//			if (ops != ps) {
+				/*
+				 * Equivalent string object already exist;
+				 * free the new one and return a reference
+				 * to the existing object.
+				 */
+//				prop_object_retain(ops);
+//				_PROP_MUTEX_UNLOCK(_prop_string_tree_mutex);
+//				if ((flags & PS_F_NOCOPY) == 0) {
+//					_PROP_FREE(ps->ps_mutable,
+//					    M_PROP_STRING);
+//				}
+//				_PROP_POOL_PUT(_prop_string_pool, ps);
+//				ps = ops;
+//			} else {
+//				_PROP_MUTEX_UNLOCK(_prop_string_tree_mutex);
+//			}
+//		}
+//	} else if ((flags & PS_F_NOCOPY) == 0) {
+//		_PROP_FREE(__UNCONST(str), M_PROP_STRING);
+//	}
+
+	return (ps);
+}
+
+/* Line 321 */
+/*
+ * prop_string_create_format --
+ *	Create a string object using the provided format string.
+ */
+//prop_string_t __printflike(1, 2)
+prop_string_t prop_string_create_format(const char *fmt, ...)
+{
+	char *str = NULL;
+	int len;
+	size_t nlen;
+//	va_list ap;
+
+//	_PROP_ASSERT(fmt != NULL);
+
+//	va_start(ap, fmt); /* FIXME ROOL C Compiler error */
+//	len = vsnprintf(NULL, 0, fmt, ap);
+//	va_end(ap);
+
+//	if (len < 0)
+//		return (NULL);
+//	nlen = len + 1;
+
+ //	str = _PROP_MALLOC(nlen, M_PROP_STRING);
+//	if (str == NULL)
+//		return (NULL);
+
+//	va_start(ap, fmt); /* FIXME ROOL C Compiler error */
+//	vsnprintf(str, nlen, fmt, ap);
+//	va_end(ap);
+
+//	return _prop_string_instantiate(0, str, (size_t)len);
+}
+
+/*
+ * prop_string_create_copy --
+ *	Create a string object by coping the provided constant string.
+ */
+prop_string_t prop_string_create_copy(const char *str)
+{
+	return prop_string_create_format("%s", str);
+}
 
 /* Line 439 */
 

@@ -65,7 +65,33 @@ bool prop_dictionary_set_int32(prop_dictionary_t dict, const char *key, int32_t 
 {
 }
 
+bool prop_dictionary_set_string(prop_dictionary_t dict, const char *key, const char *cp)
+{
+	return prop_dictionary_set_and_rel(dict, key,
+					   prop_string_create_copy(cp));
+}
+
+/* Line 195 */
 bool prop_dictionary_set_string_nocopy(prop_dictionary_t dict, const char *key, const char *cp)
 {
 	//return prop_dictionary_set_and_rel(dict, key, prop_string_create_nocopy(cp));
+}
+
+/* Line 225 */
+bool prop_dictionary_set_data(prop_dictionary_t dict, const char *key, const void *v, size_t size)
+{
+	return prop_dictionary_set_and_rel(dict, key,
+					   prop_data_create_copy(v, size));
+}
+
+/* Line 305 */
+bool prop_dictionary_set_and_rel(prop_dictionary_t dict, const char *key, prop_object_t po)
+{
+	bool rv;
+
+	if (po == NULL)
+		return false;
+	rv = prop_dictionary_set(dict, key, po);
+	prop_object_release(po);
+	return rv;
 }

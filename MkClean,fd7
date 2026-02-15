@@ -74,6 +74,13 @@ Dir <BTBSD$Root>.bsd.lib.bsdfix
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 
 echo --------------------------
+echo Clean Lib Property
+echo --------------------------
+
+Dir <BTBSD$Root>.bsd.lib.libprop
+IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
+
+echo --------------------------
 echo Clean btattach
 echo --------------------------
 
@@ -94,9 +101,9 @@ echo --------------------------
 Dir <BTBSD$Root>.bsd.usr_sbin.btdevctl
 IfThere @.o Then IfThere @.o.* Then Wipe @.o.* ~C ~V
 
-echo --------------------------
-echo     !Clean Completed !
-echo --------------------------
+echo -------------------------------------------
+echo     !Clean Completed !. Set back to root
+echo -------------------------------------------
 
 Dir <BTBSD$Root>
 

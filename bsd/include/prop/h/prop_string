@@ -35,7 +35,8 @@
 #include <prop/prop_object.h>
 
 typedef struct _prop_string *prop_string_t;
-
+prop_string_t prop_string_create_format(const char *fmt, ...);
+prop_string_t prop_string_create_copy(const char *str);
 const char *prop_string_value(prop_string_t ps);
 bool prop_string_equals_string(prop_string_t ps, const char *cp);
 

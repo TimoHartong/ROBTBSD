@@ -29,4 +29,80 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <sys/types.h>
+#include <sys/ioctl.h>
+
 #include <prop/proplib.h>
+
+#include <errno.h>
+#include <sys/errno.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+/* Line 52 */
+static int _prop_object_externalize_to_pref(prop_object_t obj, struct plistref *pref,
+	       			 char **bufp)
+{
+	char *buf;
+
+	switch (prop_object_type(obj)) {
+	case PROP_TYPE_DICTIONARY:
+		buf = prop_dictionary_externalize(obj);
+		break;
+	case PROP_TYPE_ARRAY:
+		buf = prop_array_externalize(obj);
+		break;
+	default:
+		return (ENOTSUP);
+	}
+	if (buf == NULL) {
+		/* Assume we ran out of memory. */
+		return (ENOMEM);
+	}
+	pref->pref_plist = buf;
+	pref->pref_len = strlen(buf) + 1;
+
+	*bufp = buf;
+
+	return (0);
+}
+
+/* Line 132 */
+static int _prop_object_send_ioctl(prop_object_t obj, int fd, unsigned long cmd)
+{
+	struct plistref pref;
+	char *buf;
+	int error;
+
+	error = _prop_object_externalize_to_pref(obj, &pref, &buf);
+	if (error)
+		return (error);
+
+	if (ioctl(fd, cmd, &pref) == -1)
+		error = errno;
+	else
+		error = 0;
+
+	free(buf);
+
+	return (error);
+}
+
+/* Line 170 */
+
+/*
+ * prop_dictionary_send_ioctl --
+ *	Send a dictionary to the kernel using the specified ioctl.
+ */
+int prop_dictionary_send_ioctl(prop_dictionary_t dict, int fd, unsigned long cmd)
+{
+	int rv;
+
+	rv = _prop_object_send_ioctl(dict, fd, cmd);
+	if (rv != 0) {
+		errno = rv;	/* pass up error value in errno */
+		return rv;
+	} else
+		return 0;
+}

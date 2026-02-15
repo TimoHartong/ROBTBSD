@@ -32,6 +32,64 @@
 #include "prop_object_impl.h"
 #include <prop/prop_object.h>
 
+/* Line 1008 */
+/*
+ * prop_object_release_emergency
+ *	A direct free with prop_object_release failed.
+ *	Walk down the tree until a leaf is found and
+ *	free that. Do not recurse to avoid stack overflows.
+ *
+ *	This is a slow edge condition, but necessary to
+ *	guarantee that an object can always be freed.
+ */
+static void prop_object_release_emergency(prop_object_t obj)
+{
+//	struct _prop_object *po;
+//	void (*unlock)(void);
+//	prop_object_t parent = NULL;
+//	uint32_t ocnt;
+
+//	for (;;) {
+//		po = obj;
+//		_PROP_ASSERT(obj);
+
+ //		if (po->po_type->pot_lock != NULL)
+//		po->po_type->pot_lock();
+
+		/* Save pointerto unlock function */
+//		unlock = po->po_type->pot_unlock;
+
+		/* Dance a bit to make sure we always get the non-racy ocnt */
+//		_PROP_ATOMIC_DEC32_NV(&po->po_refcnt, ocnt);
+//		ocnt++;
+//		_PROP_ASSERT(ocnt != 0);
+
+//		if (ocnt != 1) {
+//			if (unlock != NULL)
+//				unlock();
+//			break;
+//		}
+
+ //		_PROP_ASSERT(po->po_type);
+//		if ((po->po_type->pot_free)(NULL, &obj) ==
+//		    _PROP_OBJECT_FREE_DONE) {
+//			if (unlock != NULL)
+//				unlock();
+//			break;
+//		}
+
+//		if (unlock != NULL)
+//			unlock();
+
+//		parent = po;
+//		_PROP_ATOMIC_INC32(&po->po_refcnt);
+//	}
+//	_PROP_ASSERT(parent);
+	/* One object was just freed. */
+//	po = parent;
+//	(*po->po_type->pot_emergency_free)(parent);
+}
+
 /* Line 1066 */
 /*
  * prop_object_release --
@@ -87,7 +145,6 @@ void prop_object_release(prop_object_t obj)
 //	} while (_prop_stack_pop(&stack, &obj, NULL, NULL, NULL));
 }
 
-/* Line 1122 */
 /*
  * prop_object_type --
  *	Return the type of an object.
@@ -102,3 +159,23 @@ prop_type_t prop_object_type(prop_object_t obj)
 //	return (po->po_type->pot_type);
 }
 
+/* Line 1204 */
+/*
+ * prop_object_iterator_next --
+ *	Return the next item during an iteration.
+ */
+prop_object_t prop_object_iterator_next(prop_object_iterator_t pi)
+{
+	return ((*pi->pi_next_object)(pi));
+}
+
+/* Line 1227 */
+/*
+ * prop_object_iterator_release --
+ *	Release the object iterator.
+ */
+void prop_object_iterator_release(prop_object_iterator_t pi)
+{
+	prop_object_release(pi->pi_obj);
+	_PROP_FREE(pi, M_TEMP);
+}

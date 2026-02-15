@@ -64,6 +64,42 @@ static prop_object_t _prop_dictionary_get(prop_dictionary_t pd, const char *key,
 	return (po);
 }
 
+/* Line 806 */
+static prop_object_iterator_t _prop_dictionary_iterator_locked(prop_dictionary_t pd)
+{
+	struct _prop_dictionary_iterator *pdi;
+
+//	if (! prop_object_is_dictionary(pd))
+//		return (NULL);
+
+//	pdi = _PROP_CALLOC(sizeof(*pdi), M_TEMP);
+//	if (pdi == NULL)
+//		return (NULL);
+//	pdi->pdi_base.pi_next_object = _prop_dictionary_iterator_next_object;
+//	pdi->pdi_base.pi_reset = _prop_dictionary_iterator_reset;
+//	prop_object_retain(pd);
+//	pdi->pdi_base.pi_obj = pd;
+//	_prop_dictionary_iterator_reset_locked(pdi);
+
+//	return (&pdi->pdi_base);
+}
+
+/*
+ * prop_dictionary_iterator --
+ *	Return an iterator for the dictionary.  The dictionary is retained by
+ *	the iterator.
+ */
+prop_object_iterator_t prop_dictionary_iterator(prop_dictionary_t pd)
+{
+	prop_object_iterator_t pi;
+
+//	_PROP_RWLOCK_RDLOCK(pd->pd_rwlock);
+	pi = _prop_dictionary_iterator_locked(pd);
+//	_PROP_RWLOCK_UNLOCK(pd->pd_rwlock);
+	return (pi);
+}
+
+
 /* Line 932 */
 /*
  * prop_dictionary_get --
@@ -81,6 +117,26 @@ prop_object_t prop_dictionary_get(prop_dictionary_t pd, const char *key)
 //	_PROP_RWLOCK_UNLOCK(pd->pd_rwlock);
 //	return (po);
 }
+/* Line 950 */
+static prop_object_t _prop_dictionary_get_keysym(prop_dictionary_t pd, prop_dictionary_keysym_t pdk, bool locked)
+{
+
+//	if (! (prop_object_is_dictionary(pd) &&
+//	       prop_object_is_dictionary_keysym(pdk)))
+//		return (NULL);
+
+//	return (_prop_dictionary_get(pd, pdk->pdk_key, locked));
+}
+
+/*
+ * prop_dictionary_get_keysym --
+ *	Return the object stored at the location encoded by the keysym.
+ */
+prop_object_t prop_dictionary_get_keysym(prop_dictionary_t pd, prop_dictionary_keysym_t pdk)
+{
+	return (_prop_dictionary_get_keysym(pd, pdk, false));
+}
+
 
 /* Line 973 */
 /*
@@ -177,6 +233,81 @@ bool prop_dictionary_set(prop_dictionary_t pd, const char *key, prop_object_t po
 //	_PROP_RWLOCK_UNLOCK(pd->pd_rwlock);
 //	return (rv);
 }
+
+
+
+/* Line 1086 */
+static void _prop_dictionary_remove(prop_dictionary_t pd, struct _prop_dict_entry *pde, unsigned int idx)
+{
+//	prop_dictionary_keysym_t pdk = pde->pde_key;
+//	prop_object_t po = pde->pde_objref;
+
+	/*
+	 * Dictionary must be WRITE-LOCKED.
+	 */
+
+//	_PROP_ASSERT(pd->pd_count != 0);
+//	_PROP_ASSERT(idx < pd->pd_count);
+//	_PROP_ASSERT(pde == &pd->pd_array[idx]);
+
+	idx++;
+//	memmove(&pd->pd_array[idx - 1], &pd->pd_array[idx],
+//		(pd->pd_count - idx) * sizeof(*pde));
+//	pd->pd_count--;
+//	pd->pd_version++;
+
+
+//	prop_object_release(pdk);
+
+//	prop_object_release(po);
+}
+
+/* Line 1113 */
+
+/*
+ * prop_dictionary_remove --
+ *	Remove the reference to an object with the specified key from
+ *	the dictionary.
+ */
+void prop_dictionary_remove(prop_dictionary_t pd, const char *key)
+{
+//	struct _prop_dict_entry *pde;
+//	unsigned int idx;
+
+//	if (! prop_object_is_dictionary(pd))
+//		return;
+
+//	_PROP_RWLOCK_WRLOCK(pd->pd_rwlock);
+
+	/* XXX Should this be a _PROP_ASSERT()? */
+//	if (prop_dictionary_is_immutable(pd))
+//		goto out;
+
+//	pde = _prop_dict_lookup(pd, key, &idx);
+	/* XXX Should this be a _PROP_ASSERT()? */
+//	if (pde == NULL)
+//		goto out;
+
+//	_prop_dictionary_remove(pd, pde, idx);
+// out:
+//	_PROP_RWLOCK_UNLOCK(pd->pd_rwlock);
+}
+
+/* Line 1175 */
+
+/*
+ * prop_dictionary_keysym_value --
+ *	Return a reference to the keysym's value.
+ */
+const char *prop_dictionary_keysym_value(prop_dictionary_keysym_t pdk)
+{
+
+//	if (! prop_object_is_dictionary_keysym(pdk))
+//		return (NULL);
+
+//	return (pdk->pdk_key);
+}
+
 
 /* Line 1218 */
 /*

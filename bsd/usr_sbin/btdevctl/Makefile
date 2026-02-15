@@ -31,6 +31,7 @@ LIBINCL = <BTBSD$Root>.bsd.include.
 LIBSYSNTBT = <BTBSD$Root>.bsd.sys
 LIBCROOT = <LibC$Root>
 COMMONLIB = <CommonLib$Root>
+LIBPROP =  <BTBSD$Root>.bsd.lib.libprop
 
 
 # You need to specify all the files that go into the application directory.
@@ -65,6 +66,10 @@ LIBS += ${LIBCROOT}.string.o.strdup
 LIBS += ${COMMONLIB}.libc.string.o.strlcpy ${COMMONLIB}.libc.string.o.strcasecmp
 # Add LibUtil 
 LIBS += ${LIBDIREC}.lib.libutil.o.pidfile ${LIBDIREC}.lib.libutil.o.pid_fix
+# Add LibProp
+LIBS += ${LIBPROP}.o.prop_dictionary_util ${LIBPROP}.o.prop_dictionary 
+LIBS += ${LIBPROP}.o.prop_object ${LIBPROP}.o.prop_data ${LIBPROP}.o.prop_string
+LIBS += ${LIBPROP}.o.prop_bool ${LIBPROP}.o.prop_number ${LIBPROP}.o.prop_kern
 # Add BSD Fixes
 LIBS += ${LIBDIREC}.lib.bsdfix.o.fix
 

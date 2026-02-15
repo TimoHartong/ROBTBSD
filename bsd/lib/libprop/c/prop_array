@@ -35,4 +35,33 @@
 #include <errno.h>
 #include <sys/errno.h>
 
+/* Line 738 */
+/*
+ * prop_array_externalize --
+ *	Externalize an array, return a NUL-terminated buffer
+ *	containing the XML-style representation.  The buffer is allocated
+ *	with the M_TEMP memory type.
+ */
+char *prop_array_externalize(prop_array_t pa)
+{
+//	struct _prop_object_externalize_context *ctx;
+	char *cp;
 
+//	ctx = _prop_object_externalize_context_alloc();
+//	if (ctx == NULL)
+//		return (NULL);
+
+//	if (_prop_object_externalize_header(ctx) == false ||
+//	    (*pa->pa_obj.po_type->pot_extern)(ctx, pa) == false ||
+//	    _prop_object_externalize_footer(ctx) == false) {
+//		/* We are responsible for releasing the buffer. */
+//		_PROP_FREE(ctx->poec_buf, M_TEMP);
+//		_prop_object_externalize_context_free(ctx);
+//		return (NULL);
+//	}
+
+  //	cp = ctx->poec_buf;
+//	_prop_object_externalize_context_free(ctx);
+
+	return (cp);
+}

@@ -9,14 +9,6 @@ Set CommonLib$Root <Obey$Dir>.bsd.common.lib
 
 WimpSlot -min 12000K
 
-|echo --------------------------
-|echo Make portable Prop Lib 
-|echo --------------------------
-
-|Dir <BTBSD$Root>.proplib
-|amu all_libs THROWBACK=-throwback
-
-
 echo --------------------------
 echo Make Clib - stdlib
 echo --------------------------
