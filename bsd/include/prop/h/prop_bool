@@ -36,7 +36,6 @@
 
 typedef struct _prop_bool *prop_bool_t;
 
-prop_bool_t prop_bool_create(bool val);
 bool prop_bool_true(prop_bool_t pb);
 
 

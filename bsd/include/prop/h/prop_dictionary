@@ -35,124 +35,35 @@
 #include <prop/prop_object.h>
 #include <prop/prop_array.h>
 
-/*
- * prop_dictionary_keysym_t is allocated with space at the end to hold the
- * key.  This must be a regular object so that we can maintain sane iterator
- * semantics -- we don't want to require that the caller release the result
- * of prop_object_iterator_next().
- *
- * We'd like to have some small'ish keysym objects for up-to-16 characters
- * in a key, some for up-to-32 characters in a key, and then a final bucket
- * for up-to-128 characters in a key (not including NUL).  Keys longer than
- * 128 characters are not allowed.
- */
-struct _prop_dictionary_keysym {
-//	struct _prop_object		pdk_obj;
-	size_t				pdk_size;
-//	struct rb_node			pdk_link;
-	char 				pdk_key[1];
-	/* actually variable length */
-};
-
-typedef struct _prop_dictionary_keysym *prop_dictionary_keysym_t;
-
-/* Taken from lib/libprop/prop.c */
-struct _prop_dict_entry {
-	prop_dictionary_keysym_t	pde_key;
-	prop_object_t			pde_objref;
-};
-
-struct _prop_dictionary {
-//	struct _prop_object	pd_obj;
-//	_PROP_RWLOCK_DECL(pd_rwlock)
-	struct _prop_dict_entry	*pd_array;
-	unsigned int		pd_capacity;
-	unsigned int		pd_count;
-	int			pd_flags;
-	uint32_t		pd_version;
-};
-
 typedef struct _prop_dictionary *prop_dictionary_t;
-//typedef struct _prop_dictionary_keysym *prop_dictionary_keysym_t;
-
-
 
 prop_dictionary_t prop_dictionary_create(void);
-prop_dictionary_t prop_dictionary_create_with_capacity(unsigned int capacity);
-prop_dictionary_t prop_dictionary_copy(prop_dictionary_t opd);
-prop_dictionary_t prop_dictionary_copy_mutable(prop_dictionary_t opd);
-unsigned int prop_dictionary_count(prop_dictionary_t pd);
-bool prop_dictionary_ensure_capacity(prop_dictionary_t pd, unsigned int capacity);
-void prop_dictionary_make_immutable(prop_dictionary_t pd);
-bool prop_dictionary_mutable(prop_dictionary_t pd);
-prop_object_iterator_t prop_dictionary_iterator(prop_dictionary_t pd);
-prop_array_t prop_dictionary_all_keys(prop_dictionary_t pd);
+/* Line 59 */
 prop_object_t prop_dictionary_get(prop_dictionary_t pd, const char *key);
 bool prop_dictionary_set(prop_dictionary_t pd, const char *key, prop_object_t po);
-void prop_dictionary_remove(prop_dictionary_t pd, const char *key);
-prop_object_t prop_dictionary_get_keysym(prop_dictionary_t pd, prop_dictionary_keysym_t pdk);
-bool prop_dictionary_set_keysym(prop_dictionary_t pd, prop_dictionary_keysym_t pdk, prop_object_t po);
-void prop_dictionary_remove_keysym(prop_dictionary_t pd, prop_dictionary_keysym_t pdk);
-bool prop_dictionary_equals(prop_dictionary_t dict1, prop_dictionary_t dict2);
+
 char *prop_dictionary_externalize(prop_dictionary_t pd);
-prop_dictionary_t prop_dictionary_internalize(const char *xml);
-prop_dictionary_t prop_dictionary_internalize_from_file(const char *fname);
+prop_dictionary_t prop_dictionary_internalize(const char *);
+
+/* Line 76 */
 bool prop_dictionary_externalize_to_file(prop_dictionary_t dict, const char *fname);
-const char *prop_dictionary_keysym_value(prop_dictionary_keysym_t pdk);
-bool prop_dictionary_keysym_equals(prop_dictionary_keysym_t pdk1, prop_dictionary_keysym_t pdk2);
+prop_dictionary_t prop_dictionary_internalize_from_file(const char *fname);
 
-int prop_array_send_ioctl(prop_array_t array, int fd, unsigned long cmd);
-int prop_dictionary_send_ioctl(prop_dictionary_t dict, int fd, unsigned long cmd);
-int prop_array_recv_ioctl(int fd, unsigned long cmd, prop_array_t *arrayp);
-int prop_dictionary_recv_ioctl(int fd, unsigned long cmd, prop_dictionary_t *dictp);
-/* Utility functions */
-bool prop_dictionary_get_dict(prop_dictionary_t dict, const char *key, prop_dictionary_t *valp);
-bool prop_dictionary_get_bool(prop_dictionary_t dict, const char *key, bool *valp);
+/* Line 131 */
 bool prop_dictionary_set_bool(prop_dictionary_t dict, const char *key, bool val);
-bool prop_dictionary_get_schar(prop_dictionary_t dict, const char *key, signed char *valp);
-bool prop_dictionary_get_uchar(prop_dictionary_t dict, const char *key, unsigned char *valp);
-bool prop_dictionary_set_schar(prop_dictionary_t dict, const char *key, signed char val);
-bool prop_dictionary_set_uchar(prop_dictionary_t dict, const char *key, unsigned char val);
-bool prop_dictionary_get_short(prop_dictionary_t dict, const char *key, short *valp);
-bool prop_dictionary_get_ushort(prop_dictionary_t dict, const char *key, unsigned short *valp);
-bool prop_dictionary_set_short(prop_dictionary_t dict, const char *key, short val);
-bool prop_dictionary_set_ushort(prop_dictionary_t dict, const char *key, unsigned short val);
-bool prop_dictionary_get_int(prop_dictionary_t dict, const char *key, int *valp);
-bool prop_dictionary_get_uint(prop_dictionary_t dict, const char *key, unsigned int *valp);
-bool prop_dictionary_set_int(prop_dictionary_t dict, const char *key, int val);
-bool prop_dictionary_set_uint(prop_dictionary_t dict, const char *key, unsigned int val);
-bool prop_dictionary_get_long(prop_dictionary_t dict, const char *key, long *valp);
-bool prop_dictionary_get_ulong(prop_dictionary_t dict, const char *key, unsigned long *valp);
-bool prop_dictionary_set_long(prop_dictionary_t dict, const char *key, long val);
-bool prop_dictionary_set_ulong(prop_dictionary_t dict, const char *key, unsigned long val);
-bool prop_dictionary_get_longlong(prop_dictionary_t dict, const char *key, long long *valp);
-bool prop_dictionary_get_ulonglong(prop_dictionary_t dict, const char *key, unsigned long long *valp);
-bool prop_dictionary_set_longlong(prop_dictionary_t dict, const char *key, long long val);
-bool prop_dictionary_set_ulonglong(prop_dictionary_t dict, const char *key, unsigned long long val);
-/* Skip intptr and famlily */
-bool prop_dictionary_get_int8(prop_dictionary_t dict, const char *key, int8_t *valp);
-bool prop_dictionary_get_uint8(prop_dictionary_t dict, const char *key, uint8_t *valp);
-bool prop_dictionary_set_int8(prop_dictionary_t dict, const char *key, int8_t val);
-bool prop_dictionary_set_uint8(prop_dictionary_t dict, const char *key, uint8_t val);
-bool prop_dictionary_get_int16(prop_dictionary_t dict, const char *key, int16_t *valp);
-bool prop_dictionary_get_uint16(prop_dictionary_t dict, const char *key, uint16_t *valp);
-bool prop_dictionary_set_int16(prop_dictionary_t dict, const char *key, int16_t val);
-bool prop_dictionary_set_uint16(prop_dictionary_t dict, const char *key, uint16_t val);
-bool prop_dictionary_get_int32(prop_dictionary_t dict, const char *key, int32_t *valp);
-bool prop_dictionary_get_uint32(prop_dictionary_t dict, const char *key, uint32_t *valp);
-bool prop_dictionary_set_int32(prop_dictionary_t dict, const char *key, int32_t val);
-bool prop_dictionary_set_uint32(prop_dictionary_t dict, const char *key, uint32_t val);
-bool prop_dictionary_get_int64(prop_dictionary_t dict, const char *key, int64_t *valp);
-bool prop_dictionary_get_uint64(prop_dictionary_t dict, const char *key, uint64_t *valp);
-bool prop_dictionary_set_int64(prop_dictionary_t dict, const char *key, int64_t val);
-bool prop_dictionary_set_uint64(prop_dictionary_t dict, const char *key, uint64_t val);
-bool prop_dictionary_set_int(prop_dictionary_t dict, const char *key, int val);
-bool prop_dictionary_set_string_nocopy(prop_dictionary_t dict, const char *key, const char *cp);
-bool prop_dictionary_get_string(prop_dictionary_t dict, const char *key, const char **cpp);
-bool prop_dictionary_set_string(prop_dictionary_t dict, const char *key, const char *cp);
-bool prop_dictionary_get_data(prop_dictionary_t dict, const char *key, const void **vp, size_t *sizep);
-bool prop_dictionary_set_data(prop_dictionary_t dict, const char *key, const void *v, size_t size);
-bool prop_dictionary_set_data_nocopy(prop_dictionary_t dict, const char *key, const void *v, size_t size);
-bool prop_dictionary_set_and_rel(prop_dictionary_t dict, const char *key, prop_object_t po);
 
+/* Line 156 */
+bool prop_dictionary_set_int(prop_dictionary_t dict, const char *key, int val);
+
+/* Line 199 */
+bool prop_dictionary_get_uint16(prop_dictionary_t dict, const char *key, uint16_t *valp);
+
+/* Line 203 */
+bool prop_dictionary_set_uint16(prop_dictionary_t dict, const char *key, uint16_t val);
+
+/* Line 210 */
+bool prop_dictionary_set_int32(prop_dictionary_t dict, const char *key, int32_t val);
+
+/* Line 228 */
+bool prop_dictionary_set_string_nocopy(prop_dictionary_t dict, const char *key, const char *);
 #endif /* _PROPLIB_PROP_DICTIONARY_H_ */
