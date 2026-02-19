@@ -80,12 +80,16 @@
 //__RCSID("$NetBSD: sdp_compat.c,v 1.2 2009/05/14 19:12:45 plunky Exp $");
 
 #include <errno.h>
+#include <sys/errno.h>   // Fixme RO
 #include <sdp.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/endian.h>  // Fixme RO
 
 #include "sdp-int.h"
+
+#warning "end of includes"
 
 struct sdp_compat {
 	sdp_session_t	ss;
@@ -246,8 +250,7 @@ sdp_search(void *xss, uint32_t plen, uint16_t const *pp, uint32_t alen,
 	return 0;
 }
 
-int32_t
-sdp_register_service(void *xss, uint16_t uuid, bdaddr_t *bdaddr,
+int32_t sdp_register_service(void *xss, uint16_t uuid, bdaddr_t *bdaddr,
     uint8_t *data, uint32_t datalen, uint32_t *handle)
 {
 	struct sdp_compat *sc = xss;
@@ -263,13 +266,14 @@ sdp_register_service(void *xss, uint16_t uuid, bdaddr_t *bdaddr,
 	}
 
 	uuid = htobe16(uuid);
+
 	req[1].iov_base = &uuid;
 	req[1].iov_len = sizeof(uint16_t);
 
-	req[2].iov_base = bdaddr;
+ 	req[2].iov_base = (uint16_t*) bdaddr;
 	req[2].iov_len = sizeof(bdaddr_t);
 
-	req[3].iov_base = data;
+ 	req[3].iov_base = data;
 	req[3].iov_len = datalen;
 
 	if (!_sdp_send_pdu(sc->ss, SDP_PDU_SERVICE_REGISTER_REQUEST,

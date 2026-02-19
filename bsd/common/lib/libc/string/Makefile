@@ -24,6 +24,24 @@ clean::
 	${WIPE} ${INSTAPP} ${WFLAGS}
 
 # Dynamic dependencies:
+oz.strcasecmp:	c.strcasecmp
+oz.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+oz.strcasecmp:	<BTBSD$Root>.bsd.include.machine.h.cdefs
+oz.strcasecmp:	<BTBSD$Root>.bsd.include.arm.h.cdefs
+oz.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.fcntl
+oz.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.bsdfix
+oz.strcasecmp:	<BTBSD$Root>.bsd.include.machine.h.limits
+oz.strcasecmp:	<BTBSD$Root>.bsd.include.arm.h.limits
+oz.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
+o.strcasecmp:	c.strcasecmp
+o.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
+o.strcasecmp:	<BTBSD$Root>.bsd.include.machine.h.cdefs
+o.strcasecmp:	<BTBSD$Root>.bsd.include.arm.h.cdefs
+o.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.fcntl
+o.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.bsdfix
+o.strcasecmp:	<BTBSD$Root>.bsd.include.machine.h.limits
+o.strcasecmp:	<BTBSD$Root>.bsd.include.arm.h.limits
+o.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
 oz.strlcpy:	c.strlcpy
 oz.strlcpy:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 oz.strlcpy:	<BTBSD$Root>.bsd.include.machine.h.cdefs
@@ -73,15 +91,6 @@ oz.strlcpy:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 oz.strlcpy:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
 oz.strlcpy:	<BTBSD$Root>.bsd.include.machine.h.int_types
 oz.strlcpy:	<BTBSD$Root>.bsd.include.arm.h.int_types
-oz.strcasecmp:	c.strcasecmp
-oz.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-oz.strcasecmp:	<BTBSD$Root>.bsd.include.machine.h.cdefs
-oz.strcasecmp:	<BTBSD$Root>.bsd.include.arm.h.cdefs
-oz.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.fcntl
-oz.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.bsdfix
-oz.strcasecmp:	<BTBSD$Root>.bsd.include.machine.h.limits
-oz.strcasecmp:	<BTBSD$Root>.bsd.include.arm.h.limits
-oz.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
 o.strlcpy:	c.strlcpy
 o.strlcpy:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.strlcpy:	<BTBSD$Root>.bsd.include.machine.h.cdefs
@@ -131,12 +140,3 @@ o.strlcpy:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
 o.strlcpy:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
 o.strlcpy:	<BTBSD$Root>.bsd.include.machine.h.int_types
 o.strlcpy:	<BTBSD$Root>.bsd.include.arm.h.int_types
-o.strcasecmp:	c.strcasecmp
-o.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.cdefs
-o.strcasecmp:	<BTBSD$Root>.bsd.include.machine.h.cdefs
-o.strcasecmp:	<BTBSD$Root>.bsd.include.arm.h.cdefs
-o.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.fcntl
-o.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.bsdfix
-o.strcasecmp:	<BTBSD$Root>.bsd.include.machine.h.limits
-o.strcasecmp:	<BTBSD$Root>.bsd.include.arm.h.limits
-o.strcasecmp:	<BTBSD$Root>.bsd.sys.sys.sys.h.featuretest
