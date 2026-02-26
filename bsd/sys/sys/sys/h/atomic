@@ -32,6 +32,6 @@
 #ifndef _SYS_ATOMIC_H_
 #define	_SYS_ATOMIC_H_
 
-/* FIXME Empty file */
+unsigned int atomic_swap_uint(unsigned int *var, unsigned int value);
 
 #endif /* ! _SYS_ATOMIC_H_ */

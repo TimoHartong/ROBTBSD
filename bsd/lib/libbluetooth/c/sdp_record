@@ -33,6 +33,7 @@
 //__RCSID("$NetBSD: sdp_record.c,v 1.1 2009/05/12 10:05:06 plunky Exp $");
 
 #include <errno.h>
+#include <sys/errno.h>
 #include <sdp.h>
 #include <stdlib.h>
 #include <string.h>
@@ -60,7 +61,7 @@ sdp_record_insert(struct sdp_session *ss, bdaddr_t *bdaddr,
 	 * setup BluetoothDeviceAddress
 	 */
 	bdaddr_copy(&ba, (bdaddr == NULL) ? BDADDR_ANY : bdaddr);
-	req[1].iov_base = &ba;
+	req[1].iov_base =(void*) &ba;
 	req[1].iov_len = sizeof(bdaddr_t);
 
 	/*

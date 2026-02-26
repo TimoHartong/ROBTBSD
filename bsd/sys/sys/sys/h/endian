@@ -187,13 +187,13 @@ uint32_t htobe32(uint32_t x);
 //#define LE64TOH(x)	HTOLE64(x)
 
 // FIXME
-//static __inline void be16enc(void *buf, uint16_t u)
-//{
-//	uint8_t *p = __CAST(uint8_t *, buf);
-//
-//	p[0] = __CAST(uint8_t, ((__CAST(unsigned, u) >> 8) & 0xff));
-//	p[1] = __CAST(uint8_t, (u & 0xff));
-//}
+static __inline void be16enc(void *buf, uint16_t u)
+{
+	uint8_t *p = __CAST(uint8_t *, buf);
+
+	p[0] = __CAST(uint8_t, ((__CAST(unsigned, u) >> 8) & 0xff));
+	p[1] = __CAST(uint8_t, (u & 0xff));
+}
 
 //static __inline void le16enc(void *buf, uint16_t u)
 //{
@@ -217,15 +217,15 @@ static __inline uint16_t le16dec(const void *buf)
 	return (p[0] | (__CAST(uint16_t, p[1]) << 8));
 }
 
-//static __inline void be32enc(void *buf, uint32_t u)
-//{
- //	uint8_t *p = __CAST(uint8_t *, buf);
+static __inline void be32enc(void *buf, uint32_t u)
+{
+ 	uint8_t *p = __CAST(uint8_t *, buf);
 
-//	p[0] = __CAST(uint8_t, ((u >> 24) & 0xff));
-//	p[1] = __CAST(uint8_t, ((u >> 16) & 0xff));
-//	p[2] = __CAST(uint8_t, ((u >> 8) & 0xff));
-//	p[3] = __CAST(uint8_t, (u & 0xff));
-//}
+	p[0] = __CAST(uint8_t, ((u >> 24) & 0xff));
+	p[1] = __CAST(uint8_t, ((u >> 16) & 0xff));
+	p[2] = __CAST(uint8_t, ((u >> 8) & 0xff));
+	p[3] = __CAST(uint8_t, (u & 0xff));
+}
 
 //static __inline void le32enc(void *buf, uint32_t u)
 //{
@@ -251,13 +251,13 @@ static __inline uint32_t be32dec(const void *buf)
 //	return (le16dec(p) | (__CAST(uint32_t, le16dec(p + 2)) << 16));
 //}
 
-//static __inline void be64enc(void *buf, uint64_t u)
-//{
-//	uint8_t *p = __CAST(uint8_t *, buf);
+static __inline void be64enc(void *buf, uint64_t u)
+{
+	uint8_t *p = __CAST(uint8_t *, buf);
 
- //	be32enc(p, __CAST(uint32_t, (u >> 32)));
-//	be32enc(p + 4, __CAST(uint32_t, (u & 0xffffffffULL)));
-//}
+	be32enc(p, __CAST(uint32_t, (u >> 32)));
+	be32enc(p + 4, __CAST(uint32_t, (u & 0xffffffffULL)));
+}
 
 //static __inline void le64enc(void *buf, uint64_t u)
 //{
@@ -267,12 +267,12 @@ static __inline uint32_t be32dec(const void *buf)
 //	le32enc(p + 4, __CAST(uint32_t, (u >> 32)));
 //}
 
-//static __inline uint64_t be64dec(const void *buf)
-//{
-//	const uint8_t *p = (const uint8_t *)buf;
+static __inline uint64_t be64dec(const void *buf)
+{
+	const uint8_t *p = (const uint8_t *)buf;
 
-//	return ((__CAST(uint64_t, be32dec(p)) << 32) | be32dec(p + 4));
-//}
+	return ((__CAST(uint64_t, be32dec(p)) << 32) | be32dec(p + 4));
+}
 
 //static __inline uint64_t le64dec(const void *buf)
 //{

@@ -36,6 +36,7 @@
 #include <sys/un.h>
 
 #include <errno.h>
+#include <sys/errno.h> // RO Fix
 #include <sdp.h>
 #include <stdlib.h>
 #include <string.h>

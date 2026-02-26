@@ -35,6 +35,7 @@
 #include <sys/atomic.h>
 
 #include <errno.h>
+#include <sys/errno.h>
 #include <limits.h>
 #include <sdp.h>
 #include <stdlib.h>

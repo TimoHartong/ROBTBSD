@@ -37,6 +37,40 @@
 #define	_SYS_CDEFS_H_
 
 // Looks the most suitable for the ROOL DDE compiler
+// RO Fix
+#ifndef PRId8
+   #define PRId8
+#endif
+
+#ifndef PRId16
+   #define PRId16
+#endif
+
+#ifndef PRId32
+   #define PRId32
+#endif
+
+#ifndef PRId64
+   #define PRId64
+#endif
+
+#ifndef PRIx8
+   #define PRIx8
+#endif
+
+#ifndef PRIx16
+   #define PRIx16
+#endif
+
+#ifndef PRIx32
+   #define PRIx32
+#endif
+
+#ifndef PRIx64
+   #define PRIx64
+#endif
+
+#define __printflike(x, y)
 #define	__dead
 
 #include <machine/cdefs.h>
